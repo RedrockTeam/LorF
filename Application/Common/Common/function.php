@@ -45,7 +45,7 @@ function dd($var, $echo=true, $label=null, $strict=false) {
  * @return array 添加了种类信息的数组
  */
 function getList($list) {
-    $reList = [];
+    $reList = array();
     foreach($list as $k => $v){
         $condition['kind_id'] = $v['pro_kind_id'];
         $kindName = M('product_kinds')->where($condition)->find()['kind_name'];
