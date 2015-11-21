@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>userInfo</title>
     <script src="lib/lib.flexible.js"></script>
+    <script src="lib/require.js" data-main="userInfo.js"></script>
     <link rel="stylesheet" href="style/userInfo.css"/>
 </head>
 <body ms-controller="userInfo">
@@ -11,7 +12,7 @@
 <header>
     <span class="logo"></span>
     <p class="username">朱古力</p>
-    <span class="update"><i class="iconfont">&#xe688;</i>修改</span>
+    <a href="updateInfo.html"><span class="update"><i class="iconfont">&#xe688;</i>修改</span></a>
 </header>
 
 <nav>
@@ -19,38 +20,42 @@
     <div class="lis">已解决</div>
 </nav>
 
-<section>
-    <div class="list">
-        <span class="logo"></span>
-        <div class="userInfo">
-            <p class="title">钥匙</p>
-            <p class="user">发布者：<span class="username">shabi</span></p>
+<section class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide tab1">
+            <div class="list">
+                <span class="logo"></span>
+                <div class="userInfo">
+                    <p class="title">钥匙</p>
+                    <p class="user">发布者：<span class="username">shabi</span></p>
+                </div>
+
+                <div class="content">
+                    上米娜有东西好啊好哈收到货健康
+                </div>
+
+                <p class="date">2015-11-19</p>
+            </div>
         </div>
 
-        <div class="content">
-            上米娜有东西好啊好哈收到货健康
+        <div class="swiper-slide tab2">
+            <div class="list">
+                <span class="logo"></span>
+                <div class="userInfo">
+                    <p class="title">钥匙</p>
+                    <p class="user">发布者：<span class="username">shabi</span></p>
+                </div>
+
+                <div class="content">
+                    上米娜有东西好啊好哈收到货健康
+                </div>
+
+                <p class="date">2015-11-19</p>
+            </div>
         </div>
 
-        <p class="date">2015-11-19</p>
-
-        <span class="solved">已解决</span>
     </div>
 
-    <div class="list">
-        <span class="logo"></span>
-        <div class="userInfo">
-            <p class="title">钥匙</p>
-            <p class="user">发布者：<span class="username">shabi</span></p>
-        </div>
-
-        <div class="content">
-            上米娜有东西好啊好哈收到货健康
-        </div>
-
-        <p class="date">2015-11-19</p>
-
-        <span class="solved">已解决</span>
-    </div>
 </section>
 
 
@@ -65,5 +70,7 @@
     <div>取消</div>
     <div class="active">确认</div>
 </div>
+
+<script src="lib/userInfo.js"></script>
 </body>
 </html>

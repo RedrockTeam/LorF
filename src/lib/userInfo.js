@@ -1,6 +1,5 @@
 /**
- * Created by liuhuizhi on 15/11/19.
- * email:847858699@qq.com
+ * Created by liuhuizhi on 15/11/21.
  */
 
 require.config({
@@ -18,7 +17,7 @@ require.config({
 })
 
 
-require(['fastclick','zepto','swiper'],function(fc,$,swiper){
+require(['zepto','swiper'],function($,swiper){
     $(document).ready(function(){
         var mySwiper = new Swiper('.swiper-container',{
             speed: 500,
