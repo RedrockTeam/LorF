@@ -39,7 +39,6 @@ class IndexController extends CommonController {
 //dd(getList($found));
         $this->assign('lost', getList($lost));
         $this->assign('found', getList($found));
-//        $this->assign('userinfo', $userInfo);
 
         $this->display();
     }
@@ -57,10 +56,12 @@ class IndexController extends CommonController {
         $result = M('product_list')->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
                                  ->where($where)
                                  ->order('pro_id desc')->limit(5)->select();
-        $this->ajaxReturn(array(
-           'searchResult' => getList($result)
-        ));
-
+//        $this->ajaxReturn(array(
+//           'searchResult' => getList($result)
+//        ));
+        $this->assign('result', getList($result));
+//dd(getList($result));
+        $this->display();
     }
 
     /**
