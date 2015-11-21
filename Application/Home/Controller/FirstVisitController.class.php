@@ -14,11 +14,12 @@ class FirstVisitController extends CommonController {
     public function index(){
         $userInfo = $this->_getUserInfo(session('openid'));
         $userInfo['realName'] = $this->_getRealName(session('openid'));
-        $userInfo['stu_num'] = $this->_getStuNum(session('openid'));
+        $userInfo['stuNum'] = $this->_getStuNum(session('openid'));
+//dd($userInfo);
 
-        $this->ajaxReturn(array(
-            'user_info'=> $userInfo
-        ));
+        $this->assign('userInfo', $userInfo);
+
+        $this->display();
     }
 
     /**
@@ -28,6 +29,7 @@ class FirstVisitController extends CommonController {
         $where['stu_num'] = I('stu_num');
         $headUrl = $this->_getUserInfo(session('openid'))['headImageUrl'];
         $user = M('user_info')->where($where)->find();
+        $result = 0;
 
         // 如果用户已存在
         if($user){
