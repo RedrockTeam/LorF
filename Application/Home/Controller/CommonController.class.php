@@ -89,7 +89,11 @@ class CommonController extends RestController{
         $res = $this->_curl($openId, "userInfo");
         $headImageUrl = substr($res['data']['headimgurl'], 0, -1) . "64";
         $nickname = $res['data']['nickname'];
-        $result = array('nickName' => $nickname, 'headImageUrl' => $headImageUrl);
+        $result = array(
+            'nickName' => $nickname,
+            'headImageUrl' => $headImageUrl,
+            'realName' =>$this->_getRealName($openId)
+        );
         return $result;
     }
 
