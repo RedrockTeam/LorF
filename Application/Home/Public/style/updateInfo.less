@@ -1,0 +1,145 @@
+@import "varible.less";
+
+.global-normalize();
+
+body{
+  background-color: #f6f6f8;
+}
+
+
+header{
+  height: 105rem/@psdWidth;
+  line-height: 105rem/@psdWidth;
+  background-color: @themeColor;
+  text-align: center;
+  color:#fcfcfd;
+  position:relative;
+  i{
+    .fz(48px);
+
+  }
+  .title{
+    .fz(34px);
+  }
+  #back{
+    position: absolute;
+    left: 30rem/@psdWidth;
+  }
+}
+
+.userInfo{
+  position: relative;
+  .logo{
+    width:125rem/@psdWidth;
+    height:125rem/@psdWidth;
+    .border-radius(50%);
+    background-image: url('/images/logo.jpeg');
+    background-size: contain;
+    display: inline-block;
+    margin-left: 50%;
+    margin-top: 65rem/@psdWidth;
+    transform: translate(-50%,0);
+  }
+  .username{
+    .fz(32px);
+    font-weight: bold;
+    text-align: center;
+    margin-top:20rem/@psdWidth;
+  }
+}
+
+.inputs{
+  .input-div{
+    width:655rem/@psdWidth;
+    height:90rem/@psdWidth;
+    margin:0 auto;
+    border:1px solid #dbdbdc;
+    margin-bottom:20rem/@psdWidth;
+    box-sizing: border-box;
+    i{
+      color:#84848d;
+      .fz(40px);
+      //width:90rem/@psdWidth;
+      float:left;
+      margin:25rem/@psdWidth;
+    }
+    .input-wrapper{
+      margin-left: 100rem/@psdWidth;
+      height:100%;
+    }
+    input{
+      outline: none;
+      border:none;
+      height:100%;
+      background-color: #f6f6f8;
+      width:100%;
+      box-sizing: border-box;
+    }
+  }
+  .tips{
+    width:655rem/@psdWidth;
+    margin:0 auto;
+    i{
+      color:#84848d;
+      .fz(32px);
+    }
+    color:#737172;
+    .fz(24px);
+  }
+}
+
+.buttons{
+  margin-top: 35rem/@psdWidth;
+  div{
+    width:655rem/@psdWidth;
+    height:90rem/@psdWidth;
+    line-height: 90rem/@psdWidth;
+    .fz(32px);
+    .border-radius(5px);
+    background-color: @themeColor;
+    text-align: center;
+    color:white;
+    margin:0 auto;
+  }
+}
+
+.shade{
+  display: none;
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color: rgb(0,0,0);
+  opacity: 0.4;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+
+}
+
+.banner{
+  display: none;
+  width:590rem/@psdWidth;
+  height:255rem/@psdWidth;
+  background-color: #fbfbfc;
+  .border-radius(5px);
+  top:50%;
+  position: absolute;
+  left:50%;
+  transform: translate(-50%,-50%);
+  .fz(34px);
+  p{
+    height: 155rem/@psdWidth;
+    line-height: 155rem/@psdWidth;
+    margin:0;
+    text-align: center;
+  }
+  .active {
+    text-align:center;
+    line-height: 100rem/@psdWidth;
+    color:@themeColor;
+    border-left: 1px solid #e9ebed;
+    height:100rem/@psdWidth;
+    border-top: 1px solid #dbdbdc;
+  }
+}

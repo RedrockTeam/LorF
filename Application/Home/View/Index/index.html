@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lost And Found</title>
+    <script src="/LorF/Public/lib/lib.flexible.js"></script>
+    <script src="/LorF/Public/lib/require.js" data-main="/LorF/Public/lib/index.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/style/mystyle.css"/>
+</head>
+<body>
+
+<header>
+    <ul>
+        <li class="pull-down">寻物
+            <div class="trangle"></div>
+        </li>
+        <li>招领</li>
+    </ul>
+    <span class="i-wrapper">
+                <i class="iconfont">&#xe612;</i>
+                <a href="userInfo.html"><i class="iconfont">&#xe6a4;</i></a>
+                <i class="iconfont">&#xe628;</i>
+    </span>
+</header>
+
+<nav>
+    <div class="active">寻物启事</div>
+    <div>招领启事</div>
+</nav>
+
+<section>
+
+    <foreach name="found" item="vo">
+        <div class="list">
+            <!--<span class="logo"></span>-->
+            <img class="logo" src="{$vo.relace_head_url}" alt="">
+            <div class="userInfo">
+                <p class="title">{$vo.pro_name}</p>
+                <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
+            </div>
+
+            <div class="content">
+                {$vo.pro_description}
+            </div>
+
+            <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
+        </div>
+    </foreach>
+</section>
+</body>
+</html>

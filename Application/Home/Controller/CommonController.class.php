@@ -18,12 +18,12 @@ class CommonController extends RestController{
 
     public function _initialize(){
 
-        if(!checkKey(I('key'))){
-            $this->ajaxReturn(array(
-                'msg' => '连接错误!',
-                'status' => 403
-                ));
-        }
+//        if(!checkKey(I('key'))){
+//            $this->ajaxReturn(array(
+//                'msg' => '连接错误!',
+//                'status' => 403
+//                ));
+//        }
     }
 
     /**
@@ -76,7 +76,7 @@ class CommonController extends RestController{
      */
     public function _getRealName($openid){
 
-        $stuNum = $this->_curl($openid, "bindVerify")['realName'];
+        $stuNum = $this->_curl($openid, "bindVerify")['realname'];
         return $stuNum;
     }
 
