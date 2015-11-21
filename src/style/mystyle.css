@@ -525,6 +525,7 @@ nav {
   border: 1px solid #d4d7dc;
   background-color: #fcfcfd;
   font-size: 0.47222222rem;
+  box-sizing: border-box;
 }
 [data-dpr^="2"]nav {
   font-size: 68px;
@@ -541,6 +542,21 @@ nav div {
 nav .active {
   color: #19c344;
   border-bottom: 0.06944444rem solid #19c344;
+  box-sizing: border-box;
+}
+section {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+section .swiper-wrapper {
+  width: 200%;
+  height: auto;
+  box-sizing: border-box;
+}
+section .swiper-wrapper .swiper-slide {
+  float: left;
+  width: 50%;
 }
 section .list {
   background-color: #fcfcfd;

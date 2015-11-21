@@ -3,7 +3,6 @@
 
 
 body{
-  //position: relative;
   background: #ebeef5;
 }
 
@@ -62,6 +61,7 @@ nav{
   border:1px solid #d4d7dc;
   background-color:#fcfcfd;
   .fz(34px);
+  box-sizing: border-box;
   div{
     width:50%;
     float: left;
@@ -71,11 +71,23 @@ nav{
   .active{
     color:@themeColor;
     border-bottom:5rem/@psdWidth solid @themeColor;
+    box-sizing: border-box;
   }
 }
 
 section{
-
+  width:100%;
+  height:auto;
+  overflow: hidden;
+  .swiper-wrapper{
+    width:200%;
+    height:auto;
+    .box-sizing(border-box);
+    .swiper-slide{
+      float:left;
+      width:50%;
+    }
+  }
   .list{
     background-color:#fcfcfd;
     margin-top: 15rem/@psdWidth;
@@ -119,6 +131,7 @@ section{
       .fz(24px);
     }
   }
+
 
 
 }
