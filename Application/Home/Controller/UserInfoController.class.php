@@ -49,7 +49,7 @@ class UserInfoController extends CommonController{
         // 测试用
         $selfId = 7;
         $list = M('product_list')
-            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
+            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id, status')
             ->where(array(
                 'pro_user_id' => $selfId
             ))

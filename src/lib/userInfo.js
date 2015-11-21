@@ -3,7 +3,7 @@
  */
 
 require.config({
-    baseUrl: 'lib',
+    baseUrl: '/LorF/src/lib',
     paths: {
         zepto: 'zepto.min',
         swiper: 'tools/swiper',
