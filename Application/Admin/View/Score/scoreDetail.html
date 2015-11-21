@@ -1,0 +1,68 @@
+<layout name="layout" />
+<div id="contentwrapper" class="contentwrapper elements">
+<div class="contenttitle2">
+    <h3>积分细则</h3>
+</div><!--contenttitle-->
+<br />
+
+<div id="tabs">
+    <ul>
+        <foreach name="pro" item="vo">
+            <li><a href="#tabs-{$vo.id}">{$vo.project}</a></li>
+        </foreach>
+    </ul>
+    <foreach name="pro" item="vo">
+        <div id="tabs-{$vo.id}">
+            <table cellpadding="0" cellspacing="0" border="0" class="stdtable">
+                <thead>
+                <tr>
+                    <th class="head0">用户行为</th>
+                    <th class="head1">每次加减的分数</th>
+                    <th class="head0">一天内的上限</th>
+                    <th class="head1">操作</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th class="head0">用户行为</th>
+                    <th class="head1">每次加减的分数</th>
+                    <th class="head0">一天内的上限</th>
+                    <th class="head1">操作</th>
+                </tr>
+                </tfoot>
+                <tbody>
+                <foreach name="vo.rule" item="vi">
+                <tr>
+                    <td>{$vi.description}</td>
+                    <td>{$vi.once}</td>
+                    <td>{$vi.limit_day}</td>
+                    <td class="center">
+                        <a href="{:U('Admin/Score/setAction', array('id' => $vi[id]))}" class="edit">修改信息</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{:U('Admin/Score/deleteAction', array('id' => $vi[id]))}" class="delete">删除</a>
+                    </td>
+                </tr>
+                </foreach>
+                </tbody>
+            </table>
+        </div>
+    </foreach>
+</div><!--#tabs-->
+</div>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.cookie.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/colorpicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.jgrowl.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.alerts.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/custom/general.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/custom/elements.js"></script>
+<!--[if IE 9]>
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/style.ie9.css"/>
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/style.ie8.css"/>
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/lib/plugins/css3-mediaqueries.lib"></script>
+<![endif]-->

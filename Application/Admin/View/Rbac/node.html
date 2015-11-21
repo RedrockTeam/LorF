@@ -1,0 +1,69 @@
+<layout name="layout" />
+<link rel="stylesheet" href="__PUBLIC__/css/node.css" type="text/css" />
+        <div class="pageheader">
+            <h1 class="pagetitle">用户管理</h1>
+            <span class="pagedesc">修改权限</span>
+            <a href="{:U('Admin/Rbac/addNode')}" class="btn btn_bulb" style="float: right; margin: 0 20px;"><span>添加模块</span></a>
+        </div><!--pageheader-->
+        <div id="contentwrapper" class="contentwrapper">
+            <div class="warp"></div>
+                <div class="notibar announcement">
+                    <div id="wrap">
+                        <foreach name = 'node' item = 'app'>
+                            <div class="app">
+                                <p>
+                                    <strong>{$app.title}</strong>
+                                    [<a href="{:U('Admin/Rbac/addNode', array('pid' => $app['id'], 'level' => 2))}">添加控制器</a>]
+                                    [<a href="">修改</a>]
+                                    [<a href="{:U('Admin/Rbac/deleteNode', array('id' => $app['id']))}">删除</a>]
+                                </p>
+
+                                <foreach name = 'app.child' item = 'controller'>
+                                    <dl>
+                                        <dt>
+                                            <strong>{$controller.title}</strong>
+                                            [<a href="{:U('Admin/Rbac/addNode', array('pid' => $controller['id'], 'level' => 3))}">添加方法</a>]
+                                            [<a href="">修改</a>]
+                                            [<a href="{:U('Admin/Rbac/deleteNode', array('id' => $controller['id']))}">删除</a>]
+                                        </dt>
+                                        <foreach name = 'controller.child' item = 'method'>
+                                            <dd>
+                                                <span>{$method.title}</span>
+                                                [<a href="">修改</a>]
+                                                [<a href="{:U('Admin/Rbac/deleteNode', array('id' => $method['id']))}">删除</a>]
+                                            </dd>
+                                        </foreach>
+                                    </dl>
+                                </foreach>
+                            </div>
+                        </foreach>
+                    </div>
+                </div><!-- notification announcement -->
+                <div class="two_third dashboard_left">
+
+                </div><!--two_third dashboard_left -->
+                <div class="one_third last dashboard_right">
+
+                </div><!--one_third last-->
+            </div><!-- #updates -->
+            <div id="activities" class="subcontent" style="display: none;">
+                &nbsp;
+            </div><!-- #activities -->
+        </div><!--contentwrapper-->
+        <br clear="all" />
+    <script type="text/javascript" src="__PUBLIC__/js/plugins/jquery-1.7.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/plugins/jquery-ui-1.8.16.custom.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.cookie.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.uniform.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/custom/general.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/custom/tables.js"></script>
+    <!--[if IE 9]>
+    <link rel="stylesheet" media="screen" href="__PUBLIC__/css/style.ie9.css"/>
+    <![endif]-->
+    <!--[if IE 8]>
+    <link rel="stylesheet" media="screen" href="__PUBLIC__/css/style.ie8.css"/>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/lib/plugins/css3-mediaqueries.lib"></script>
+    <![endif]-->

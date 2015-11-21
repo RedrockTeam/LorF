@@ -1,0 +1,92 @@
+<layout name="layout" />
+        <div class="pageheader">
+            <h1 class="pagetitle">用户管理</h1>
+            <span class="pagedesc">用户列表</span>
+            <a href="{:U('Admin/Rbac/addUser')}" class="btn btn_bulb" style="float: right; margin: 0 20px;"><span>新增用户</span></a>
+        </div><!--pageheader-->
+        <div id="contentwrapper" class="contentwrapper">
+
+            <div id="updates" class="subcontent">
+                <div class="notibar announcement">
+                    <div id="search">
+                        <form action="{:U('Admin/Rbac/index')}" method="post">
+                            <button id="search_btn" class="btn btn_search radius50">
+                                <span>Search</span>
+                            </button>
+                            <input name="search" id="search_input" type="text" placeholder="根据学号查询">
+                        </form>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" border="0" id="table2" class="stdtable stdtablecb">
+                        <colgroup>
+                            <col class="con0" style="width: 4%" />
+                            <col class="con1" />
+                            <col class="con0" />
+                            <col class="con1" />
+                            <col class="con0" />
+                            <col class="con1" />
+                            <col class="con0" />
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th class="head0">学号</th>
+                            <th class="head1">身份证</th>
+                            <th class="head0">真实姓名</th>
+                            <th class="head1">权限</th>
+                            <th class="head0">操作</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th class="head0">学号</th>
+                            <th class="head1">身份证</th>
+                            <th class="head0">真实姓名</th>
+                            <th class="head1">权限</th>
+                            <th class="head0">操作</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        <volist name="list" id="vo">
+                            <tr class="gradeA">
+                                <td>{$vo.stu_num}</td>
+                                <td>{$vo.stu_idcard}</td>
+                                <td>{$vo.real_name}</td>
+                                <td class="center">
+                                    <volist name="vo['role']" id="ro">
+                                        {$ro.remark}
+                                    </volist>
+                                </td>
+                                <td class="center"><a href="{:U('Admin/Rbac/setRole', array('uid' => $vo[id]))}" class="edit">修改信息</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{:U('Admin/Rbac/deleteUser', array('uid' => $vo[id]))}" class="delete">删除</a></td>
+                            </tr>
+                        </volist>
+                        </tbody>
+                    </table>
+                    <div class="dataTables_paginate">{$show}</div>
+                </div><!-- notification announcement -->
+                <div class="two_third dashboard_left">
+
+                </div><!--two_third dashboard_left -->
+                <div class="one_third last dashboard_right">
+
+                </div><!--one_third last-->
+            </div><!-- #updates -->
+            <div id="activities" class="subcontent" style="display: none;">
+                &nbsp;
+            </div><!-- #activities -->
+        </div><!--contentwrapper-->
+        <br clear="all" />
+        <script type="text/javascript" src="__PUBLIC__/js/plugins/jquery-1.7.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/plugins/jquery-ui-1.8.16.custom.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.cookie.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.uniform.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/custom/general.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/custom/tables.js"></script>
+        <!--[if IE 9]>
+        <link rel="stylesheet" media="screen" href="__PUBLIC__/css/style.ie9.css"/>
+        <![endif]-->
+        <!--[if IE 8]>
+        <link rel="stylesheet" media="screen" href="__PUBLIC__/css/style.ie8.css"/>
+        <![endif]-->
+        <!--[if lt IE 9]>
+        <script src="__PUBLIC__/lib/plugins/css3-mediaqueries.lib"></script>
+        <![endif]-->

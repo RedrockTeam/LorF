@@ -1,0 +1,81 @@
+<layout name="layout" />
+        <div class="pageheader">
+            <h1 class="pagetitle">用户管理</h1>
+            <span class="pagedesc">修改权限</span>
+            <a href="{:U('Admin/Rbac/role')}" class="btn btn_bulb" style="float: right; margin: 0 20px;"><span>返回</span></a>
+        </div><!--pageheader-->
+        <div id="contentwrapper" class="contentwrapper">
+
+            <div id="updates" class="subcontent">
+                <div class="notibar announcement">
+                    <form action="{:U('Admin/Rbac/setAccess')}" method="post">
+                        <div id="wrap">
+                            <foreach name = 'node' item = 'app'>
+                                <div class="app">
+                                    <p>
+                                        <strong>{$app.title}</strong>
+                                        <input type="checkbox" name="access[]" value="{$app.id}_1" level='1' <if condition ='$app["access"]'>checked = 'checked'</if> />
+                                    </p>
+
+                                    <foreach name = 'app.child' item = 'controller'>
+                                        <dl>
+                                            <dt>
+                                                <strong>{$controller.title}</strong>
+                                                <input type="checkbox" name="access[]" value="{$controller.id}_2" level='2' <if condition ='$controller["access"]'>checked = 'checked'</if> />
+                                            </dt>
+                                            <foreach name = 'controller.child' item = 'method'>
+                                                <dd>
+                                                    <span>{$method.title}</span>
+                                                    <input type="checkbox" name="access[]" value="{$method.id}_3" level='3' <if condition ='$method["access"]'>checked = 'checked'</if> />
+                                                </dd>
+                                            </foreach>
+                                        </dl>
+                                    </foreach>
+                                </div>
+                            </foreach>
+                        </div>
+                        <input type="hidden" name="rid" value="{$rid}" />
+                        <input type="submit" value="保存修改" style="display:block; margin:20px auto; cursor:pointer;" />
+                    </form>
+                </div><!-- notification announcement -->
+                <div class="two_third dashboard_left">
+
+                </div><!--two_third dashboard_left -->
+                <div class="one_third last dashboard_right">
+
+                </div><!--one_third last-->
+            </div><!-- #updates -->
+            <div id="activities" class="subcontent" style="display: none;">
+                &nbsp;
+            </div><!-- #activities -->
+        </div><!--contentwrapper-->
+        <br clear="all" />
+        <script type="text/javascript" src="__PUBLIC__/js/plugins/jquery-1.7.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/plugins/jquery-ui-1.8.16.custom.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.cookie.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.uniform.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/custom/general.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/custom/tables.js"></script>
+        <!--[if IE 9]>
+        <link rel="stylesheet" media="screen" href="__PUBLIC__/css/style.ie9.css"/>
+        <![endif]-->
+        <!--[if IE 8]>
+        <link rel="stylesheet" media="screen" href="__PUBLIC__/css/style.ie8.css"/>
+        <![endif]-->
+        <!--[if lt IE 9]>
+        <script src="__PUBLIC__/lib/plugins/css3-mediaqueries.lib"></script>
+        <![endif]-->
+<script type="text/javascript">
+    $(function(){
+        $('input[level=1]').click(function(){
+            var inputs = $(this).parents('.app').find('input');
+            $(this).attr('checked') ? inputs.attr('checked', 'checked') : inputs.removeAttr('checked');
+        });
+
+        $('input[level=2]').click(function(){
+            var inputs = $(this).parents('dl').find('input');
+            $(this).attr('checked') ? inputs.attr('checked', 'checked') : inputs.removeAttr('checked');
+        });
+    });
+</script>

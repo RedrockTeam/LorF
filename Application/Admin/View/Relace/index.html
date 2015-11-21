@@ -1,0 +1,100 @@
+<layout name="layout" />
+<div class="pageheader">
+    <h1 class="pagetitle">发布</h1>
+    <span class="pagedesc">新增条目</span>
+</div><!--pageheader-->
+
+<div id="contentwrapper" class="contentwrapper">
+
+    <div id="updates" class="subcontent">
+
+        <form class="stdform stdform2" method="post" action="{:U('Admin/Relace/relaceHandle')}">
+            <p>
+                <label>分类</label>
+                    <span class="field">
+                    <input type="radio" name="status" value="1" checked="checked" /> 招领 &nbsp; &nbsp;<input type="radio" name="status" value="2" /> 寻物
+                    </span>
+            </p>
+            <p>
+                <label>时间</label>
+                <span class="field">
+                    <input id="datepicker" type="text" name="time" class="width100" />
+                </span>
+            </p>
+            <p>
+                <label>名称</label>
+                <span class="field"><input type="text" name="name" id="firstname2" class="longinput" /></span>
+            </p>
+
+            <p>
+                <label>描述</label>
+                <span class="field"><input type="text" name="remark" id="lastname2" class="longinput" /></span>
+            </p>
+            <p>
+                <label>地点</label>
+                <span class="field"><input type="text" name="place" id="lastname2" class="longinput" /></span>
+            </p>
+            <p>
+                <label>联系电话</label>
+                <span class="field"><input type="text" name="contact_phone" id="lastname2" class="longinput" value="{$contact.phone}" /></span>
+            </p>
+            <p>
+                <label>QQ</label>
+                <span class="field"><input type="text" name="contact_qq" id="lastname2" class="longinput" value="{$contact.qq}" /></span>
+            </p>
+            <p>
+                <label>联系人</label>
+                <span class="field"><input type="text" name="contact_people" id="lastname2" class="longinput" value="{$contact.people}" /></span>
+            </p>
+            <p>
+                <label>种类</label>
+                <span class="field">
+                    <select name="kind" id="selection2">
+                        <volist name="kinds" id="vo">
+                            <option value="{$vo.kind_id}">{$vo.kind_name}</option>
+                        </volist>
+                    </select>
+                </span>
+            </p>
+            <p class="stdformbutton">
+                <button class="submit radius2">提交</button>
+                <input type="reset" class="reset radius2" value="重置" />
+            </p>
+        </form>
+        <div class="two_third dashboard_left">
+
+        </div><!--two_third dashboard_left -->
+        <div class="one_third last dashboard_right">
+
+        </div><!--one_third last-->
+    </div><!-- #updates -->
+    <div id="activities" class="subcontent" style="display: none;">
+        &nbsp;
+    </div><!-- #activities -->
+</div><!--contentwrapper-->
+<br clear="all" />
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.cookie.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.validate.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/charCount.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/ui.spinner.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/custom/general.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/custom/forms.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/colorpicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.jgrowl.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.alerts.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/custom/general.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/custom/elements.js"></script>
+<!--[if IE 9]>
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/style.ie9.css"/>
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/style.ie8.css"/>
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/lib/plugins/css3-mediaqueries.lib"></script>
+<![endif]-->

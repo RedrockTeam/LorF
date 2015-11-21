@@ -1,0 +1,52 @@
+/*#wrap{*/
+	/*width: 94%;*/
+	/*height: auto;*/
+	/*overflow: hidden;*/
+	/*margin: 20px auto;*/
+	/*padding: 10px 20px;*/
+	/*border: 1px solid #ccc;*/
+/*}*/
+.add-app{
+	display: block;
+	width: 100px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	background: #670768;
+	color: #fff;
+	border-radius: 4px;
+}
+.app{
+	padding: 10px;
+	margin: 20px 10px;
+	border: 1px solid #dcdcdc;
+	border-radius: 4px;
+}
+.app p{
+	height: 30px;
+	line-height: 30px;
+}
+.app p strong{
+	font-size: 20px;
+	color: #0b99d8;
+}
+.app dl{
+	margin: 10px 0;
+	border: 1px solid #f6f6f6;
+	height: auto;
+	overflow: hidden;
+}
+.app dl dt{
+	display: block;
+	height: 36px;
+	background: #f6f6f6;
+	text-indent: 10px;
+}
+.app dl dt strong{
+	font-size: 16px;
+	color: #61a1fa;
+}
+.app dl dd{
+	padding: 10px;
+	float: left;
+}
