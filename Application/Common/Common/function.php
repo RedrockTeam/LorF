@@ -48,7 +48,8 @@ function getList($list) {
     $reList = array();
     foreach($list as $k => $v){
         $condition['kind_id'] = $v['pro_kind_id'];
-        $kindName = M('product_kinds')->where($condition)->find()['kind_name'];
+        $kindName = M('product_kinds')->where($condition)->find();
+        dd($kindName);
         $condition2['user_id'] = $v['pro_user_id'];
         $userName = M('user_info')->where($condition2)->find()['stu_name'];
         $url = M('user_info')->where($condition2)->find()['headImgUrl'];
