@@ -49,13 +49,12 @@ function getList($list) {
     foreach($list as $k => $v){
         $condition['kind_id'] = $v['pro_kind_id'];
         $kindName = M('product_kinds')->where($condition)->find();
-        dd($kindName);
         $condition2['user_id'] = $v['pro_user_id'];
-        $userName = M('user_info')->where($condition2)->find()['stu_name'];
-        $url = M('user_info')->where($condition2)->find()['headImgUrl'];
-        $v['kind_name'] = $kindName;
-        $v['relace_user_name'] = $userName;
-        $v['relace_head_url'] = $url;
+        $userName = M('user_info')->where($condition2)->find();
+        $url = M('user_info')->where($condition2)->find();
+        $v['kind_name'] = $kindName['kind_name'];
+        $v['relace_user_name'] = $userName['stu_name'];
+        $v['relace_head_url'] = $url['headImgUrl'];
         array_push($reList, $v);
     }
 
