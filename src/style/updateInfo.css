@@ -467,14 +467,13 @@ body {
   background-color: #f6f6f8;
 }
 input {
-  font-size: 0.46861111rem;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-size: 0.46875rem;
 }
 [data-dpr^="2"]input {
-  font-size: 67.48px;
+  font-size: 67.5;
 }
 [data-dpr^="3"]input {
-  font-size: 101.22px;
+  font-size: 101.25;
 }
 header {
   height: 1.45833333rem;
@@ -619,38 +618,4 @@ header #back {
   opacity: 0.4;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
-}
-.banner {
-  display: none;
-  width: 8.19444444rem;
-  height: 3.54166667rem;
-  background-color: #fbfbfc;
-  border-radius: 5px;
-  top: 50%;
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  font-size: 0.47222222rem;
-}
-[data-dpr^="2"].banner {
-  font-size: 68px;
-}
-[data-dpr^="3"].banner {
-  font-size: 102px;
-}
-.banner p {
-  height: 2.15277778rem;
-  line-height: 2.15277778rem;
-  margin: 0;
-  text-align: center;
-}
-.banner .active {
-  text-align: center;
-  line-height: 1.38888889rem;
-  color: #19c344;
-  border-left: 1px solid #e9ebed;
-  height: 1.38888889rem;
-  border-top: 1px solid #dbdbdc;
 }

@@ -5,6 +5,7 @@
     <title>updateInfo</title>
     <script src="lib/lib.flexible.js"></script>
     <link rel="stylesheet" href="style/updateInfo.css"/>
+    <script src="lib/require.js" data-main="lib/update"></script>
 </head>
 <body>
 <header>
@@ -21,26 +22,26 @@
     <div class="input-div">
         <i class="iconfont">&#x3445;</i>
         <div class="input-wrapper">
-            <input type="text"/>
+            <input type="text" name="name"/>
         </div>
 
     </div>
     <div class="input-div">
         <i class="iconfont">&#xe6a4;</i>
         <div class="input-wrapper">
-            <input type="text"/>
+            <input type="text" name="stu-number"/>
         </div>
     </div>
     <div class="input-div">
         <i class="iconfont">&#xec76;</i>
         <div class="input-wrapper">
-            <input type="text"/>
+            <input type="text" name="phonenumber"/>
         </div>
     </div>
     <div class="input-div">
         <i class="iconfont">&#xe6bf;</i>
         <div class="input-wrapper">
-            <input type="text"/>
+            <input type="text" name="qq"/>
         </div>
     </div>
     <p class="tips">
@@ -50,18 +51,10 @@
 </section>
 
 <section class="buttons">
-    <div>确认</div>
+    <div class="button">确认</div>
 </section>
 
 
-<section class="shade">
 
-</section>
-
-<div class="banner">
-    <p>确认已解决？</p>
-
-    <div class="active">确认</div>
-</div>
 </body>
 </html>
