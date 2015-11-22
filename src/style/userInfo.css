@@ -551,9 +551,26 @@ nav .active {
   float: left;
   width: 50%;
 }
+.swiper-container .swiper-wrapper .button {
+  width: 9.09722222rem;
+  height: 1.25rem;
+  line-height: 1.25rem;
+  font-size: 0.44444444rem;
+  border-radius: 5px;
+  background-color: #19c344;
+  text-align: center;
+  color: white;
+  margin: 0.48611111rem auto 0;
+}
+[data-dpr^="2"].swiper-container .swiper-wrapper .button {
+  font-size: 64px;
+}
+[data-dpr^="3"].swiper-container .swiper-wrapper .button {
+  font-size: 96px;
+}
 .swiper-container .list {
   background-color: #fcfcfd;
-  margin-top: 0.20833333rem;
+  margin: 0.10416667rem;
   border-top: 1px solid #d4d7dc;
   border-bottom: 1px solid #d4d7dc;
   padding: 0.27777778rem;
@@ -696,4 +713,90 @@ nav .active {
   color: #19c344;
   border-left: 1px solid #e9ebed;
   height: 1.38888889rem;
+}
+.loading #loading {
+  display: none;
+  background-color: transparent;
+  height: 1.25rem;
+  width: 1.80555556rem;
+  position: fixed;
+  z-index: 1;
+  margin: 0 auto;
+  bottom: 0px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.loading #loading-center {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.loading #loading-center-absolute {
+  height: 50px;
+  width: 150px;
+}
+.loading .object {
+  width: 2px;
+  height: 50px;
+  margin-right: 5px;
+  background-color: #FFF;
+  -webkit-animation: animate 1s infinite;
+  animation: animate 1s infinite;
+  float: left;
+  background-color: #19c344;
+}
+.loading .object:last-child {
+  margin-right: 0px;
+}
+.loading .object:nth-child(10) {
+  -webkit-animation-delay: 0.9s;
+  animation-delay: 0.9s;
+}
+.loading .object:nth-child(9) {
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+.loading .object:nth-child(8) {
+  -webkit-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+.loading .object:nth-child(7) {
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+.loading .object:nth-child(6) {
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+.loading .object:nth-child(5) {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+.loading .object:nth-child(4) {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+.loading .object:nth-child(3) {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.loading .object:nth-child(2) {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+@-webkit-keyframes animate {
+  50% {
+    -ms-transform: scaleY(0);
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+}
+@keyframes animate {
+  50% {
+    -ms-transform: scaleY(0);
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
 }

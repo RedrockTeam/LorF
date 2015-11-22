@@ -18,8 +18,14 @@ require.config({
 })
 
 
-require(['fastclick','zepto','swiper'],function(fc,$,swiper){
+require(['fastclick','zepto','swiper'],function(FastClick,$,swiper){
     $(document).ready(function(){
+
+        //绑定FastClick
+        FastClick.attach(document.body);
+
+
+        //实例化mySwiper
         var mySwiper = new Swiper('.swiper-container',{
             speed: 500,
             onSlideChangeStart: function(){
@@ -35,5 +41,31 @@ require(['fastclick','zepto','swiper'],function(fc,$,swiper){
         }).click(function(e){
             e.preventDefault();
         });
+
+        $('.button').on('click',function(){
+            var from = {},
+                end = {},
+                kind = undefined,
+                interval = 4;
+            from.lost = from.found = 0;
+
+            kind = $(this).attr('data-id');
+            console.log(kind);
+            $.ajax({
+                url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/Index/nextPage',
+                type:'GET',
+                data:{
+                    key: 'redrockswzllhzwjp',
+                    from: kind == 0 ? from.lost :from.found,
+                    num: interval,
+                    Lorf: kind
+                },
+                success:function(res){
+                    console.log(res);
+                }
+            })
+        })
+
+
     })
 })

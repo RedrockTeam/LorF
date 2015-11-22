@@ -466,6 +466,16 @@ input[type="search"]::-webkit-search-decoration {
 body {
   background-color: #f6f6f8;
 }
+input {
+  font-size: 0.46861111rem;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+[data-dpr^="2"]input {
+  font-size: 67.48px;
+}
+[data-dpr^="3"]input {
+  font-size: 101.22px;
+}
 header {
   height: 1.45833333rem;
   line-height: 1.45833333rem;
