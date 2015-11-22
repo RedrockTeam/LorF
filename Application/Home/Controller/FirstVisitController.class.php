@@ -27,7 +27,7 @@ class FirstVisitController extends CommonController {
      */
     public function handleInfo(){
         $where['stu_num'] = I('stu_num');
-        $headUrl = $this->_getUserInfo(session('openid'))['headImageUrl'];
+        $headUrl = $this->_getUserInfo(session('openid'));
         $user = M('user_info')->where($where)->find();
         $result = 0;
 
@@ -38,7 +38,7 @@ class FirstVisitController extends CommonController {
                 'stu_name' => I('real_name'),
                 'phone_num' => I('phone'),
                 'tencent_num' => I('qq'),
-                'headImgUrl' => $headUrl
+                'headImgUrl' => $headUrl['headImageUrl']
             );
 
             $result = M('user_info')->save($data);
