@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Lost And Found</title>
-    <script src="/LorF/Public/lib/lib.flexible.js"></script>
-    <script src="/LorF/Public/lib/require.js" data-main="/LorF/Public/lib/index.js"></script>
+    <title>失物招领</title>
+    <script src="/LorF/src/lib/lib.flexible.js"></script>
+    <script src="/LorF/src/lib/require.js" data-main="/LorF/src/lib/index.js"></script>
     <link rel="stylesheet" href="__PUBLIC__/style/mystyle.css"/>
 </head>
 <body>
@@ -28,24 +28,48 @@
     <div>招领启事</div>
 </nav>
 
-<section>
+<section class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide tab1">
+            <foreach name="lost" item="vo">
+                <div class="list">
+                    <!--<span class="logo"></span>-->
+                    <img class="logo" src="{$vo.relace_head_url}" alt="">
+                    <div class="userInfo">
+                        <p class="title">{$vo.pro_name}</p>
+                        <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
+                    </div>
 
-    <foreach name="found" item="vo">
-        <div class="list">
-            <!--<span class="logo"></span>-->
-            <img class="logo" src="{$vo.relace_head_url}" alt="">
-            <div class="userInfo">
-                <p class="title">{$vo.pro_name}</p>
-                <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
-            </div>
+                    <div class="content">
+                        {$vo.pro_description}
+                    </div>
 
-            <div class="content">
-                {$vo.pro_description}
-            </div>
-
-            <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
+                    <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
+                </div>
+            </foreach>
         </div>
-    </foreach>
+
+        <div class="swiper-slide tab2">
+            <foreach name="found" item="vo">
+                <div class="list">
+                    <!--<span class="logo"></span>-->
+                    <img class="logo" src="{$vo.relace_head_url}" alt="">
+                    <div class="userInfo">
+                        <p class="title">{$vo.pro_name}</p>
+                        <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
+                    </div>
+
+                    <div class="content">
+                        {$vo.pro_description}
+                    </div>
+
+                    <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
+                </div>
+            </foreach>
+        </div>
+
+    </div>
+
 </section>
 </body>
 </html>

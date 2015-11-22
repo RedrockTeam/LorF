@@ -7,15 +7,21 @@ use Think\Controller;
  */
 class IndexController extends CommonController {
 
+    private $oauth2Url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx81a4a4b77ec98ff4&redirect_uri=http%3A%2F%2Fhongyan.cqupt.edu.cn%2FLorF%2Findex.php%2FHome%2FIndex%2Findex&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
     /**
      * 微信端失物招领首页
      */
     public function index(){
 
         // 获取到openid并且存到session
-        // $code = I('get.code');
-        // $openId = $this->_getOpenId($code);
-        session('openid', 'ouRCyjsp3eo3FJil24fV625V_6no');
+        $code = I('get.code');
+
+        if(!$code){
+            return $this->redirect($this->oauth2Url);
+        }
+
+        $openId = $this->_getOpenId($code);
+        session('openid', $openId);
 
         //判断是否绑定学号, 是否关注重邮小帮手
         // $isBind = $this->_checkBind($openId);

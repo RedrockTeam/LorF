@@ -45,16 +45,16 @@ function dd($var, $echo=true, $label=null, $strict=false) {
  * @return array 添加了种类信息的数组
  */
 function getList($list) {
-    $reList = [];
+    $reList = array();
     foreach($list as $k => $v){
         $condition['kind_id'] = $v['pro_kind_id'];
-        $kindName = M('product_kinds')->where($condition)->find()['kind_name'];
+        $kindName = M('product_kinds')->where($condition)->find();
         $condition2['user_id'] = $v['pro_user_id'];
-        $userName = M('user_info')->where($condition2)->find()['stu_name'];
-        $url = M('user_info')->where($condition2)->find()['headImgUrl'];
-        $v['kind_name'] = $kindName;
-        $v['relace_user_name'] = $userName;
-        $v['relace_head_url'] = $url;
+        $userName = M('user_info')->where($condition2)->find();
+        $url = M('user_info')->where($condition2)->find();
+        $v['kind_name'] = $kindName['kind_name'];
+        $v['relace_user_name'] = $userName['stu_name'];
+        $v['relace_head_url'] = $url['headImgUrl'];
         array_push($reList, $v);
     }
 

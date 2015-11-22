@@ -32,7 +32,9 @@ class CommonController extends RestController{
      * @return mixed 绑定的状态 1 or 0
      */
     public function _checkBind($openId) {
-        return $this->_curl($openId, "bindVerify")['status'];
+        $status = $this->_curl($openId, "bindVerify");
+
+        return $status['status'];
     }
 
     /**
@@ -65,8 +67,8 @@ class CommonController extends RestController{
      * @return int
      */
     public function _getStuNum($openid){
-        $stuNum = $this->_curl($openid, "bindVerify")['stuId'];
-        return $stuNum;
+        $stuNum = $this->_curl($openid, "bindVerify");
+        return $stuNum['stuId'];
     }
 
     /**
@@ -76,8 +78,8 @@ class CommonController extends RestController{
      */
     public function _getRealName($openid){
 
-        $stuNum = $this->_curl($openid, "bindVerify")['realname'];
-        return $stuNum;
+        $stuNum = $this->_curl($openid, "bindVerify");
+        return $stuNum['realname'];
     }
 
     /**
@@ -89,7 +91,11 @@ class CommonController extends RestController{
         $res = $this->_curl($openId, "userInfo");
         $headImageUrl = substr($res['data']['headimgurl'], 0, -1) . "64";
         $nickname = $res['data']['nickname'];
-        $result = array('nickName' => $nickname, 'headImageUrl' => $headImageUrl);
+        $result = array(
+            'nickName' => $nickname,
+            'headImageUrl' => $headImageUrl,
+            'realName' =>$this->_getRealName($openId)
+        );
         return $result;
     }
 
