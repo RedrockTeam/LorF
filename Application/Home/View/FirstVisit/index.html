@@ -22,26 +22,26 @@
     <div class="input-div">
         <i class="iconfont">&#x3445;</i>
         <div class="input-wrapper">
-            <input type="text" value="{$userInfo.stuNum}"/>
+            <input name="name" disabled="true" type="text" value="{$userInfo.stuNum}"/>
         </div>
 
     </div>
     <div class="input-div">
         <i class="iconfont">&#xe6a4;</i>
         <div class="input-wrapper">
-            <input type="text" value="{$userInfo.realName}"/>
+            <input name="stu-number" disabled="true" type="text" value="{$userInfo.realName}"/>
         </div>
     </div>
     <div class="input-div">
         <i class="iconfont">&#xec76;</i>
         <div class="input-wrapper">
-            <input type="text"/>
+            <input type="text" name="phonenumber"/>
         </div>
     </div>
     <div class="input-div">
         <i class="iconfont">&#xe6bf;</i>
         <div class="input-wrapper">
-            <input type="text"/>
+            <input type="text" name="qq"/>
         </div>
     </div>
     <p class="tips">
@@ -51,18 +51,8 @@
 </section>
 
 <section class="buttons">
-    <div>确认</div>
+    <div class="button">确认</div>
 </section>
 
-
-<section class="shade">
-
-</section>
-
-<div class="banner">
-    <p>确认已解决？</p>
-
-    <div class="active">确认</div>
-</div>
 </body>
 </html>
