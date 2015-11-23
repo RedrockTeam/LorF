@@ -46,7 +46,7 @@ require(['fastclick','zepto'],function(FastClick,$){
                 url: 'handleInfo',
                 data:data,
                 success:function(res){
-                    res.status === 0 ?alert('修改失败'):location.href='index.html';
+                    res.status === 0 ?alert('修改失败'):location.href='../Index/index';
                 }
 
             })
