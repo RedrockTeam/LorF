@@ -8,7 +8,8 @@ require.config({
     paths: {
         zepto: 'zepto.min',
         swiper: 'tools/swiper',
-        fastclick: 'tools/fastclick'
+        fastclick: 'tools/fastclick',
+        mustache: 'tools/mustache.min'
     },
     shim: {
         zepto: {
@@ -18,9 +19,10 @@ require.config({
 })
 
 
-require(['fastclick','zepto','swiper'],function(FastClick,$,swiper){
+require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mustache){
     $(document).ready(function(){
 
+        //console.log(Mustache.render);
         //绑定FastClick
         FastClick.attach(document.body);
 
@@ -50,7 +52,7 @@ require(['fastclick','zepto','swiper'],function(FastClick,$,swiper){
             from.lost = from.found = 0;
 
             kind = $(this).attr('data-id');
-            console.log(kind);
+            //console.log(kind);
             $.ajax({
                 url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/Index/nextPage',
                 type:'GET',
@@ -65,6 +67,12 @@ require(['fastclick','zepto','swiper'],function(FastClick,$,swiper){
                 }
             })
         })
+
+
+        var template = $('#template').html();
+        Mustache.parse(template);
+        var rendered = Mustache.render(template,{});
+        $('#target').html(rendered);
 
 
     })
