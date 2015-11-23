@@ -24,6 +24,8 @@ require(['fastclick','zepto'],function(FastClick,$){
         //提交数据
         var data = {};
 
+        var oauth2Url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx81a4a4b77ec98ff4&redirect_uri=http%3A%2F%2Fhongyan.cqupt.edu.cn%2FLorF%2Findex.php%2FHome%2FIndex%2Findex&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+
 
         //修改信息 提交
         $('.button').eq(0).on('click',function(){
@@ -46,7 +48,7 @@ require(['fastclick','zepto'],function(FastClick,$){
                 url: 'handleInfo',
                 data:data,
                 success:function(res){
-                    res.status === 0 ?alert('修改失败'):location.href='../Index/index';
+                    res.status === 0 ?alert('修改失败'):location.href = oauth2Url;
                 }
 
             })
