@@ -30,11 +30,11 @@ class FirstVisitController extends CommonController {
         $headUrl = $this->_getUserInfo(session('openid'));
         $user = M('user_info')->where($where)->find();
         $result = 0;
-dd(I('get.'));
         // 如果用户已存在
         if($user){
             $data = array(
                 'user_id' => $user['user_id'],
+                'stu_num' => I('stu_num'),
                 'stu_name' => I('real_name'),
                 'phone_num' => I('phone'),
                 'tencent_num' => I('qq'),
