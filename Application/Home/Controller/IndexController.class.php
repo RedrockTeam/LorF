@@ -30,7 +30,7 @@ class IndexController extends CommonController {
         // 获取学号和微信昵称以及头像
          $stuNum = $this->_getStuNum(session('openid'));
         // $userInfo = $this->_getUserInfo(session('openid'));
-        
+
         // 判断是否第一次访问, 传值为学号, 如果是第一次访问, 跳转到第一次访问页面
         $first = $this->_isFirstVisit($stuNum);
         if($first){

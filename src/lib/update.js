@@ -43,10 +43,10 @@ require(['fastclick','zepto'],function(FastClick,$){
             data.phone = $('input[name=phonenumber]').val();
             $.ajax({
                 type:'GET',
-                url: "",
+                url: 'handleInfo',
                 data:data,
                 success:function(res){
-
+                    res.status === 0 ?alert('修改失败'):location.href='index.html';
                 }
 
             })
