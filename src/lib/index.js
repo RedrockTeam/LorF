@@ -69,6 +69,12 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
         })
 
 
+        var nextPage = [
+            {
+                'pro_name':"lhz",
+
+            }
+        ];
         var template = $('#template').html();
         Mustache.parse(template);
         var rendered = Mustache.render(template,{});

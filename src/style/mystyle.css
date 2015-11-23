@@ -481,13 +481,13 @@ header form select {
   background: transparent;
   -webkit-appearance: none;
   height: 1.45833333rem;
-  width: 1.94444444rem;
+  width: 1.38888889rem;
   outline: none;
   border: none;
   text-align: center;
   font-size: 0.46861111rem;
   color: white;
-  margin-left: 0.27777778rem;
+  margin-left: 0.41666667rem;
 }
 [data-dpr^="2"]header form select {
   font-size: 67.48px;
@@ -507,8 +507,9 @@ header form .trangle {
 header form .input-wrapper {
   height: 1.25rem;
   display: inline-block;
-  width: 5.55555556rem;
+  width: 5.27777778rem;
   border-bottom: 1px solid white;
+  margin-left: 0.27777778rem;
 }
 header form .input-wrapper input {
   background-color: transparent;
