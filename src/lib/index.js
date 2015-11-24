@@ -26,6 +26,9 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
         //绑定FastClick
         FastClick.attach(document.body);
 
+        var from = {},
+            end = {};
+        from.lost = from.found = 0;
 
         //实例化mySwiper
         var mySwiper = new Swiper('.swiper-container',{
@@ -45,41 +48,43 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
         });
 
         $('.button').on('click',function(){
-            var from = {},
-                end = {},
-                kind = undefined,
+            var kind = undefined,
+                self = this,
                 interval = 4;
-            from.lost = from.found = 0;
+
+            $(this).hide();
+            $("#loading").show();
+
 
             kind = $(this).attr('data-id');
-            //console.log(kind);
+            console.log(kind);
             $.ajax({
                 url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/Index/nextPage',
                 type:'GET',
                 data:{
                     key: 'redrockswzllhzwjp',
-                    from: kind == 0 ? from.lost :from.found,
+                    from: kind == 1 ? from.lost :from.found,
                     num: interval,
                     Lorf: kind
                 },
+                dataType:'json',
                 success:function(res){
-                    console.log(res);
+                    if(res.status == 0){
+                        return false;
+                    }
+                    $(self).show();
+                    $("#loading").hide();
+                    var nextPage = res;
+                    var template =  kind == 1 ? $('#template').html():$('#template-1').html();
+                    Mustache.parse(template);
+                    var template_wrapper = kind == 1 ? $("#template-wrapper"):$("#template-wrapper-1");
+                    var rendered = Mustache.render(template,nextPage);
+                    template_wrapper.append(rendered);
+                    kind == 1? from.found+=interval : from.lost+=interval;
+                    console.log(from.found)
                 }
             })
         })
-
-
-        var nextPage = [
-            {
-                'pro_name':"lhz",
-
-            }
-        ];
-        var template = $('#template').html();
-        Mustache.parse(template);
-        var rendered = Mustache.render(template,{});
-        $('#target').html(rendered);
-
 
     })
 })

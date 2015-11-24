@@ -611,7 +611,8 @@ section .swiper-wrapper {
 }
 section .swiper-wrapper .swiper-slide {
   float: left;
-  width: 50%;
+  width: 50% !important;
+  height: auto !important;
 }
 section .swiper-wrapper .button {
   width: 9.09722222rem;
