@@ -75,12 +75,12 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
                     $(self).show();
                     $("#loading").hide();
                     var nextPage = res;
-                    var template =  kind == 1 ? $('#template').html():$('#template-1').html();
+                    var template =  kind == 0 ? $('#template').html():$('#template-1').html();
                     Mustache.parse(template);
-                    var template_wrapper = kind == 1 ? $("#template-wrapper"):$("#template-wrapper-1");
+                    var template_wrapper = kind == 0 ? $("#template-wrapper"):$("#template-wrapper-1");
                     var rendered = Mustache.render(template,nextPage);
                     template_wrapper.append(rendered);
-                    kind == 1? from.found+=interval : from.lost+=interval;
+                    kind == 0? from.found+=interval : from.lost+=interval;
                     console.log(from.found)
                 }
             })
