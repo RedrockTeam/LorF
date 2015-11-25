@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>detail</title>
+    <script src="/LorF/src/lib/lib.flexible.js"></script>
+    <link rel="stylesheet" href="/LorF/src/style/detail.css"/>
+</head>
+<body>
+<header>
+    <i class="iconfont" id="back">&#xe608;</i>
+    <span class="title">信息详情</span>
+</header>
+
+<section>
+    <div id="user" class="list">
+        <span class="logo"></span>
+        <div class="userInfo">
+            <span class="title">{$detail['pro_name']}</span></span>
+            <span class="date">{$detail['create_time']|date='Y/m/d',###}</span>
+            <p class="user">发布者：<span class="username">{$detail['relace_user_name']}</span></p>
+        </div>
+    </div>
+    <div id="describe" class="list">
+        <p class="left">描 <span class="align">述</span></p>
+        <div class="detail right">
+            {$detail['pro_description']}
+        </div>
+    </div>
+    <!--<div id="img-describe" class="list">-->
+        <!--<p class="left">照 <span class="align">片</span></p>-->
+        <!--<div class="right">-->
+            <!--<img src="images/logo.jpeg" alt=""/>-->
+            <!--<img src="images/logo.jpeg" alt=""/>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div id="time" class="list">
+        <p class="left">时 <span class="align">间</span></p>
+        <p class="right">{$detail['L_orF_time']|date='Y/m/d',###}</p>
+    </div>
+    <div id="place" class="list">
+        <p class="left">地 <span class="align">点</span></p>
+        <p class="right">{$detail['L_or_F_place']}</p>
+    </div>
+    <div id="contact" class="list">
+        <p class="left">联系人</p>
+        <p class="right">{$detail['connect_people']}</p>
+    </div>
+    <div id="number" class="list">
+        <p class="left">电 <span class="align">话</span></p>
+        <p class="right">{$detail['phone']}</p>
+    </div>
+    <div id="QQ" class="list">
+        <p class="left">Q <span class="align">Q</span></p>
+        <p class="right">{$detail['qq']}</p>
+    </div>
+</section>
+
+</body>
+</html>

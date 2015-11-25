@@ -20,6 +20,43 @@ class UserInfoController extends CommonController{
     }
 
     /**
+     * 点击加载更多
+     */
+    public function nextPage(){
+
+        $selfId = session('relace_user_id');
+        $selfId = 7;
+        $where['pro_user_id'] = $selfId;
+        //获取要加载的分页信息
+        $from = I('from');
+        $num  = I('num');
+        $DorR = I('DorR'); //标识符 已发布1 已解决2
+
+        if(is_null($DorR)){
+
+        }if($DorR == 2){
+            $where['status'] = 1;
+        }
+//dd($where);
+        $list = M('product_list')
+//            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
+            ->where($where)
+            ->order('pro_id desc')
+            ->limit($from, $num)
+            ->select();
+//dd($list);
+        if($list){
+            $status = 1;
+        }else{
+            $status = 0;
+        }
+        $this->ajaxReturn(array(
+            'status' => $status,
+            'nextPage' => getList($list)
+        ));
+    }
+
+    /**
      * 得到个人已解决的条目
      */
     private function _getSelfDone(){
@@ -29,12 +66,13 @@ class UserInfoController extends CommonController{
         // 测试用
         $selfId = 7;
         $list = M('product_list')
-            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
+//            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
             ->where(array(
                     'pro_user_id' => $selfId,
                     'status' => 1
                 ))
             ->order('pro_id desc')
+            ->limit(5)
             ->select();
 
         return getList($list);
@@ -49,11 +87,12 @@ class UserInfoController extends CommonController{
         // 测试用
         $selfId = 7;
         $list = M('product_list')
-            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id, status')
+//            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id, status')
             ->where(array(
                 'pro_user_id' => $selfId
             ))
             ->order('pro_id desc')
+            ->limit(5)
             ->select();
 
         return getList($list);

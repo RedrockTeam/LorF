@@ -14,33 +14,35 @@ class IndexController extends CommonController {
     public function index(){
 
         // 获取到openid并且存到session
-        $code = I('get.code');
-
-        if(!$code){
-            return $this->redirect($this->oauth2Url);
-        }
-
-        $openId = $this->_getOpenId($code);
-        session('openid', $openId);
-
-        //判断是否绑定学号, 是否关注重邮小帮手
-        // $isBind = $this->_checkBind($openId);
-        // $care = $this->_checkCareXBS($openId);
-
-        // 获取学号和微信昵称以及头像
-         $stuNum = $this->_getStuNum(session('openid'));
-        // $userInfo = $this->_getUserInfo(session('openid'));
-
-        // 判断是否第一次访问, 传值为学号, 如果是第一次访问, 跳转到第一次访问页面
-        $first = $this->_isFirstVisit($stuNum);
-        if($first){
-            $this->redirect('Home/FirstVisit/index');
-        }
+//        $code = I('get.code');
+//
+//        if(!$code){
+//            return $this->redirect($this->oauth2Url);
+//        }
+//
+//        $openId = $this->_getOpenId($code);
+//        session('openid', $openId);
+//
+//        //判断是否绑定学号, 是否关注重邮小帮手
+//        // $isBind = $this->_checkBind($openId);
+//        // $care = $this->_checkCareXBS($openId);
+//
+//        // 获取学号和微信昵称以及头像
+//         $stuNum = $this->_getStuNum(session('openid'));
+//        // $userInfo = $this->_getUserInfo(session('openid'));
+//
+//        // 判断是否第一次访问, 传值为学号, 如果是第一次访问, 跳转到第一次访问页面
+//        $first = $this->_isFirstVisit($stuNum);
+//        if($first){
+//            $this->redirect('Home/FirstVisit/index');
+//        }
 
         // 获取失物招领信息, 限制为5条
-        $lost = M('product_list')->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
+        $lost = M('product_list')
+//            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
                                  ->where(array('lost_or_found' => 0, 'status' => 0))->order('pro_id desc')->limit(5)->select();
-        $found = M('product_list')->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
+        $found = M('product_list')
+//            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
                                   ->where(array('lost_or_found' => 1, 'status' => 0))->order('pro_id desc')->limit(5)->select();
 //dd(getList($found));
         $this->assign('lost', getList($lost));
@@ -79,13 +81,21 @@ class IndexController extends CommonController {
         $num  = I('num');
         $LorF = I('LorF');
 
-        $result = M('product_list')->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
+        $result = M('product_list')
+//            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
                                 ->where(array(
                                     'lost_or_found' => $LorF,
                                     'status' => 0
                                 ))
                                 ->order('pro_id desc')->limit($from, $num)->select();
+
+        if($result){
+            $status = 1;
+        }else{
+            $status = 0;
+        }
         $this->ajaxReturn(array(
+            'status' => $status,
             'nextPage' => getList($result)
         ));
     }

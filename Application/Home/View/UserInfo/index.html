@@ -25,7 +25,7 @@
     <div class="swiper-wrapper">
         <div class="swiper-slide tab1">
             <foreach name="selfRelace" item="vo">
-                <div class="list">
+                <div class="list" detail-url="{$vo.detail_url}">
                     <span class="logo"></span>
                     <div class="userInfo">
                         <p class="title">{$vo.pro_name}</p>
@@ -36,7 +36,7 @@
                         {$vo.pro_description}
                     </div>
 
-                    <p class="date">2015-11-19</p>
+                    <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
 
                     <if condition="$vo.status == 1 ">
                         <span class="solved">已解决</span>
