@@ -10,6 +10,11 @@ namespace Home\Controller;
 
 class UserInfoController extends CommonController{
 
+    private function _getSelfId(){
+
+        return session('relace_user_id');
+    }
+
     public function index(){
 
         $this->assign('selfDone', $this->_getSelfDone());
@@ -24,8 +29,7 @@ class UserInfoController extends CommonController{
      */
     public function nextPage(){
 
-        $selfId = session('relace_user_id');
-        $selfId = 7;
+        $selfId = $this->_getSelfId();
         $where['pro_user_id'] = $selfId;
         //获取要加载的分页信息
         $from = I('from');
@@ -62,9 +66,8 @@ class UserInfoController extends CommonController{
     private function _getSelfDone(){
 
         // 获取到本人在user_info表中的id
-        $selfId = session('relace_user_id');
-        // 测试用
-        $selfId = 7;
+        $selfId = $this->_getSelfId();
+
         $list = M('product_list')
 //            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
             ->where(array(
@@ -83,9 +86,8 @@ class UserInfoController extends CommonController{
      */
     private function _getSelfRelace(){
         // 获取到本人在user_info表中的id
-        $selfId = session('relace_user_id');
-        // 测试用
-        $selfId = 7;
+        $selfId = $this->_getSelfId();
+
         $list = M('product_list')
 //            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id, status')
             ->where(array(
@@ -104,9 +106,8 @@ class UserInfoController extends CommonController{
     private function _getSelfInfo(){
 
         // 获取到本人在user_info表中的id
-        $selfId = session('relace_user_id');
-        // 测试用
-        $selfId = 7;
+        $selfId = $this->_getSelfId();
+
         $info = M('user_info')
                     ->where(array(
                         'user_id' => $selfId
