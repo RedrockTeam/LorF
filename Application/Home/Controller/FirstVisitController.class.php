@@ -18,7 +18,6 @@ class FirstVisitController extends CommonController {
 //dd($userInfo);
 
         $this->assign('userInfo', $userInfo);
-
         $this->display();
     }
 
@@ -26,6 +25,7 @@ class FirstVisitController extends CommonController {
      * 处理更新的信息
      */
     public function handleInfo(){
+        // openid ouRCyjsp3eo3FJil24fV625V_6no
         $where['stu_num'] = I('stu_num');
         $headUrl = $this->_getUserInfo(session('openid'));
         $user = M('user_info')->where($where)->find();
@@ -48,7 +48,7 @@ class FirstVisitController extends CommonController {
                 'stu_name' => I('real_name'),
                 'phone_num' => I('phone'),
                 'tencent_num' => I('qq'),
-                'headImgUrl' => $headUrl
+                'headImgUrl' => $headUrl['headImageUrl']
             );
 
             $r = M('user_info')->add($addData);

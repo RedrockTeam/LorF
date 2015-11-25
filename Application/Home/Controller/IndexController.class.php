@@ -38,9 +38,11 @@ class IndexController extends CommonController {
         }
 
         // 获取失物招领信息, 限制为5条
-        $lost = M('product_list')->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
+        $lost = M('product_list')
+//            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
                                  ->where(array('lost_or_found' => 0, 'status' => 0))->order('pro_id desc')->limit(5)->select();
-        $found = M('product_list')->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
+        $found = M('product_list')
+//            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
                                   ->where(array('lost_or_found' => 1, 'status' => 0))->order('pro_id desc')->limit(5)->select();
 //dd(getList($found));
         $this->assign('lost', getList($lost));
@@ -79,13 +81,21 @@ class IndexController extends CommonController {
         $num  = I('num');
         $LorF = I('LorF');
 
-        $result = M('product_list')->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
+        $result = M('product_list')
+//            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
                                 ->where(array(
                                     'lost_or_found' => $LorF,
                                     'status' => 0
                                 ))
                                 ->order('pro_id desc')->limit($from, $num)->select();
+
+        if($result){
+            $status = 1;
+        }else{
+            $status = 0;
+        }
         $this->ajaxReturn(array(
+            'status' => $status,
             'nextPage' => getList($result)
         ));
     }

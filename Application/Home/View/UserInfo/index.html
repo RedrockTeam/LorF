@@ -13,7 +13,7 @@
     <!--<span class="logo"></span>-->
     <img class="logo" src="{$selfInfo.headImgUrl}" alt="">
     <p class="username">{$selfInfo.stu_name}</p>
-    <span class="update"><i class="iconfont">&#xe688;</i>修改</span>
+    <span class="update"><a href="{:U('Home/FirstVisit/index','','')}"><i class="iconfont">&#xe688;</i></a>修改</span>
 </header>
 
 <nav>
@@ -25,7 +25,7 @@
     <div class="swiper-wrapper">
         <div class="swiper-slide tab1">
             <foreach name="selfRelace" item="vo">
-                <div class="list">
+                <div class="list" detail-url="{$vo.detail_url}">
                     <span class="logo"></span>
                     <div class="userInfo">
                         <p class="title">{$vo.pro_name}</p>
@@ -36,7 +36,7 @@
                         {$vo.pro_description}
                     </div>
 
-                    <p class="date">2015-11-19</p>
+                    <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
 
                     <if condition="$vo.status == 1 ">
                         <span class="solved">已解决</span>
