@@ -40,6 +40,7 @@ header{
   .space{
     margin-top:5rem/@psdWidth;
     border-top: 1px solid #dbdbdc;
+    position: relative;
   }
   .input-div{
     width:100%;
@@ -55,7 +56,10 @@ header{
       float:left;
       margin:30rem/@psdWidth;
       width:65rem/@psdWidth;
-      font-weight: bold;
+      //font-weight: bold;
+    }
+    .align-left{
+      float: left;
     }
     .align{
       float: right;
@@ -67,7 +71,7 @@ header{
     input[type="date"]{
       -webkit-appearance: none;
       background-color: transparent;
-
+      z-index:233;
     }
     input{
       outline: none;
@@ -77,6 +81,14 @@ header{
       background-color: #f6f6f8;
       box-sizing: border-box;
       .fz(30px);
+    }
+    i{
+      .fz(40px);
+      position: absolute;
+      right:30rem/@psdWidth;
+      color:#cfd2d0;
+      top:50%;
+      transform: translate(0,-50%);
     }
   }
 }

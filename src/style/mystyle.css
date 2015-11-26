@@ -19,6 +19,15 @@ a {
 input {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+header i {
+  font-size: 0.55555556rem;
+}
+[data-dpr^="2"]header i {
+  font-size: 80px;
+}
+[data-dpr^="3"]header i {
+  font-size: 120px;
+}
 /*! normalize.css v1.1.2 | MIT License | git.io/normalize */
 /* ==========================================================================
        Base
@@ -553,29 +562,13 @@ header form .input-wrapper button {
       -ms-transform: translate(0, -50%);
           transform: translate(0, -50%);
 }
-header form .input-wrapper button i {
-  font-size: 0.66666667rem;
-}
-[data-dpr^="2"]header form .input-wrapper button i {
-  font-size: 96px;
-}
-[data-dpr^="3"]header form .input-wrapper button i {
-  font-size: 144px;
-}
 header .i-wrapper {
   float: right;
   height: 100%;
   width: 2.08333333rem;
 }
 header .i-wrapper i {
-  font-size: 0.66666667rem;
   margin-right: 0.27777778rem;
-}
-[data-dpr^="2"]header .i-wrapper i {
-  font-size: 96px;
-}
-[data-dpr^="3"]header .i-wrapper i {
-  font-size: 144px;
 }
 nav {
   height: 1.25rem;
