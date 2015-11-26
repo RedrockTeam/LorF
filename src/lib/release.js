@@ -44,14 +44,18 @@ require(['fastclick','zepto'],function(FastClick,$){
             data.phone = $('input[name=phone]').val();
             data.qq = $('input[name=QQ]').val();
 
-            console.log(data);
+            //console.log(data);
             $.ajax({
-                url:'',
+                url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/Relace/handleInfo',
                 type:'GET',
                 data:data,
                 dataType:'json',
                 success:function(res){
-                    alert('修改成功');
+                    if(res == 1){
+                        alert('修改成功');
+                    }else{
+                        alert('修改失败');
+                    }
                 }
 
             })

@@ -10,8 +10,17 @@
 <body>
 <header>
     <i class="iconfont" id="back">&#xe604;</i>
-    <span class="title">发布</span>
+    <span class="title" id="release">发布</span>
 </header>
+
+<nav class="kind">
+    <select name="kind" id="kind">
+        <option value="寻物">寻物</option>
+        <option value="招领">招领</option>
+    </select>
+    <i class="iconfont">&#xe600;</i>
+
+</nav>
 
 <section class="inputs">
     <textarea placeholder="请填入50字以内的描述..."></textarea>
@@ -31,7 +40,7 @@
     <div class="input-div">
         <span class="left"><span class="align-left">电</span> <span class="align">话</span> </span>
         <div class="input-wrapper">
-            <input type="text" name="name"/>
+            <input type="text" name="phone"/>
         </div>
     </div>
     <div class="input-div">
