@@ -32,14 +32,13 @@ require(['fastclick','zepto'],function(FastClick,$){
                 alert('请检查 不能为空');
             }
 
-            //if(!(/1[3|5|7|8][0-9]{9}/.test($('input[name=phone]').val()))){
-            //    alert('电话不对呀');
-            //    return false;
-            //}
+            date = $('input[name=date]').val();
+            date = new Date(Date.parse(date.replace(/-/g, "/")));
+            date = date.getTime();
 
             data.kind = $("select").val();
             data.content = $('textarea').val();
-            data.date = $('input[name=date]').val();
+            data.date = date;
             data.place = $('input[name=place]').val();
             data.phone = $('input[name=phone]').val();
             data.qq = $('input[name=QQ]').val();
