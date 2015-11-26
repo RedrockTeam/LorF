@@ -505,6 +505,48 @@ header .title {
 [data-dpr^="3"]header .title {
   font-size: 90px;
 }
+.kind {
+  height: 1.45833333rem;
+  line-height: 1.45833333rem;
+  border-bottom: 1px solid #cfd2d0;
+  color: #fcfcfd;
+  position: relative;
+}
+.kind select {
+  background: transparent;
+  -webkit-appearance: none;
+  height: 1.45833333rem;
+  outline: none;
+  border: none;
+  text-align: center;
+  font-size: 0.46861111rem;
+  color: #202024;
+  width: 95.5%;
+  margin-left: 4.5%;
+}
+[data-dpr^="2"].kind select {
+  font-size: 67.48px;
+}
+[data-dpr^="3"].kind select {
+  font-size: 101.22px;
+}
+.kind i {
+  font-size: 0.55555556rem;
+  position: absolute;
+  right: 0.41666667rem;
+  color: #cfd2d0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  z-index: -233;
+}
+[data-dpr^="2"].kind i {
+  font-size: 80px;
+}
+[data-dpr^="3"].kind i {
+  font-size: 120px;
+}
 .inputs textarea {
   width: 100%;
   height: 5.76388889rem;
