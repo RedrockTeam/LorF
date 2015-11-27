@@ -486,24 +486,55 @@ header {
 }
 header #back {
   margin-left: 0.48611111rem;
-  font-size: 0.44444444rem;
+  font-size: 0.55555556rem;
 }
 [data-dpr^="2"]header #back {
-  font-size: 64px;
+  font-size: 80px;
 }
 [data-dpr^="3"]header #back {
-  font-size: 96px;
+  font-size: 120px;
 }
 header .title {
   margin-right: 0.48611111rem;
   float: right;
-  font-size: 0.41666667rem;
+  font-size: 0.46861111rem;
 }
 [data-dpr^="2"]header .title {
-  font-size: 60px;
+  font-size: 67.48px;
 }
 [data-dpr^="3"]header .title {
-  font-size: 90px;
+  font-size: 101.22px;
+}
+.species {
+  *zoom: 1;
+  height: 1.45833333rem;
+  line-height: 1.45833333rem;
+}
+.species:before,
+.species:after {
+  display: table;
+  content: "";
+}
+.species:after {
+  clear: both;
+}
+.species label {
+  width: 50%;
+  float: left;
+  box-sizing: border-box;
+  font-size: 0.46861111rem;
+}
+[data-dpr^="2"].species label {
+  font-size: 67.48px;
+}
+[data-dpr^="3"].species label {
+  font-size: 101.22px;
+}
+.species label input {
+  margin-left: 0.06944444rem;
+}
+.species #align {
+  padding-left: 0.48611111rem;
 }
 .kind {
   height: 1.45833333rem;
@@ -518,7 +549,6 @@ header .title {
   height: 1.45833333rem;
   outline: none;
   border: none;
-  text-align: center;
   font-size: 0.46861111rem;
   color: #202024;
   width: 95.5%;

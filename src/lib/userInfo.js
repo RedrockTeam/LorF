@@ -34,5 +34,32 @@ require(['zepto','swiper'],function($,swiper){
         }).click(function(e){
             e.preventDefault();
         });
+
+
+
+        //页面交互逻辑
+        $('.solved').on('click',function(){
+            show();
+            $('.ensure').on('click',function(){
+                hide()
+            })
+
+        })
+        $('.cancel').on('click',function(){
+           hide()
+        })
+
+
+
+        function show(){
+            $('.shade').show();
+            $('.banner').show();
+        }
+
+
+        function hide(){
+            $('.shade').hide();
+            $('.banner').hide()
+        }
     })
 })

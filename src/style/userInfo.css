@@ -582,7 +582,7 @@ nav .active {
 }
 .swiper-container .list {
   background-color: #fcfcfd;
-  margin: 0.10416667rem;
+  margin-top: 0.10416667rem;
   border-top: 1px solid #d4d7dc;
   border-bottom: 1px solid #d4d7dc;
   padding: 0.27777778rem;
@@ -675,6 +675,11 @@ nav .active {
 [data-dpr^="3"].swiper-container .list .solved {
   font-size: 84px;
 }
+.swiper-container .list img {
+  top: 0.27777778rem;
+  right: 0.41666667rem;
+  position: absolute;
+}
 .shade {
   display: none;
   position: absolute;
@@ -721,7 +726,7 @@ nav .active {
   line-height: 1.38888889rem;
   text-align: center;
 }
-.banner .active {
+.banner .ensure {
   color: #19c344;
   border-left: 1px solid #e9ebed;
   height: 1.38888889rem;

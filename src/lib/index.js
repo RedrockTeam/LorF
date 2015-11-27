@@ -50,27 +50,6 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
 
 
 
-        var getUrl = function(){
-            var key = $('select').val();
-            goUrl(key);
-        }
-
-        getUrl();
-
-        $('select').on('click',getUrl);
-
-        function goUrl(key){
-
-            if($('#url').attr('href').indexOf('key') == -1){
-                $('#url').attr('href', $('#url').attr('href')+'/key/'+key);
-                return;
-            }
-
-            var url = $('#url').attr('href');
-            url = url.substr(0,url.length-1)+key;
-            //url = url+key;
-            $('#url').attr('href', url);
-        }
 
         $('.button').on('click',function(){
             var kind = undefined,
