@@ -38,22 +38,22 @@
     <div class="swiper-wrapper">
         <div class="swiper-slide tab1">
             <div id="template-wrapper">
-                <!--<foreach name="lost" item="vo">-->
-                    <!--<div class="list" detail-url="{$vo.detail_url}">-->
-                        <!--&lt;!&ndash;<span class="logo"></span>&ndash;&gt;-->
-                        <!--<img class="logo" src="{$vo.relace_head_url}" alt="">-->
-                        <!--<div class="userInfo">-->
-                            <!--<p class="title">{$vo.pro_name}</p>-->
-                            <!--<p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>-->
-                        <!--</div>-->
+                <foreach name="lost" item="vo">
+                    <div class="list" detail-url="{$vo.detail_url}">
+                        <!--<span class="logo"></span>-->
+                        <img class="logo" src="{$vo.relace_head_url}" alt="">
+                        <div class="userInfo">
+                            <p class="title">{$vo.pro_name}</p>
+                            <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
+                        </div>
 
-                        <!--<div class="content">-->
-                            <!--{$vo.pro_description}-->
-                        <!--</div>-->
+                        <div class="content">
+                            {$vo.pro_description}
+                        </div>
 
-                        <!--<p class="date">{$vo.create_time|date='Y/m/d',###}</p>-->
-                    <!--</div>-->
-                <!--</foreach>-->
+                        <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
+                    </div>
+                </foreach>
                 <script id="template" type="x-tmpl-mustache">
                     {{#nextPage}}
                         <div class="list" detail-url="{{detail_url}}">
@@ -75,22 +75,22 @@
 
         <div class="swiper-slide tab2">
             <div id="template-wrapper-1">
-                <!--<foreach name="found" item="vo">-->
-                    <!--<div class="list"  detail-url="{$vo.detail_url}">-->
-                        <!--&lt;!&ndash;<span class="logo"></span>&ndash;&gt;-->
-                        <!--<img class="logo" src="{$vo.relace_head_url}" alt="">-->
-                        <!--<div class="userInfo">-->
-                            <!--<p class="title">{$vo.pro_name}</p>-->
-                            <!--<p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>-->
-                        <!--</div>-->
+                <foreach name="found" item="vo">
+                    <div class="list"  detail-url="{$vo.detail_url}">
+                        <!--<span class="logo"></span>-->
+                        <img class="logo" src="{$vo.relace_head_url}" alt="">
+                        <div class="userInfo">
+                            <p class="title">{$vo.pro_name}</p>
+                            <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
+                        </div>
 
-                        <!--<div class="content">-->
-                            <!--{$vo.pro_description}-->
-                        <!--</div>-->
+                        <div class="content">
+                            {$vo.pro_description}
+                        </div>
 
-                        <!--<p class="date">{$vo.create_time|date='Y/m/d',###}</p>-->
-                    <!--</div>-->
-                <!--</foreach>-->
+                        <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
+                    </div>
+                </foreach>
                 <script id="template-1" type="x-tmpl-mustache">
                     {{#nextPage}}
                         <div class="list" detail-url="{{detail_url}}">
