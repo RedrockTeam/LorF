@@ -62,6 +62,8 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
 
             kind = $(this).attr('data-id');
             $.ajax({
+                url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/Index/nextPage',
+                type:'GET',
                 data:{
                     key: 'redrockswzllhzwjp',
                     from: kind == 1 ? from.lost :from.found,
@@ -81,7 +83,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
                     }
                     $(self).show();
                     $("#loading").hide();
-                    var nextPage = res.nextPage;
+                    var nextPage = res;
                     console.log(nextPage);
                     var template =  kind == 0 ? $('#template').html():$('#template-1').html();
                     Mustache.parse(template);
@@ -95,10 +97,10 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
 
 
 
-        $('.list').on('click',function(){
-            debugger;
-            console.log($(this));
-        })
+        //$('.list').on('click',function(){
+        //    debugger;
+        //    console.log($(this));
+        //})
 
     })
 })
