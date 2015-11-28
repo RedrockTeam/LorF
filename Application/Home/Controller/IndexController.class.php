@@ -21,7 +21,7 @@ class IndexController extends CommonController {
         }
 
         $openId = $this->_getOpenId($code);
-//        $openId = 'ouRCyjsp3eo3FJil24fV625V_6no';
+        $openId = 'ouRCyjsp3eo3FJil24fV625V_6no';
         session('openid', $openId);
 
         //判断是否绑定学号, 是否关注重邮小帮手

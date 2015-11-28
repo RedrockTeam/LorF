@@ -46,7 +46,7 @@ function dd($var, $echo=true, $label=null, $strict=false) {
  */
 function getList($list) {
 
-    $url = '127.0.0.1'.U('Home/Detail/index', '', '');
+    $url = 'http://hongyan.cqupt.edu.cn'.U('Home/Detail/index', '', '');
     $reList = array();
 
     foreach($list as $k => $v){
