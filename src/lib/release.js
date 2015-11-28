@@ -64,14 +64,12 @@ require(['fastclick','zepto'],function(FastClick,$){
 
             //console.log(data);
             $.ajax({
-                url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/Relace/HandleInfo',
-                type:'GET',
+                type:'POST',
+                url:'handleInfo',
                 data:data,
-                dataType:'json',
                 success:function(res){
-
                     console.log(res);
-                    //res === 0 ?alert('修改失败'):location.href = oauth2Url;
+                    res.status === 0 ?alert('修改失败'):location.href = oauth2Url;
                 }
 
             })

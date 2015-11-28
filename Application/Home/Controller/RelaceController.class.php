@@ -24,7 +24,7 @@ class RelaceController extends CommonController{
     }
 
     public function handleInfo(){
-        $post = I('get.');
+        $post = I('post.');
 //dd($post);
 //        $mark = 0;
         $info = '电话: '.$post['phone'].' QQ: '.$post['qq'];
@@ -64,8 +64,9 @@ class RelaceController extends CommonController{
                     'status'=> 0
                 ));
 //dd($sta);
+
         $this->ajaxReturn(array(
-            'status'=>$sta
+            'status' => $sta
         ));
     }
 
