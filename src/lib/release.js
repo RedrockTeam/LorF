@@ -55,13 +55,6 @@ require(['fastclick','zepto'],function(FastClick,$){
                 return;
             }
 
-
-            //date = $('input[type=date]').val();
-            //date = new Date(Date.parse(date.replace(/-/g, "/")));
-            //date = date.getTime();
-            //console.log(date);
-
-
             data.kind = $("select").val();
             data.content = $('textarea').val();
             data.date = $('input[type=date]').val();
@@ -71,14 +64,14 @@ require(['fastclick','zepto'],function(FastClick,$){
 
             //console.log(data);
             $.ajax({
-                url:'http://127.0.0.1/LorF/index.php/Home/Relace/handleInfo',
+                url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/Relace/HandleInfo',
                 type:'GET',
                 data:data,
                 dataType:'json',
                 success:function(res){
 
                     console.log(res);
-                    res === 0 ?alert('修改失败'):location.href = oauth2Url;
+                    //res === 0 ?alert('修改失败'):location.href = oauth2Url;
                 }
 
             })

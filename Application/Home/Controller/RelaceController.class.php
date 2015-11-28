@@ -26,25 +26,27 @@ class RelaceController extends CommonController{
     public function handleInfo(){
         $post = I('get.');
 //dd($post);
-        $mark = 0;
+//        $mark = 0;
         $info = '电话: '.$post['phone'].' QQ: '.$post['qq'];
 
         $kindname = M('product_kinds')->where(array('kind_id' => I('kind')))->find();
         $connectpeople = M('user_info')->where(array('user_id' => session('relace_user_id')))->find();
 
         // 判断不能为空值
-        foreach($post as $key => $value){
-            if($value == null){
-                if($key == 'phone') {
-                    $mark = 1;
-                    $info = 'QQ: '.$post['qq'];
-                }else if($mark == 0 && $key == 'qq') {
-                    $info = '电话: '.$post['phone'];
-                }else {
-                    return 0;
-                }
-            }
-        }
+//        foreach($post as $key => $value){
+//            if($value == null){
+//                if($key == 'phone') {
+//                    $mark = 1;
+//                    $info = 'QQ: '.$post['qq'];
+//                }else if($mark == 0 && $key == 'qq') {
+//                    $info = '电话: '.$post['phone'];
+//                }else {
+//                    $this->ajaxReturn(array(
+//                        'status' => 0
+//                    ));
+//                }
+//            }
+//        }
 
         // 保存添加
         $sta =  $this->_saveData(array(
