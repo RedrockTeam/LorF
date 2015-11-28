@@ -38,76 +38,74 @@
     <div class="swiper-wrapper">
         <div class="swiper-slide tab1">
             <div id="template-wrapper">
-            <foreach name="lost" item="vo">
-                <div class="list" detail-url="{$vo.detail_url}">
-                    <!--<span class="logo"></span>-->
-                    <img class="logo" src="{$vo.relace_head_url}" alt="">
-                    <div class="userInfo">
-                        <p class="title">{$vo.pro_name}</p>
-                        <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
-                    </div>
-
-                    <div class="content">
-                        {$vo.pro_description}
-                    </div>
-
-                    <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
-                </div>
-            </foreach>
-
-                <script id="template" type="x-tmpl-mustache">
-                {{#nextPage}}
-                    <div class="list">
-                        <img class="logo" src="{{relace_head_url}}" alt=""/>
+                <foreach name="lost" item="vo">
+                    <div class="list" detail-url="{$vo.detail_url}">
+                        <!--<span class="logo"></span>-->
+                        <img class="logo" src="{$vo.relace_head_url}" alt="">
                         <div class="userInfo">
-                            <p class="title">{{kind_name}}</p>
-                            <p class="user">发布者：<span class="username">{{pro_name}}</span></p>
+                            <p class="title">{$vo.pro_name}</p>
+                            <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
                         </div>
 
-                        <div class="content">{{pro_description}}</div>
+                        <div class="content">
+                            {$vo.pro_description}
+                        </div>
 
-                        <p class="date">2015-11-19</p>
+                        <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
                     </div>
-                {{/nextPage}}
-            </script>
+                </foreach>
+                <script id="template" type="x-tmpl-mustache">
+                    {{#nextPage}}
+                        <div class="list">
+                            <img class="logo" src="{{relace_head_url}}" alt=""/>
+                            <div class="userInfo">
+                                <p class="title">{{kind_name}}</p>
+                                <p class="user">发布者：<span class="username">{{pro_name}}</span></p>
+                            </div>
+
+                            <div class="content">{{pro_description}}</div>
+
+                            <p class="date">2015-11-19</p>
+                        </div>
+                    {{/nextPage}}
+                </script>
             </div>
             <div class="button" data-id="0">更多</div>
         </div>
 
         <div class="swiper-slide tab2">
             <div id="template-wrapper">
-            <foreach name="found" item="vo">
-                <div class="list"  detail-url="{$vo.detail_url}">
-                    <!--<span class="logo"></span>-->
-                    <img class="logo" src="{$vo.relace_head_url}" alt="">
-                    <div class="userInfo">
-                        <p class="title">{$vo.pro_name}</p>
-                        <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
-                    </div>
-
-                    <div class="content">
-                        {$vo.pro_description}
-                    </div>
-
-                    <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
-                </div>
-            </foreach>
-
-            <script id="template" type="x-tmpl-mustache">
-                {{#nextPage}}
-                    <div class="list">
-                        <img class="logo" src="{{relace_head_url}}" alt=""/>
+                <foreach name="found" item="vo">
+                    <div class="list"  detail-url="{$vo.detail_url}">
+                        <!--<span class="logo"></span>-->
+                        <img class="logo" src="{$vo.relace_head_url}" alt="">
                         <div class="userInfo">
-                            <p class="title">{{kind_name}}</p>
-                            <p class="user">发布者：<span class="username">{{pro_name}}</span></p>
+                            <p class="title">{$vo.pro_name}</p>
+                            <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
                         </div>
 
-                        <div class="content">{{pro_description}}</div>
+                        <div class="content">
+                            {$vo.pro_description}
+                        </div>
 
-                        <p class="date">2015-11-19</p>
+                        <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
                     </div>
-                {{/nextPage}}
-            </script>
+                </foreach>
+                <script id="template" type="x-tmpl-mustache">
+                    {{#nextPage}}
+                        <div class="list">
+                            <img class="logo" src="{{relace_head_url}}" alt=""/>
+                            <div class="userInfo">
+                                <p class="title">{{kind_name}}</p>
+                                <p class="user">发布者：<span class="username">{{pro_name}}</span></p>
+                            </div>
+
+                            <div class="content">{{pro_description}}</div>
+
+                            <p class="date">2015-11-19</p>
+                        </div>
+                    {{/nextPage}}
+                </script>
             </div>
             <div class="button" data-id="0">更多</div>
         </div>
