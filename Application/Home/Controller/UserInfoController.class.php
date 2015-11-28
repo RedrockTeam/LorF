@@ -35,9 +35,7 @@ class UserInfoController extends CommonController{
         $from = I('from');
         $num  = I('num');
         $DorR = I('DorR'); //标识符 已发布1 已解决2
-
-
-
+//        dd($DorR);
         if(is_null($DorR)){
 
         }if($DorR == 2){
@@ -60,7 +58,7 @@ class UserInfoController extends CommonController{
         }else{
             $status = 0;
         }
-
+dd($where);
         // 如果count小于4 返回空
         if($count < 4){
             $this->ajaxReturn(array(
