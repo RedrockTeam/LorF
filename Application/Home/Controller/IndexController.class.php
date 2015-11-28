@@ -14,14 +14,14 @@ class IndexController extends CommonController {
     public function index(){
 
         // 获取到openid并且存到session
-        $code = I('get.code');
-
-        if(!$code){
-            return $this->redirect($this->oauth2Url);
-        }
-
-        $openId = $this->_getOpenId($code);
-//        $openId = 'ouRCyjsp3eo3FJil24fV625V_6no';
+//        $code = I('get.code');
+//
+//        if(!$code){
+//            return $this->redirect($this->oauth2Url);
+//        }
+//
+//        $openId = $this->_getOpenId($code);
+        $openId = 'ouRCyjsp3eo3FJil24fV625V_6no';
         session('openid', $openId);
 
         //判断是否绑定学号, 是否关注重邮小帮手
@@ -80,7 +80,7 @@ class IndexController extends CommonController {
         //获取要去的的分页信息
         $from = I('from');
         $num  = I('num');
-        $LorF = I('LorF');
+        $LorF = I('Lorf');
 
         $result = M('product_list')
 //            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
