@@ -38,13 +38,13 @@ class IndexController extends CommonController {
             $this->redirect('Home/FirstVisit/index');
         }
 
-        // 获取失物招领信息, 限制为5条
+        // 获取失物招领信息, 限制为4条
         $lost = M('product_list')
 //            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
-                                 ->where(array('lost_or_found' => 0, 'status' => 0))->order('pro_id desc')->limit(5)->select();
+                                 ->where(array('lost_or_found' => 0, 'status' => 0))->order('pro_id desc')->limit(4)->select();
         $found = M('product_list')
 //            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
-                                  ->where(array('lost_or_found' => 1, 'status' => 0))->order('pro_id desc')->limit(5)->select();
+                                  ->where(array('lost_or_found' => 1, 'status' => 0))->order('pro_id desc')->limit(4)->select();
 //dd(getList($found));
         $this->assign('lost', getList($lost));
         $this->assign('found', getList($found));
@@ -90,11 +90,25 @@ class IndexController extends CommonController {
                                 ))
                                 ->order('pro_id desc')->limit($from, $num)->select();
 
+        $count = M('product_list')->where(array(
+            'lost_or_found' => $LorF,
+            'status' => 0
+        ))->count();
+
         if($result){
             $status = 1;
         }else{
             $status = 0;
         }
+
+        // 如果count小于4 返回空
+        if($count < 4){
+            $this->ajaxReturn(array(
+                'status' => $status,
+                'nextPage' => getList()
+            ));
+        }
+
         $this->ajaxReturn(array(
             'status' => $status,
             'nextPage' => getList($result)

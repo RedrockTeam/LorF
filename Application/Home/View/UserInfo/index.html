@@ -10,10 +10,9 @@
 <body ms-controller="userInfo">
 
 <header>
-    <!--<span class="logo"></span>-->
     <img class="logo" src="{$selfInfo.headImgUrl}" alt="">
     <p class="username">{$selfInfo.stu_name}</p>
-    <span class="update"><a href="{:U('Home/FirstVisit/index','','')}"><i class="iconfont">&#xe607;</i></a>修改</span>
+    <a href="{:U('Home/FirstVisit/index','','')}"><span class="update"><i class="iconfont">&#xe607;</i>修改</span></a>
 </header>
 
 <nav>
@@ -25,58 +24,87 @@
     <div class="swiper-wrapper">
         <div class="swiper-slide tab1">
             <foreach name="selfRelace" item="vo">
-                <div class="list" detail-url="{$vo.detail_url}">
-                    <span class="logo"></span>
-                    <div class="userInfo">
-                        <p class="title">{$vo.pro_name}</p>
-                        <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
+                <a href="{$vo.detail_url}">
+                    <div class="list" data-id="{$vo.pro_id}">
+                        <span class="logo"></span>
+                        <div class="userInfo">
+                            <p class="title">{$vo.pro_name}</p>
+                            <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
+                        </div>
+
+                        <div class="content">
+                            {$vo.pro_description}
+                        </div>
+
+                        <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
+
+                        <span class="solved">
+                            已解决?
+                        </span>
                     </div>
-
-                    <div class="content">
-                        {$vo.pro_description}
-                    </div>
-
-                    <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
-
-                    <if condition="$vo.status == 1 ">
-                        <span class="solved">已解决</span>
-                        <else />
-                        <span class="solved">未解决</span>
-                    </if>
-
-                </div>
+                </a>
             </foreach>
+
+            <div class="button">更多</div>
         </div>
 
         <div class="swiper-slide tab2">
             <foreach name="selfDone" item="vo">
-                <div class="list">
-                    <span class="logo"></span>
-                    <div class="userInfo">
-                        <p class="title">{$vo.pro_name}</p>
-                        <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
+                <a href="{$vo.detail_url}">
+                    <div class="list" detail-id="{$vo.pro_id}">
+                        <span class="logo"></span>
+                        <div class="userInfo">
+                            <p class="title">{$vo.pro_name}</p>
+                            <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
+                        </div>
+
+                        <div class="content">
+                            {$vo.pro_description}
+                        </div>
+
+                        <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
+                        <span class="solved">
+                            已解决?
+                        </span>
                     </div>
-
-                    <div class="content">
-                        {$vo.pro_description}
-                    </div>
-
-                    <p class="date">2015-11-19</p>
-
-                    <span class="solved">已解决</span>
-                </div>
+                </a>
             </foreach>
+
+            <div class="button">更多</div>
         </div>
 
     </div>
-
 </section>
+
+<section class="loading">
+    <div id="loading">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div class="object"></div>
+                <div class="object"></div>
+                <div class="object"></div>
+                <div class="object"></div>
+                <div class="object"></div>
+                <div class="object"></div>
+                <div class="object"></div>
+                <div class="object"></div>
+                <div class="object"></div>
+                <div class="object"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="shade"></section>
 
 <div class="banner">
     <p>确认已解决？</p>
 
-    <div>取消</div>
-    <div class="active">确认</div>
+    <div class="cancel">取消</div>
+    <div class="ensure">确认</div>
 </div>
+
+<script src="/LorF/src/lib/userInfo.js"></script>
 </body>
 </html>

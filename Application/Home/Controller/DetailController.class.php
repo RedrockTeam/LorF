@@ -23,7 +23,7 @@ class DetailController extends CommonController{
         ))->select();
 
         $list = getList($find);
-//dd($list);
+//dd($list['0']);
         $this->assign('detail', $list['0']);
 //        dd(getList($find));
         $this->display();

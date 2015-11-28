@@ -36,6 +36,8 @@ class UserInfoController extends CommonController{
         $num  = I('num');
         $DorR = I('DorR'); //标识符 已发布1 已解决2
 
+
+
         if(is_null($DorR)){
 
         }if($DorR == 2){
@@ -43,10 +45,14 @@ class UserInfoController extends CommonController{
         }
 //dd($where);
         $list = M('product_list')
-//            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
             ->where($where)
             ->order('pro_id desc')
             ->limit($from, $num)
+            ->select();
+
+        $count = M('product_list')
+            ->where($where)
+            ->order('pro_id desc')
             ->select();
 //dd($list);
         if($list){
@@ -54,10 +60,38 @@ class UserInfoController extends CommonController{
         }else{
             $status = 0;
         }
+
+        // 如果count小于4 返回空
+        if($count < 4){
+            $this->ajaxReturn(array(
+                'status' => $status,
+                'nextPage' => getList()
+            ));
+        }else{
+            $this->ajaxReturn(array(
+                'status' => $status,
+                'nextPage' => getList($list)
+            ));
+        }
+
+    }
+
+    public function handleDone(){
+        $data = array(
+            'pro_id' => I('id'),
+            'status' => 1
+        );
+        $r = M('product_list')->save($data);
+        if($r == 1){
+            $status = 1;
+        }else{
+            $status = 0;
+        }
+
         $this->ajaxReturn(array(
-            'status' => $status,
-            'nextPage' => getList($list)
+            'status' => $status
         ));
+
     }
 
     /**
@@ -75,7 +109,7 @@ class UserInfoController extends CommonController{
                     'status' => 1
                 ))
             ->order('pro_id desc')
-            ->limit(5)
+            ->limit(4)
             ->select();
 
         return getList($list);
@@ -94,7 +128,7 @@ class UserInfoController extends CommonController{
                 'pro_user_id' => $selfId
             ))
             ->order('pro_id desc')
-            ->limit(5)
+            ->limit(4)
             ->select();
 
         return getList($list);
@@ -116,6 +150,4 @@ class UserInfoController extends CommonController{
 
         return $info;
     }
-
-
 }
