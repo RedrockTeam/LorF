@@ -16,3 +16,15 @@ a {
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
+input {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+header i {
+  font-size: 0.55555556rem;
+}
+[data-dpr^="2"]header i {
+  font-size: 80px;
+}
+[data-dpr^="3"]header i {
+  font-size: 120px;
+}

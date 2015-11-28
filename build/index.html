@@ -10,16 +10,22 @@
 <body>
 
 <header>
-    <ul>
-        <li class="pull-down">寻物
-            <div class="trangle"></div>
-        </li>
-        <li>招领</li>
-    </ul>
+    <form action="">
+        <select name="kind" id="kind">
+            <option value="0">招领</option>
+            <option value="1">寻物</option>
+        </select>
+        <div class="trangle"></div>
+        
+        <div class="input-wrapper">
+            <input type="text" placeholder="搜索关键字"/>
+            <button type="submit"><i class="iconfont">&#xe601;</i></button>
+        </div>
+    </form>
     <span class="i-wrapper">
-                <i class="iconfont">&#xe612;</i>
-                <a href="userInfo.html"><i class="iconfont">&#xe6a4;</i></a>
-                <i class="iconfont">&#xe628;</i>
+                
+                <a href="userInfo.html"><i class="iconfont">&#xe602;</i></a>
+                <a id='url' href="release.html"><i class="iconfont">&#xe603;</i></a>
     </span>
 </header>
 
@@ -30,34 +36,77 @@
 
 <section class="swiper-container">
     <div class="swiper-wrapper">
-        <div class="list">
-            <span class="logo"></span>
-            <div class="userInfo">
-                <p class="title">钥匙</p>
-                <p class="user">发布者：<span class="username">shabi</span></p>
+        <div class="swiper-slide tab1">
+
+            <div id="template-wrapper">
+                <script id="template" type="x-tmpl-mustache">
+                    {{#nextPage}}
+                        <div class="list">
+                            <img class="logo" src="{{relace_head_url}}" alt=""/>
+                            <div class="userInfo">
+                                <p class="title">{{kind_name}}</p>
+                                <p class="user">发布者：<span class="username">{{pro_name}}</span></p>
+                            </div>
+
+                            <div class="content">{{pro_description}}</div>
+
+                            <p class="date">2015-11-19</p>
+                        </div>
+                    {{/nextPage}}
+                </script>
             </div>
 
-            <div class="content">
-                上米娜有东西好啊好哈收到货健康
-            </div>
 
-            <p class="date">2015-11-19</p>
+            <div class="button" data-id="0">更多</div>
         </div>
+
+
+
+        <div class="swiper-slide tab2">
+            <div id="template-wrapper-1">
+                <script id="template-1" type="x-tmpl-mustache">
+                    {{#nextPage}}
+                        <div class="list">
+                            <img class="logo" src="{{relace_head_url}}" alt=""/>
+                            <div class="userInfo">
+                                <p class="title">{{kind_name}}</p>
+                                <p class="user">发布者：<span class="username">{{pro_name}}</span></p>
+                            </div>
+
+                            <div class="content">{{pro_description}}</div>
+
+                            <p class="date">2015-11-19</p>
+                        </div>
+                    {{/nextPage}}
+                </script>
+            </div>
+
+
+            <div class="button" data-id="1">更多</div>
+        </div>
+
+
     </div>
-    <div class="swiper-wrapper">
-        <div class="list">
-            <span class="logo"></span>
-            <div class="userInfo">
-                <p class="title">钥匙</p>
-                <p class="user">发布者：<span class="username">shabi</span></p>
-            </div>
 
-            <div class="content">
-                上米娜有东西好啊好哈收到货健康
-            </div>
+</section>
 
-            <p class="date">2015-11-19</p>
+<section class="loading">
+    <div id="loading">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div class="object"></div>
+                <div class="object"></div>
+                <div class="object"></div>
+                <div class="object"></div>
+                <div class="object"></div>
+                <div class="object"></div>
+                <div class="object"></div>
+                <div class="object"></div>
+                <div class="object"></div>
+                <div class="object"></div>
+            </div>
         </div>
+
     </div>
 </section>
 </body>

@@ -81,7 +81,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
                     }
                     $(self).show();
                     $("#loading").hide();
-                    var nextPage = res;
+                    var nextPage = res.nextPage;
                     console.log(nextPage);
                     var template =  kind == 0 ? $('#template').html():$('#template-1').html();
                     Mustache.parse(template);
