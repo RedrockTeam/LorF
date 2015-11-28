@@ -20,6 +20,7 @@ require(['fastclick','zepto'],function(FastClick,$){
         //绑定FastClick
         FastClick.attach(document.body);
 
+        var release = true;
         var oauth2Url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx81a4a4b77ec98ff4&redirect_uri=http%3A%2F%2Fhongyan.cqupt.edu.cn%2FLorF%2Findex.php%2FHome%2FIndex%2Findex&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
 
         $("#back").on('click',function(){
@@ -29,6 +30,7 @@ require(['fastclick','zepto'],function(FastClick,$){
 
         $('#release').on('click',function(){
 
+            console.log(release);
             var data = {};
             data.species;
             if($("select").val() == '' || $('textarea').val() == '' || $('input[type=place]').val() =='' || $('input[type=date]').val() == ''){
@@ -62,17 +64,21 @@ require(['fastclick','zepto'],function(FastClick,$){
             data.phone = $('input[name=phone]').val();
             data.qq = $('input[name=QQ]').val();
 
-            //console.log(data);
-            $.ajax({
-                type:'POST',
-                url:'handleInfo',
-                data:data,
-                success:function(res){
-                    console.log(res);
-                    res.status === 0 ?alert('修改失败'):location.href = oauth2Url;
-                }
+            if(release){
+                $.ajax({
+                    type:'POST',
+                    url:'http://127.0.0.1/LorF/index.php/Home/Index/handleInfo',
+                    data:data,
+                    success:function(res){
+                        console.log(res);
+                        res.status === 0 ?alert('修改失败'):location.href = oauth2Url;
+                        release = false;
+                    }
 
-            })
+                })
+            }else{
+                alert('请勿提交两次');
+            }
 
         })
 
