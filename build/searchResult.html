@@ -8,9 +8,9 @@
 </head>
 <body>
 <header>
-    <i class="iconfont back">&#xe608;</i>
+    <i class="iconfont" id="back">&#xe604;</i>
     <span class="title">搜索结果</span>
-    <i class="iconfont user">&#xe6a4;</i>
+    <i class="iconfont user">&#xe602;</i>
 </header>
 
 <nav>
@@ -33,5 +33,11 @@
         <p class="date">2015-11-19</p>
     </div>
 </section>
+
+<script>
+    $('#back').on('click',function(){
+        history.back();
+    })
+</script>
 </body>
 </html>

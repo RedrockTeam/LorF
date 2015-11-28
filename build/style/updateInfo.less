@@ -6,7 +6,9 @@ body{
   background-color: #f6f6f8;
 }
 
-
+input{
+  .fz(33.75)
+}
 header{
   height: 105rem/@psdWidth;
   line-height: 105rem/@psdWidth;
@@ -26,6 +28,8 @@ header{
     left: 30rem/@psdWidth;
   }
 }
+
+
 
 .userInfo{
   position: relative;
@@ -59,7 +63,6 @@ header{
     i{
       color:#84848d;
       .fz(40px);
-      //width:90rem/@psdWidth;
       float:left;
       margin:25rem/@psdWidth;
     }
@@ -115,31 +118,4 @@ header{
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
 
-}
-
-.banner{
-  display: none;
-  width:590rem/@psdWidth;
-  height:255rem/@psdWidth;
-  background-color: #fbfbfc;
-  .border-radius(5px);
-  top:50%;
-  position: absolute;
-  left:50%;
-  transform: translate(-50%,-50%);
-  .fz(34px);
-  p{
-    height: 155rem/@psdWidth;
-    line-height: 155rem/@psdWidth;
-    margin:0;
-    text-align: center;
-  }
-  .active {
-    text-align:center;
-    line-height: 100rem/@psdWidth;
-    color:@themeColor;
-    border-left: 1px solid #e9ebed;
-    height:100rem/@psdWidth;
-    border-top: 1px solid #dbdbdc;
-  }
 }

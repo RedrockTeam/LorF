@@ -61,10 +61,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
 
 
             kind = $(this).attr('data-id');
-            console.log(kind);
             $.ajax({
-                url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/Index/nextPage',
-                type:'GET',
                 data:{
                     key: 'redrockswzllhzwjp',
                     from: kind == 1 ? from.lost :from.found,
@@ -73,21 +70,34 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
                 },
                 dataType:'json',
                 success:function(res){
+                    if(res.nextPage.length == 0){
+                        $("#loading").hide();
+                        alert('木有了');
+
+                        return false;
+                    }
                     if(res.status == 0){
                         return false;
                     }
                     $(self).show();
                     $("#loading").hide();
-                    var nextPage = res;
+                    var nextPage = res.nextPage;
+                    console.log(nextPage);
                     var template =  kind == 0 ? $('#template').html():$('#template-1').html();
                     Mustache.parse(template);
                     var template_wrapper = kind == 0 ? $("#template-wrapper"):$("#template-wrapper-1");
                     var rendered = Mustache.render(template,nextPage);
                     template_wrapper.append(rendered);
                     kind == 0? from.found+=interval : from.lost+=interval;
-                    console.log(from.found)
                 }
             })
+        })
+
+
+
+        $('.list').on('click',function(){
+            debugger;
+            console.log($(this));
         })
 
     })
