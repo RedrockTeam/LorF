@@ -116,6 +116,4 @@ class UserInfoController extends CommonController{
 
         return $info;
     }
-
-
 }
