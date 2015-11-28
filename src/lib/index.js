@@ -98,7 +98,6 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
         })
 
         $('.list').on('click',function(){
-            alert(1);
             location.href = $(this).attr('detail-url');
         })
 

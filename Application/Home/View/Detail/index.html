@@ -8,13 +8,14 @@
 </head>
 <body>
 <header>
-    <i class="iconfont" id="back">&#xe608;</i>
+    <i class="iconfont" id="back">&#xe604;</i>
     <span class="title">信息详情</span>
 </header>
 
 <section>
     <div id="user" class="list">
-        <span class="logo"></span>
+        <!--<span class="logo"></span>-->
+        <img class="logo" src="{$detail['relace_head_url']}" alt="">
         <div class="userInfo">
             <span class="title">{$detail['pro_name']}</span></span>
             <span class="date">{$detail['create_time']|date='Y/m/d',###}</span>
