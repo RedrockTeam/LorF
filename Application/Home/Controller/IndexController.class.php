@@ -14,28 +14,28 @@ class IndexController extends CommonController {
     public function index(){
 
         // 获取到openid并且存到session
-        $code = I('get.code');
-
-        if(!$code){
-            return $this->redirect($this->oauth2Url);
-        }
-
-        $openId = $this->_getOpenId($code);
-        session('openid', $openId);
-
-        //判断是否绑定学号, 是否关注重邮小帮手
-        // $isBind = $this->_checkBind($openId);
-        // $care = $this->_checkCareXBS($openId);
-
-        // 获取学号和微信昵称以及头像
-         $stuNum = $this->_getStuNum(session('openid'));
-        // $userInfo = $this->_getUserInfo(session('openid'));
-
-        // 判断是否第一次访问, 传值为学号, 如果是第一次访问, 跳转到第一次访问页面
-        $first = $this->_isFirstVisit($stuNum);
-        if($first){
-            $this->redirect('Home/FirstVisit/index');
-        }
+//        $code = I('get.code');
+//
+//        if(!$code){
+//            return $this->redirect($this->oauth2Url);
+//        }
+//
+//        $openId = $this->_getOpenId($code);
+//        session('openid', $openId);
+//
+//        //判断是否绑定学号, 是否关注重邮小帮手
+//        // $isBind = $this->_checkBind($openId);
+//        // $care = $this->_checkCareXBS($openId);
+//
+//        // 获取学号和微信昵称以及头像
+//         $stuNum = $this->_getStuNum(session('openid'));
+//        // $userInfo = $this->_getUserInfo(session('openid'));
+//
+//        // 判断是否第一次访问, 传值为学号, 如果是第一次访问, 跳转到第一次访问页面
+//        $first = $this->_isFirstVisit($stuNum);
+//        if($first){
+//            $this->redirect('Home/FirstVisit/index');
+//        }
 
         // 获取失物招领信息, 限制为5条
         $lost = M('product_list')
