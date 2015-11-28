@@ -39,7 +39,7 @@ require(['fastclick','zepto'],function(FastClick,$){
                 return false;
             }
 
-            data.key = 'redrockswzllhzwjp',
+            data.key = 'redrockswzllhzwjp';
             data.real_name = $('input[name=name]').val();
             data.stu_num = $('input[name=stu-number]').val();
             data.phone = $('input[name=phonenumber]').val();
