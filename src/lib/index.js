@@ -95,13 +95,11 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
             })
         })
 
-        $('.button').eq(0).click();
 
-        $('.button').eq(1).click();
 
-        $('.list').on('click',function(){
-            location.href = $(this).attr('detail-url');
-        })
+        //$('.list').on('click',function(){
+        //    location.href = $(this).attr('detail-url');
+        //})
 
 
     })
