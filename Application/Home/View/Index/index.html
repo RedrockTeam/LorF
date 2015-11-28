@@ -37,6 +37,7 @@
 <section class="swiper-container">
     <div class="swiper-wrapper">
         <div class="swiper-slide tab1">
+            <div id="template-wrapper">
             <foreach name="lost" item="vo">
                 <div class="list" detail-url="{$vo.detail_url}">
                     <!--<span class="logo"></span>-->
@@ -54,28 +55,27 @@
                 </div>
             </foreach>
 
-            <script id="template" type="x-tmpl-mustache">
+                <script id="template" type="x-tmpl-mustache">
                 {{#nextPage}}
                     <div class="list">
-                        <img class="logo" src="images/logo.jpeg" alt=""/>
+                        <img class="logo" src="{{relace_head_url}}" alt=""/>
                         <div class="userInfo">
-                            <p class="title">{{pro_name}}</p>
-                            <p class="user">发布者：<span class="username">shabi</span></p>
+                            <p class="title">{{kind_name}}</p>
+                            <p class="user">发布者：<span class="username">{{pro_name}}</span></p>
                         </div>
 
-                        <div class="content">
-                            上米娜有东西好啊好哈收到货健康
-                        </div>
+                        <div class="content">{{pro_description}}</div>
 
                         <p class="date">2015-11-19</p>
                     </div>
                 {{/nextPage}}
             </script>
-
+            </div>
             <div class="button" data-id="0">更多</div>
         </div>
 
         <div class="swiper-slide tab2">
+            <div id="template-wrapper">
             <foreach name="found" item="vo">
                 <div class="list">
                     <!--<span class="logo"></span>-->
@@ -96,21 +96,19 @@
             <script id="template" type="x-tmpl-mustache">
                 {{#nextPage}}
                     <div class="list">
-                        <img class="logo" src="images/logo.jpeg" alt=""/>
+                        <img class="logo" src="{{relace_head_url}}" alt=""/>
                         <div class="userInfo">
-                            <p class="title">{{pro_name}}</p>
-                            <p class="user">发布者：<span class="username">shabi</span></p>
+                            <p class="title">{{kind_name}}</p>
+                            <p class="user">发布者：<span class="username">{{pro_name}}</span></p>
                         </div>
 
-                        <div class="content">
-                            上米娜有东西好啊好哈收到货健康
-                        </div>
+                        <div class="content">{{pro_description}}</div>
 
                         <p class="date">2015-11-19</p>
                     </div>
                 {{/nextPage}}
             </script>
-
+            </div>
             <div class="button" data-id="0">更多</div>
         </div>
 
