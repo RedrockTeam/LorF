@@ -80,7 +80,7 @@ class IndexController extends CommonController {
         //获取要去的的分页信息
         $from = I('from');
         $num  = I('num');
-        $LorF = I('LorF');
+        $LorF = I('Lorf');
 
         $result = M('product_list')
 //            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
