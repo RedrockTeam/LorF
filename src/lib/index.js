@@ -22,14 +22,13 @@ require.config({
 require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mustache){
     $(document).ready(function(){
 
-        //console.log(Mustache.render);
         //绑定FastClick
         FastClick.attach(document.body);
 
 
         var from = {};
             //end = {};
-        from.lost = from.found = 0;
+        from.lost = from.found = 4;
 
         //实例化mySwiper
         var mySwiper = new Swiper('.swiper-container',{
@@ -47,8 +46,6 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
         }).click(function(e){
             e.preventDefault();
         });
-
-
 
 
 
@@ -86,7 +83,8 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
                     $(self).show();
                     $("#loading").hide();
                     var nextPage = res;
-                    console.log(nextPage);
+                    console.log(res);
+
                     var template =  kind == 0 ? $('#template').html():$('#template-1').html();
                     Mustache.parse(template);
                     var template_wrapper = kind == 0 ? $("#template-wrapper"):$("#template-wrapper-1");
@@ -96,6 +94,10 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
                 }
             })
         })
+
+        $('.button').eq(0).click();
+
+        $('.button').eq(1).click();
 
         $('.list').on('click',function(){
             location.href = $(this).attr('detail-url');
