@@ -25,7 +25,6 @@ class FirstVisitController extends CommonController {
      * 处理更新的信息
      */
     public function handleInfo(){
-        // openid ouRCyjsp3eo3FJil24fV625V_6no
         $where['stu_num'] = I('stu_num');
         $headUrl = $this->_getUserInfo(session('openid'));
         $user = M('user_info')->where($where)->find();

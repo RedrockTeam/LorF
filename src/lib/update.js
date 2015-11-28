@@ -43,6 +43,7 @@ require(['fastclick','zepto'],function(FastClick,$){
             data.real_name = $('input[name=name]').val();
             data.stu_num = $('input[name=stu-number]').val();
             data.phone = $('input[name=phonenumber]').val();
+            data.qq = $('input[name=qq]').val();
             $.ajax({
                 type:'GET',
                 url: 'handleInfo',

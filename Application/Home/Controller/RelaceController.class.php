@@ -16,18 +16,21 @@ class RelaceController extends CommonController{
      */
     public function index(){
         $kinds = M('product_kinds')->select();
+        $info = M('user_info')->where(array('user_id' => session('relace_user_id')))->find();
 
         $this->assign('kinds', $kinds);
+        $this->assign('info', $info);
         $this->display();
     }
 
     public function handleInfo(){
         $post = I('get.');
-
-        dd($post);
-
+//dd($post);
         $mark = 0;
         $info = '电话: '.$post['phone'].' QQ: '.$post['qq'];
+
+        $kindname = M('product_kinds')->where(array('kind_id' => I('kind')))->find();
+        $connectpeople = M('user_info')->where(array('user_id' => session('relace_user_id')))->find();
 
         // 判断不能为空值
         foreach($post as $key => $value){
@@ -45,21 +48,23 @@ class RelaceController extends CommonController{
 
         // 保存添加
         $sta =  $this->_saveData(array(
-                    'pro_name'=> $post['name'],
-                    'pro_description'=> $post['remark'],
-                    'L_or_F_time'=> $this->_timeStyle(),
+                    'pro_name'=> $kindname['kind_name'],
+                    'pro_description'=> $post['content'],
+                    'L_or_F_time'=> $this->_timeStyle(I('date')),
                     'L_or_F_place'=> $post['place'],
                     'connect_info'=> $info,
-                    'connect_people'=> $post['contact_people'],
+                    'connect_people'=> $connectpeople['stu_name'],
                     'pro_kind_id'=> $post['kind'],
-                    'pro_user_id'=> 1,
+                    'pro_user_id'=> session('relace_user_id'),
                     'create_time'=> time(),
-                    'lost_or_found'=> $post['status'],
+                    'lost_or_found'=> $post['species'],
                     'check_state'=> 1,
                     'status'=> 0
                 ));
-
-        return $sta;
+//dd($sta);
+        $this->ajaxReturn(array(
+            'status'=>$sta
+        ));
     }
 
     /**
@@ -89,9 +94,7 @@ class RelaceController extends CommonController{
      */
 
     private function _timeStyle($str) {
-        $year = substr($str, 6,5);
-        $monthAndDay = substr($str, 0,5);
 
-        return strtotime($year.'/'.$monthAndDay);
+        return strtotime($str);
     }
 }

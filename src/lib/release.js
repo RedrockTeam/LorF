@@ -20,6 +20,8 @@ require(['fastclick','zepto'],function(FastClick,$){
         //绑定FastClick
         FastClick.attach(document.body);
 
+        var oauth2Url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx81a4a4b77ec98ff4&redirect_uri=http%3A%2F%2Fhongyan.cqupt.edu.cn%2FLorF%2Findex.php%2FHome%2FIndex%2Findex&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+
         $("#back").on('click',function(){
             history.back();
         })
@@ -35,15 +37,15 @@ require(['fastclick','zepto'],function(FastClick,$){
             }
 
             function checked(el){
-                return el.checked()
+                return el.checked();
             }
 
             var flag = false;
 
-            $('input[type=checkbox]').forEach(function(item,index){
+            $('input[type=radio]').forEach(function(item,index){
                 if(item.checked == true){
                     flag = true;
-                    data.species = $('input[type=checkbox]').eq(index).val();
+                    data.species = $('input[type=radio]').eq(index).val();
                     return;
                 }
             })
@@ -54,31 +56,29 @@ require(['fastclick','zepto'],function(FastClick,$){
             }
 
 
-            date = $('input[type=date]').val();
-            date = new Date(Date.parse(date.replace(/-/g, "/")));
-            date = date.getTime();
-            console.log(date);
+            //date = $('input[type=date]').val();
+            //date = new Date(Date.parse(date.replace(/-/g, "/")));
+            //date = date.getTime();
+            //console.log(date);
 
 
             data.kind = $("select").val();
             data.content = $('textarea').val();
-            data.date = date;
+            data.date = $('input[type=date]').val();
             data.place = $('input[name=place]').val();
             data.phone = $('input[name=phone]').val();
             data.qq = $('input[name=QQ]').val();
 
             //console.log(data);
             $.ajax({
-                url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/Relace/handleInfo',
+                url:'http://127.0.0.1/LorF/index.php/Home/Relace/handleInfo',
                 type:'GET',
                 data:data,
                 dataType:'json',
                 success:function(res){
-                    if(res == 1){
-                        alert('修改成功');
-                    }else{
-                        alert('修改失败');
-                    }
+
+                    console.log(res);
+                    res === 0 ?alert('修改失败'):location.href = oauth2Url;
                 }
 
             })
