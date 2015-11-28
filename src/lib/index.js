@@ -26,8 +26,9 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
         //绑定FastClick
         FastClick.attach(document.body);
 
-        var from = {},
-            end = {};
+
+        var from = {};
+            //end = {};
         from.lost = from.found = 0;
 
         //实例化mySwiper
@@ -46,6 +47,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
         }).click(function(e){
             e.preventDefault();
         });
+
 
 
 
@@ -97,10 +99,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
 
 
 
-        //$('.list').on('click',function(){
-        //    debugger;
-        //    console.log($(this));
-        //})
+
 
     })
 })

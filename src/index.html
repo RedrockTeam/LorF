@@ -41,7 +41,7 @@
             <div id="template-wrapper">
                 <script id="template" type="x-tmpl-mustache">
                     {{#nextPage}}
-                        <div class="list">
+                        <div class="list" detail-url="{{detail_url}}">
                             <img class="logo" src="{{relace_head_url}}" alt=""/>
                             <div class="userInfo">
                                 <p class="title">{{kind_name}}</p>
@@ -66,7 +66,7 @@
             <div id="template-wrapper-1">
                 <script id="template-1" type="x-tmpl-mustache">
                     {{#nextPage}}
-                        <div class="list">
+                        <div class="list" detail-url="{{detail_url}}">
                             <img class="logo" src="{{relace_head_url}}" alt=""/>
                             <div class="userInfo">
                                 <p class="title">{{kind_name}}</p>
@@ -109,5 +109,7 @@
 
     </div>
 </section>
+
+
 </body>
 </html>
