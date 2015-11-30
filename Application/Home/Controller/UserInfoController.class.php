@@ -12,7 +12,8 @@ class UserInfoController extends CommonController{
 
     private function _getSelfId(){
 
-        return session('relace_user_id');
+//        return session('relace_user_id');
+        return 1;
     }
 
     public function index(){
@@ -58,7 +59,7 @@ class UserInfoController extends CommonController{
         }else{
             $status = 0;
         }
-dd($where);
+//dd($where);
         // 如果count小于4 返回空
         if($count < 4){
             $this->ajaxReturn(array(
