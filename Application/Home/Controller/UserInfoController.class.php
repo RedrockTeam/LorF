@@ -124,7 +124,8 @@ class UserInfoController extends CommonController{
         $list = M('product_list')
 //            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id, status')
             ->where(array(
-                'pro_user_id' => $selfId
+                'pro_user_id' => $selfId,
+                'status' => 0
             ))
             ->order('pro_id desc')
             ->limit(4)
