@@ -96,7 +96,6 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
 
 
 
-
         $('#template-wrapper').on('click','span',function(e){
             e.stopPropagation();
             show();
@@ -126,11 +125,16 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
         })
 
 
+        $('#template-wrapper').on('click','div',function(){
+            console.log(1)
+            location.href = $(this).attr('detail-url');
+        })
 
 
-        //$('.swiper-wrapper').eq(0).on('click','div',function(){
-        //    console.log($(this).attr('data-id'));
-        //})
+        $('#template-wrapper-1').on('click','div',function(){
+            console.log(1)
+            location.href = $(this).attr('detail-url');
+        })
 
         function show(){
             $('.shade').show();

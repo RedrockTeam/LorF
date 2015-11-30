@@ -31,12 +31,12 @@
                             <div class="list" detail-url="{{detail_url}}" data-Id="{{pro_id}}">
                                 <img class="logo" src="{{relace_head_url}}" alt=""/>
                                 <span class="solved">已解决?</span>
-                                <div class="userInfo">
+                                <div class="userInfo" detail-url="{{detail_url}}">
                                     <p class="title">{{kind_name}}</p>
                                     <p class="user">发布者：<span class="username">{{pro_name}}</span></p>
                                 </div>
 
-                                <div class="content">{{pro_description}}</div>
+                                <div class="content" detail-url="{{detail_url}}">{{pro_description}}</div>
 
                                 <p class="date">2015-11-19</p>
                             </div>
@@ -56,6 +56,7 @@
                         <a href="{{detail_url}}">
                             <div class="list">
                                 <img class="logo" src="{{relace_head_url}}" alt=""/>
+                                <img src="images/flag.png" alt="" class="flag"/>
                                 <div class="userInfo">
                                     <p class="title">{{kind_name}}</p>
                                     <p class="user">发布者：<span class="username">{{pro_name}}</span></p>
