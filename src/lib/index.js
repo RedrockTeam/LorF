@@ -97,9 +97,9 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
 
 
 
-        //$('.list').on('click',function(){
-        //    location.href = $(this).attr('detail-url');
-        //})
+        $('.swiper-wrapper').eq(0).on('click','.list',function(){
+            location.href = $(this).attr('detail-url');
+        })
 
 
     })
