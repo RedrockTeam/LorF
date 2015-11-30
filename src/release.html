@@ -6,7 +6,7 @@
     <script src="lib/lib.flexible.js"></script>
     <script src="lib/require.js" data-main="lib/release.js"></script>
     <link rel="stylesheet" href="style/release.css"/>
-    <link rel="stylesheet" href="style/bootstrap-datepicker.css"/>
+    <script src="lib/tools/laydate.js"></script>
 
 </head>
 <body>
@@ -32,8 +32,8 @@
     <textarea placeholder="请填入50字以内的描述..."></textarea>
     <div class="input-div space">
         <span class="left"><span class="align-left">时</span> <span class="align">间</span></span>
-        <div class="input-wrapper" id="datepairExample">
-            <input type="date" class="date"/>
+        <div class="input-wrapper" id="datepicker">
+            <input/>
             <i class="iconfont">&#xe600;</i>
         </div>
     </div>
@@ -56,5 +56,17 @@
         </div>
     </div>
 </section>
+
+
+<script>
+    ;!function(){
+
+        laydate({
+            elem: '#datepicker'
+        })
+
+    }();
+
+</script>
 </body>
 </html>

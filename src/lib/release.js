@@ -6,6 +6,7 @@ require.config({
         swiper: 'tools/swiper',
         fastclick: 'tools/fastclick',
         mustache: 'tools/mustache.min',
+        laydate: "tools/laydate"
     },
     shim: {
         zepto: {
@@ -15,10 +16,12 @@ require.config({
 })
 
 
-require(['fastclick','zepto'],function(FastClick,$){
+require(['fastclick','zepto','laydate'],function(FastClick,$,laydate){
     $(document).ready(function(){
         //绑定FastClick
         FastClick.attach(document.body);
+        console.log(laydate);
+
 
 
 

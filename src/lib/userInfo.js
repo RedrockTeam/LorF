@@ -9,9 +9,7 @@ require.config({
         swiper: 'tools/swiper',
         fastclick: 'tools/fastclick',
         mustache: 'tools/mustache.min',
-        bootstrapDatepicker:'bootstrap-datepicker',
-        datepair: 'datepair',
-        jqueryDatepair: 'jquery.datepair'
+
     },
     shim: {
         zepto: {
@@ -21,20 +19,13 @@ require.config({
 })
 
 
-require(['fastclick','zepto','swiper','mustache','bootstrapDatepicker','datepair','jqueryDatepair'],function(FastClick,$,swiper,Mustache){
+require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mustache){
     $(document).ready(function(){
 
         //绑定FastClick
         FastClick.attach(document.body);
 
 
-        $('#datepairExample .date').datepicker({
-            'format': 'yyyy-m-d',
-            'autoclose': true
-        });
-
-        // initialize datepair
-        $('#datepairExample').datepair();
 
 
 
