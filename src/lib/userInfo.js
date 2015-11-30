@@ -108,9 +108,16 @@ require(['fastclick','zepto','swiper','mustache','bootstrapDatepicker','datepair
         })
 
 
+        $('.swiper-wrapper').eq(0).on('click','.list',function(){
+            console.log(1)
+            location.href = $(this).attr('detail-url');
+        })
 
 
-        $('#template-wrapper').on('click','.solved',function(e){
+
+
+
+        $('.list').on('click','.solved',function(e){
             e.stopPropagation();
             show();
             var dataId = $(this).parent().eq(0).attr('data-Id');
