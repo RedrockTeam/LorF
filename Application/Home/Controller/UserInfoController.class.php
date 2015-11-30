@@ -35,10 +35,10 @@ class UserInfoController extends CommonController{
         //获取要加载的分页信息
         $from = I('from');
         $num  = I('num');
-        $DorR = I('DorR'); //标识符 已发布1 已解决2
+        $DorR = I('DorR'); //标识符 未解决1 已解决2
 //        dd($DorR);
-        if(is_null($DorR)){
-
+        if($DorR == 1){
+            $where['status'] = 0;
         }if($DorR == 2){
             $where['status'] = 1;
         }

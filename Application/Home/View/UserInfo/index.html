@@ -21,104 +21,32 @@
 </nav>
 
 <section class="swiper-container">
-    <!--<div class="swiper-wrapper">-->
-        <!--<div class="swiper-slide tab1">-->
-            <!--<div id="template-wrapper">-->
-                <!--<foreach name="selfRelace" item="vo">-->
-                    <!--<a href="{$vo.detail_url}">-->
-                        <!--<div class="list" data-id="{$vo.pro_id}">-->
-                            <!--&lt;!&ndash;<span class="logo"></span>&ndash;&gt;-->
-                            <!--<img src="{$vo.relace_head_url}" alt="" class="logo">-->
-                            <!--<div class="userInfo">-->
-                                <!--<p class="title">{$vo.pro_name}</p>-->
-                                <!--<p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>-->
-                            <!--</div>-->
-
-                            <!--<div class="content">-->
-                                <!--{$vo.pro_description}-->
-                            <!--</div>-->
-
-                            <!--<p class="date">{$vo.create_time|date='Y/m/d',###}</p>-->
-
-                        <!--<span class="solved">-->
-                            <!--已解决?-->
-                        <!--</span>-->
-                        <!--</div>-->
-                    <!--</a>-->
-                <!--</foreach>-->
-
-                <!--<script id="template" type="x-tmpl-mustache">-->
-                    <!--{{#nextPage}}-->
-                            <!--<div class="list" detail-url="{{detail_url}}">-->
-                                <!--<img class="logo" src="{{relace_head_url}}" alt=""/>-->
-                                <!--<div class="userInfo">-->
-                                    <!--<p class="title">{{kind_name}}</p>-->
-                                    <!--<p class="user">发布者：<span class="username">{{pro_name}}</span></p>-->
-                                <!--</div>-->
-
-                                <!--<div class="content">{{pro_description}}</div>-->
-
-                                <!--<p class="date">2015-11-19</p>-->
-                            <!--</div>-->
-                    <!--{{/nextPage}}-->
-                <!--</script>-->
-            <!--</div>-->
-
-
-            <!--<div class="button" data-id="1">更多</div>-->
-        <!--</div>-->
-
-        <!--<div class="swiper-slide tab2">-->
-            <!--<div id="template-wrapper-1">-->
-                <!--<foreach name="selfDone" item="vo">-->
-                    <!--<a href="{$vo.detail_url}">-->
-                        <!--<div class="list" detail-id="{$vo.pro_id}">-->
-                            <!--&lt;!&ndash;<span class="logo"></span>&ndash;&gt;-->
-                            <!--<img src="{$vo.relace_head_url}" alt="" class="logo">-->
-                            <!--<div class="userInfo">-->
-                                <!--<p class="title">{$vo.pro_name}</p>-->
-                                <!--<p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>-->
-                            <!--</div>-->
-
-                            <!--<div class="content">-->
-                                <!--{$vo.pro_description}-->
-                            <!--</div>-->
-
-                            <!--<p class="date">{$vo.create_time|date='Y/m/d',###}</p>-->
-                        <!--<span class="solved">-->
-                            <!--已解决?-->
-                        <!--</span>-->
-                        <!--</div>-->
-                    <!--</a>-->
-                <!--</foreach>-->
-
-                <!--<script id="template-1" type="x-tmpl-mustache">-->
-                    <!--{{#nextPage}}-->
-                        <!--<a href="{{detail_url}}">-->
-                            <!--<div class="list">-->
-                                <!--<img class="logo" src="{{relace_head_url}}" alt=""/>-->
-                                <!--<div class="userInfo">-->
-                                    <!--<p class="title">{{kind_name}}</p>-->
-                                    <!--<p class="user">发布者：<span class="username">{{pro_name}}</span></p>-->
-                                <!--</div>-->
-
-                                <!--<div class="content">{{pro_description}}</div>-->
-
-                                <!--<p class="date">2015-11-19</p>-->
-                            <!--</div>-->
-                        <!--</a>-->
-                    <!--{{/nextPage}}-->
-                <!--</script>-->
-            <!--</div>-->
-
-            <!--<div class="button" data-id="2">更多</div>-->
-        <!--</div>-->
-
-    <!--</div>-->
-
     <div class="swiper-wrapper">
         <div class="swiper-slide tab1">
             <div id="template-wrapper">
+                <foreach name="selfRelace" item="vo">
+                    <a href="{$vo.detail_url}">
+                        <div class="list" data-id="{$vo.pro_id}">
+                            <!--<span class="logo"></span>-->
+                            <img src="{$vo.relace_head_url}" alt="" class="logo">
+                            <div class="userInfo">
+                                <p class="title">{$vo.pro_name}</p>
+                                <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
+                            </div>
+
+                            <div class="content">
+                                {$vo.pro_description}
+                            </div>
+
+                            <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
+
+                        <span class="solved">
+                            已解决?
+                        </span>
+                        </div>
+                    </a>
+                </foreach>
+
                 <script id="template" type="x-tmpl-mustache">
                     {{#nextPage}}
                             <div class="list" detail-url="{{detail_url}}">
@@ -136,11 +64,34 @@
                 </script>
             </div>
 
+
             <div class="button" data-id="1">更多</div>
         </div>
 
         <div class="swiper-slide tab2">
             <div id="template-wrapper-1">
+                <foreach name="selfDone" item="vo">
+                    <a href="{$vo.detail_url}">
+                        <div class="list" detail-id="{$vo.pro_id}">
+                            <!--<span class="logo"></span>-->
+                            <img src="{$vo.relace_head_url}" alt="" class="logo">
+                            <div class="userInfo">
+                                <p class="title">{$vo.pro_name}</p>
+                                <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
+                            </div>
+
+                            <div class="content">
+                                {$vo.pro_description}
+                            </div>
+
+                            <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
+                        <span class="solved">
+                            已解决?
+                        </span>
+                        </div>
+                    </a>
+                </foreach>
+
                 <script id="template-1" type="x-tmpl-mustache">
                     {{#nextPage}}
                         <a href="{{detail_url}}">
@@ -164,6 +115,55 @@
         </div>
 
     </div>
+
+    <!--<div class="swiper-wrapper">-->
+        <!--<div class="swiper-slide tab1">-->
+            <!--<div id="template-wrapper">-->
+                <!--<script id="template" type="x-tmpl-mustache">-->
+                    <!--{{#nextPage}}-->
+                            <!--<div class="list" detail-url="{{detail_url}}">-->
+                                <!--<img class="logo" src="{{relace_head_url}}" alt=""/>-->
+                                <!--<div class="userInfo">-->
+                                    <!--<p class="title">{{kind_name}}</p>-->
+                                    <!--<p class="user">发布者：<span class="username">{{pro_name}}</span></p>-->
+                                <!--</div>-->
+
+                                <!--<div class="content">{{pro_description}}</div>-->
+
+                                <!--<p class="date">2015-11-19</p>-->
+                            <!--</div>-->
+                    <!--{{/nextPage}}-->
+                <!--</script>-->
+            <!--</div>-->
+
+            <!--<div class="button" data-id="1">更多</div>-->
+        <!--</div>-->
+
+        <!--<div class="swiper-slide tab2">-->
+            <!--<div id="template-wrapper-1">-->
+                <!--<script id="template-1" type="x-tmpl-mustache">-->
+                    <!--{{#nextPage}}-->
+                        <!--<a href="{{detail_url}}">-->
+                            <!--<div class="list">-->
+                                <!--<img class="logo" src="{{relace_head_url}}" alt=""/>-->
+                                <!--<div class="userInfo">-->
+                                    <!--<p class="title">{{kind_name}}</p>-->
+                                    <!--<p class="user">发布者：<span class="username">{{pro_name}}</span></p>-->
+                                <!--</div>-->
+
+                                <!--<div class="content">{{pro_description}}</div>-->
+
+                                <!--<p class="date">2015-11-19</p>-->
+                            <!--</div>-->
+                        <!--</a>-->
+                    <!--{{/nextPage}}-->
+                <!--</script>-->
+            <!--</div>-->
+
+            <!--<div class="button" data-id="2">更多</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
 </section>
 
 <section class="shade"></section>
