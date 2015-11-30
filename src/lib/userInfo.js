@@ -72,7 +72,7 @@ require(['fastclick','zepto','swiper','mustache','bootstrapDatepicker','datepair
 
             kind = $(this).attr('data-id');
             $.ajax({
-                url:'http://localhost/LorF/index.php/Home/UserInfo/nextPage',
+                url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/UserInfo/nextPage',
                 type:'GET',
                 data:{
                     key: 'redrockswzllhzwjp',
@@ -125,7 +125,7 @@ require(['fastclick','zepto','swiper','mustache','bootstrapDatepicker','datepair
             $('.ensure').on('click',function(){
                 hide();
                 $.ajax({
-                    url:'http://localhost/LorF/index.php/Home/UserInfo/handleDone',
+                    url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/UserInfo/handleDone',
                     type:'GET',
                     data:{
                         id:dataId
@@ -142,7 +142,7 @@ require(['fastclick','zepto','swiper','mustache','bootstrapDatepicker','datepair
         })
 
         $('.cancel').on('click',function(){
-           hide()
+           hide();
         })
 
 
@@ -160,7 +160,7 @@ require(['fastclick','zepto','swiper','mustache','bootstrapDatepicker','datepair
 
         function hide(){
             $('.shade').hide();
-            $('.banner').hide()
+            $('.banner').hide();
         }
     })
 })
