@@ -8,7 +8,10 @@ require.config({
         zepto: 'zepto.min',
         swiper: 'tools/swiper',
         fastclick: 'tools/fastclick',
-        mustache: 'tools/mustache.min'
+        mustache: 'tools/mustache.min',
+        bootstrapDatepicker:'bootstrap-datepicker',
+        datepair: 'datepair',
+        jqueryDatepair: 'jquery.datepair'
     },
     shim: {
         zepto: {
@@ -18,13 +21,23 @@ require.config({
 })
 
 
-require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mustache){
+require(['fastclick','zepto','swiper','mustache','bootstrapDatepicker','datepair','jqueryDatepair'],function(FastClick,$,swiper,Mustache){
     $(document).ready(function(){
 
         //绑定FastClick
         FastClick.attach(document.body);
 
-        //$( "#datepicker" ).datepicker();
+
+        $('#datepairExample .date').datepicker({
+            'format': 'yyyy-m-d',
+            'autoclose': true
+        });
+
+        // initialize datepair
+        $('#datepairExample').datepair();
+
+
+
 
         var mySwiper = new Swiper('.swiper-container',{
             speed: 500,
@@ -59,7 +72,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
 
             kind = $(this).attr('data-id');
             $.ajax({
-                url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/UserInfo/nextPage',
+                url:'http://localhost/LorF/index.php/Home/UserInfo/nextPage',
                 type:'GET',
                 data:{
                     key: 'redrockswzllhzwjp',
@@ -69,6 +82,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
                 },
                 dataType:'json',
                 success:function(res){
+                    $(self).show();
                     if(res.nextPage.length == 0){
                         $("#loading").hide();
                         alert('木有了');
@@ -78,7 +92,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
                     if(res.status == 0){
                         return false;
                     }
-                    $(self).show();
+
                     $("#loading").hide();
                     var nextPage = res;
                     console.log(res);
@@ -96,7 +110,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
 
 
 
-        $('#template-wrapper').on('click','span',function(e){
+        $('#template-wrapper').on('click','.solved',function(e){
             e.stopPropagation();
             show();
             var dataId = $(this).parent().eq(0).attr('data-Id');
@@ -104,7 +118,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
             $('.ensure').on('click',function(){
                 hide();
                 $.ajax({
-                    url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/UserInfo/handleDone',
+                    url:'http://localhost/LorF/index.php/Home/UserInfo/handleDone',
                     type:'GET',
                     data:{
                         id:dataId
@@ -125,16 +139,11 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
         })
 
 
-        $('#template-wrapper').on('click','div',function(){
-            console.log(1)
+        $('.swiper-wrapper').eq(0).on('click','.list',function(){
             location.href = $(this).attr('detail-url');
         })
 
 
-        $('#template-wrapper-1').on('click','div',function(){
-            console.log(1)
-            location.href = $(this).attr('detail-url');
-        })
 
         function show(){
             $('.shade').show();
