@@ -87,9 +87,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
                     Mustache.parse(template);
                     var template_wrapper = kind == 1 ? $("#template-wrapper"):$("#template-wrapper-1");
                     var rendered = Mustache.render(template,nextPage);
-                    //console.log(rendered);
                     template_wrapper.append(rendered);
-                    //debugger
                     kind == 1? from.solved+=interval : from.released+=interval;
                 }
             })
