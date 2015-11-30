@@ -26,7 +26,8 @@
             <foreach name="selfRelace" item="vo">
                 <a href="{$vo.detail_url}">
                     <div class="list" data-id="{$vo.pro_id}">
-                        <span class="logo"></span>
+                        <!--<span class="logo"></span>-->
+                        <img src="{$vo.relace_head_url}" alt="" class="logo">
                         <div class="userInfo">
                             <p class="title">{$vo.pro_name}</p>
                             <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
@@ -52,7 +53,8 @@
             <foreach name="selfDone" item="vo">
                 <a href="{$vo.detail_url}">
                     <div class="list" detail-id="{$vo.pro_id}">
-                        <span class="logo"></span>
+                        <!--<span class="logo"></span>-->
+                        <img src="{$vo.relace_head_url}" alt="" class="logo">
                         <div class="userInfo">
                             <p class="title">{$vo.pro_name}</p>
                             <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
@@ -71,26 +73,6 @@
             </foreach>
 
             <div class="button" data-id="2">更多</div>
-        </div>
-
-    </div>
-</section>
-
-<section class="loading">
-    <div id="loading">
-        <div id="loading-center">
-            <div id="loading-center-absolute">
-                <div class="object"></div>
-                <div class="object"></div>
-                <div class="object"></div>
-                <div class="object"></div>
-                <div class="object"></div>
-                <div class="object"></div>
-                <div class="object"></div>
-                <div class="object"></div>
-                <div class="object"></div>
-                <div class="object"></div>
-            </div>
         </div>
 
     </div>

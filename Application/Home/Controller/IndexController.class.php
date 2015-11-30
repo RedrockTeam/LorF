@@ -14,14 +14,14 @@ class IndexController extends CommonController {
     public function index(){
 
         // 获取到openid并且存到session
-        $code = I('get.code');
-
-        if(!$code){
-            return $this->redirect($this->oauth2Url);
-        }
-
-        $openId = $this->_getOpenId($code);
-//        $openId = 'ouRCyjsp3eo3FJil24fV625V_6no';
+//        $code = I('get.code');
+//
+//        if(!$code){
+//            return $this->redirect($this->oauth2Url);
+//        }
+//
+//        $openId = $this->_getOpenId($code);
+        $openId = 'ouRCyjsp3eo3FJil24fV625V_6no';
         session('openid', $openId);
 
         //判断是否绑定学号, 是否关注重邮小帮手
@@ -59,14 +59,15 @@ class IndexController extends CommonController {
 
         //获取搜索的物品名称
         $searchName = I('searchName');
-        $where['pro_name'] = array('like','%'.$searchName.'%');
+        $kind = I('kind');  // 寻物0, 招领1
+//        dd($kind);
+        $where['pro_description'] = array('like','%'.$searchName.'%');
         $where['status'] = 0;
+        $where['lost_or_found'] = $kind;
         $result = M('product_list')->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
                                  ->where($where)
-                                 ->order('pro_id desc')->limit(5)->select();
-//        $this->ajaxReturn(array(
-//           'searchResult' => getList($result)
-//        ));
+                                 ->order('pro_id desc')->limit(10)->select();
+
         $this->assign('result', getList($result));
 //dd(getList($result));
         $this->display();
