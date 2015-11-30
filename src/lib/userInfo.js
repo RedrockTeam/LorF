@@ -9,10 +9,6 @@ require.config({
         swiper: 'tools/swiper',
         fastclick: 'tools/fastclick',
         mustache: 'tools/mustache.min',
-<<<<<<< HEAD
-=======
-        bootstrapDatepicker:'bootstrap-datepicker',
->>>>>>> 4abf9b95cab4247d54144c0725093e5fcbf7bb00
 
     },
     shim: {
@@ -29,14 +25,6 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
         //绑定FastClick
         FastClick.attach(document.body);
 
-
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> 4abf9b95cab4247d54144c0725093e5fcbf7bb00
         var mySwiper = new Swiper('.swiper-container',{
             speed: 500,
             onSlideChangeStart: function(){
@@ -64,7 +52,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
                 self = this,
                 interval = 4;
 
-            $(this).hide();
+
             $("#loading").show();
 
 
@@ -80,7 +68,6 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
                 },
                 dataType:'json',
                 success:function(res){
-                    $(self).show();
                     if(res.nextPage.length == 0){
                         $("#loading").hide();
                         alert('木有了');
