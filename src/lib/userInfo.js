@@ -57,7 +57,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
 
             kind = $(this).attr('data-id');
             $.ajax({
-                url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/Index/nextPage',
+                url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/UserInfo/nextPage',
                 type:'GET',
                 data:{
                     key: 'redrockswzllhzwjp',
@@ -97,8 +97,21 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
         //页面交互逻辑
         $('.solved').on('click',function(){
             show();
+            var dataId = $(this).attr('data-Id');
             $('.ensure').on('click',function(){
-                hide()
+                hide();
+                $.ajax({
+                    url:'',
+                    type:'GET',
+                    data:{
+                        dataId:dataId
+                    },
+                    success:function(res){
+                        if(res.status == 0){
+                            alert('')
+                        }
+                    }
+                })
             })
 
         })
@@ -108,6 +121,11 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
         })
 
 
+
+
+        $('.swiper-wrapper').eq(0).on('click','div',function(){
+            console.log($(this).attr('data-id'));
+        })
 
         function show(){
             $('.shade').show();

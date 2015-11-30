@@ -5,7 +5,7 @@ require.config({
         zepto: 'zepto.min',
         swiper: 'tools/swiper',
         fastclick: 'tools/fastclick',
-        mustache: 'tools/mustache.min'
+        mustache: 'tools/mustache.min',
     },
     shim: {
         zepto: {
