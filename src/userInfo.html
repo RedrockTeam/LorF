@@ -6,7 +6,6 @@
     <script src="lib/lib.flexible.js"></script>
     <script src="lib/require.js" data-main="lib/userInfo"></script>
     <link rel="stylesheet" href="style/userInfo.css"/>
-    <link rel="stylesheet" href="style/bootstrap.min.css"/>
 </head>
 <body ms-controller="userInfo">
 
@@ -28,7 +27,6 @@
             <div id="template-wrapper">
                 <script id="template" type="x-tmpl-mustache">
                     {{#nextPage}}
-                        <a href="{{detail_url}}">
                             <div class="list" detail-url="{{detail_url}}">
                                 <img class="logo" src="{{relace_head_url}}" alt=""/>
                                 <div class="userInfo">
@@ -40,12 +38,11 @@
 
                                 <p class="date">2015-11-19</p>
                             </div>
-                        </a>
                     {{/nextPage}}
                 </script>
             </div>
 
-            <div class="button" data-id="0">更多</div>
+            <div class="button" data-id="1">更多</div>
         </div>
 
         <div class="swiper-slide tab2">
@@ -69,7 +66,7 @@
                 </script>
             </div>
 
-            <div class="button" data-id="1">更多</div>
+            <div class="button" data-id="2">更多</div>
         </div>
 
     </div>
