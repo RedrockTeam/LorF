@@ -35,22 +35,16 @@ class UserInfoController extends CommonController{
         //获取要加载的分页信息
         $from = I('from');
         $num  = I('num');
-        $DorR = I('DorR'); //标识符 已发布1 已解决2
+        $DorR = I('DorR'); //标识符 未解决1 已解决2
 //        dd($DorR);
-        if(is_null($DorR)){
-
+        if($DorR == 1){
+            $where['status'] = 0;
         }if($DorR == 2){
             $where['status'] = 1;
         }
 //dd($where);
         $list = M('product_list')
-            ->where(array('status' => 0))
-            ->order('pro_id desc')
-            ->limit($from, $num)
-            ->select();
-
-        $done = M('product_list')
-            ->where(array('status' => 1))
+            ->where($where)
             ->order('pro_id desc')
             ->limit($from, $num)
             ->select();
@@ -70,14 +64,12 @@ class UserInfoController extends CommonController{
         if($count < 4){
             $this->ajaxReturn(array(
                 'status' => $status,
-                'nextPage' => getList(),
-                'Done' =>getList()
+                'nextPage' => getList()
             ));
         }else{
             $this->ajaxReturn(array(
                 'status' => $status,
-                'nextPage' => getList($list),
-                'Done' => getList($done)
+                'nextPage' => getList($list)
             ));
         }
 
