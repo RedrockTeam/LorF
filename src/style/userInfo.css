@@ -680,6 +680,7 @@ nav .active {
   top: 0.27777778rem;
   right: 0.41666667rem;
   position: absolute;
+  width: 1.875rem;
 }
 .shade {
   display: none;
