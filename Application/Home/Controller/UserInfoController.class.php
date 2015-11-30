@@ -13,7 +13,7 @@ class UserInfoController extends CommonController{
     private function _getSelfId(){
 
 //        return session('relace_user_id');
-        return 1;
+        return 11;
     }
 
     public function index(){
