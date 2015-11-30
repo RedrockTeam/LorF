@@ -17,7 +17,7 @@
 
 
 <nav>
-    <div class="lis active">已发布</div>
+    <div class="lis active">未解决</div>
     <div class="lis">已解决</div>
 </nav>
 
@@ -26,9 +26,11 @@
         <div class="swiper-slide tab1">
             <div id="template-wrapper">
                 <script id="template" type="x-tmpl-mustache">
+
                     {{#nextPage}}
-                            <div class="list" detail-url="{{detail_url}}">
+                            <div class="list" detail-url="{{detail_url}}" data-Id="{{pro_id}}">
                                 <img class="logo" src="{{relace_head_url}}" alt=""/>
+                                <span class="solved">已解决?</span>
                                 <div class="userInfo">
                                     <p class="title">{{kind_name}}</p>
                                     <p class="user">发布者：<span class="username">{{pro_name}}</span></p>
@@ -39,6 +41,8 @@
                                 <p class="date">2015-11-19</p>
                             </div>
                     {{/nextPage}}
+
+
                 </script>
             </div>
 

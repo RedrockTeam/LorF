@@ -61,7 +61,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
 
             kind = $(this).attr('data-id');
             $.ajax({
-                url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/Index/nextPage',
+                url:'http://localhost/LorF/index.php/Home/Index/nextPage',
                 type:'GET',
                 data:{
                     key: 'redrockswzllhzwjp',

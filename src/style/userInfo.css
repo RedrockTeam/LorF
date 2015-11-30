@@ -555,8 +555,8 @@ nav .active {
   overflow: hidden;
 }
 .swiper-container .swiper-wrapper {
-  width: 200%;
-  height: auto;
+  width: 200% !important;
+  height: auto !important;
   box-sizing: border-box;
 }
 .swiper-container .swiper-wrapper .swiper-slide {

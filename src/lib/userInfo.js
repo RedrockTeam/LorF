@@ -59,7 +59,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
 
             kind = $(this).attr('data-id');
             $.ajax({
-                url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/UserInfo/nextPage',
+                url:'http://localhost/LorF/index.php/Home/UserInfo/nextPage',
                 type:'GET',
                 data:{
                     key: 'redrockswzllhzwjp',
@@ -81,14 +81,14 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
                     $(self).show();
                     $("#loading").hide();
                     var nextPage = res;
-                    console.log(nextPage);
+                    console.log(res);
 
                     var template =  kind == 1 ? $('#template').html():$('#template-1').html();
                     Mustache.parse(template);
                     var template_wrapper = kind == 1 ? $("#template-wrapper"):$("#template-wrapper-1");
                     var rendered = Mustache.render(template,nextPage);
                     template_wrapper.append(rendered);
-                    kind == 1? from.solved+=interval : from.released+=interval;
+                    kind == 1? from.released+=interval : from.solved+=interval;
                 }
             })
         })
@@ -96,28 +96,29 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
 
 
 
-        //页面交互逻辑
-        $('.solved').on('click',function(e){
+
+        $('#template-wrapper').on('click','span',function(e){
             e.stopPropagation();
             show();
-            var dataId = $(this).attr('data-Id');
+            var dataId = $(this).parent().eq(0).attr('data-Id');
+            var parent = $(this).parent().eq(0);
             $('.ensure').on('click',function(){
                 hide();
                 $.ajax({
-                    url:'http://127.0.0.1/LorF/index.php/Home/UserInfo/handleDone',
+                    url:'http://localhost/LorF/index.php/Home/UserInfo/handleDone',
                     type:'GET',
                     data:{
-                        dataId:dataId
+                        id:dataId
                     },
-                    dataType:'JSon',
                     success:function(res){
                         if(res.status == 0){
-                            alert('')
+                            alert('删除失败了sad')
+                        }else{
+                            parent.remove();
                         }
                     }
                 })
             })
-
         })
 
         $('.cancel').on('click',function(){
@@ -127,9 +128,9 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
 
 
 
-        $('.swiper-wrapper').eq(0).on('click','div',function(){
-            console.log($(this).attr('data-id'));
-        })
+        //$('.swiper-wrapper').eq(0).on('click','div',function(){
+        //    console.log($(this).attr('data-id'));
+        //})
 
         function show(){
             $('.shade').show();
