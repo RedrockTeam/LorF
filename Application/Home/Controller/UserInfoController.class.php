@@ -13,7 +13,7 @@ class UserInfoController extends CommonController{
     private function _getSelfId(){
 
 //        return session('relace_user_id');
-        return 1;
+        return 11;
     }
 
     public function index(){
@@ -44,7 +44,13 @@ class UserInfoController extends CommonController{
         }
 //dd($where);
         $list = M('product_list')
-            ->where($where)
+            ->where(array('status' => 0))
+            ->order('pro_id desc')
+            ->limit($from, $num)
+            ->select();
+
+        $done = M('product_list')
+            ->where(array('status' => 1))
             ->order('pro_id desc')
             ->limit($from, $num)
             ->select();
@@ -64,12 +70,14 @@ class UserInfoController extends CommonController{
         if($count < 4){
             $this->ajaxReturn(array(
                 'status' => $status,
-                'nextPage' => getList()
+                'nextPage' => getList(),
+                'Done' =>getList()
             ));
         }else{
             $this->ajaxReturn(array(
                 'status' => $status,
-                'nextPage' => getList($list)
+                'nextPage' => getList($list),
+                'Done' => getList($done)
             ));
         }
 
