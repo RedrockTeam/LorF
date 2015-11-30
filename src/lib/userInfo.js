@@ -59,7 +59,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
 
             kind = $(this).attr('data-id');
             $.ajax({
-                url:'http://localhost/LorF/index.php/Home/UserInfo/nextPage',
+                url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/UserInfo/nextPage',
                 type:'GET',
                 data:{
                     key: 'redrockswzllhzwjp',
@@ -104,7 +104,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
             $('.ensure').on('click',function(){
                 hide();
                 $.ajax({
-                    url:'http://localhost/LorF/index.php/Home/UserInfo/handleDone',
+                    url:'http://hongyan.cqupt.edu.cn/LorF/index.php/Home/UserInfo/handleDone',
                     type:'GET',
                     data:{
                         id:dataId
