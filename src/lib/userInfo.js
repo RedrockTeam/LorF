@@ -24,6 +24,8 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
         //绑定FastClick
         FastClick.attach(document.body);
 
+        //$( "#datepicker" ).datepicker();
+
         var mySwiper = new Swiper('.swiper-container',{
             speed: 500,
             onSlideChangeStart: function(){
@@ -79,14 +81,16 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
                     $(self).show();
                     $("#loading").hide();
                     var nextPage = res;
-                    console.log(res);
+                    console.log(nextPage);
 
-                    var template =  kind == 0 ? $('#template').html():$('#template-1').html();
+                    var template =  kind == 1 ? $('#template').html():$('#template-1').html();
                     Mustache.parse(template);
-                    var template_wrapper = kind == 0 ? $("#template-wrapper"):$("#template-wrapper-1");
+                    var template_wrapper = kind == 1 ? $("#template-wrapper"):$("#template-wrapper-1");
                     var rendered = Mustache.render(template,nextPage);
+                    //console.log(rendered);
                     template_wrapper.append(rendered);
-                    kind == 0? from.solved+=interval : from.released+=interval;
+                    //debugger
+                    kind == 1? from.solved+=interval : from.released+=interval;
                 }
             })
         })
@@ -95,17 +99,19 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
 
 
         //页面交互逻辑
-        $('.solved').on('click',function(){
+        $('.solved').on('click',function(e){
+            e.stopPropagation();
             show();
             var dataId = $(this).attr('data-Id');
             $('.ensure').on('click',function(){
                 hide();
                 $.ajax({
-                    url:'',
+                    url:'http://127.0.0.1/LorF/index.php/Home/UserInfo/handleDone',
                     type:'GET',
                     data:{
                         dataId:dataId
                     },
+                    dataType:'JSon',
                     success:function(res){
                         if(res.status == 0){
                             alert('')

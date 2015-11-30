@@ -560,8 +560,9 @@ nav .active {
   box-sizing: border-box;
 }
 .swiper-container .swiper-wrapper .swiper-slide {
-  float: left;
-  width: 50%;
+  float: left !important;
+  width: 50% !important;
+  height: auto !important;
 }
 .swiper-container .swiper-wrapper .button {
   width: 9.09722222rem;
@@ -675,7 +676,7 @@ nav .active {
 [data-dpr^="3"].swiper-container .list .solved {
   font-size: 84px;
 }
-.swiper-container .list img {
+.swiper-container .list flag {
   top: 0.27777778rem;
   right: 0.41666667rem;
   position: absolute;
