@@ -101,12 +101,12 @@ class RelaceController extends CommonController{
     }
 
     /**
+     * 通过session的id获取个人信息
      * @return mixed
      */
     private function _getInfo(){
         $info = M('user_info')->where(array(
-//            'user_id' => session('relace_user_id')
-            'user_id' => 1
+            'user_id' => session('relace_user_id')
         ))->find();
 
         return $info;
