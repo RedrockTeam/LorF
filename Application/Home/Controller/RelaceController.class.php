@@ -16,7 +16,7 @@ class RelaceController extends CommonController{
      */
     public function index(){
         $kinds = M('product_kinds')->select();
-        $info = M('user_info')->where(array('user_id' => session('relace_user_id')))->find();
+        $info = $this->_getInfo();
 
         $this->assign('kinds', $kinds);
         $this->assign('info', $info);
@@ -26,8 +26,19 @@ class RelaceController extends CommonController{
     public function handleInfo(){
         $post = I('post.');
 //dd($post);
-//        $mark = 0;
         $info = '电话: '.$post['phone'].' QQ: '.$post['qq'];
+
+        $user = $this->_getInfo();
+
+        if($post['phone'] != null){
+            $user['phone_num'] = $post['phone'];
+        }
+
+        if($post['qq'] != null){
+            $user['tencent_num'] = $post['qq'];
+        }
+
+        M('user_info')->save($user);
 
         $kindname = M('product_kinds')->where(array('kind_id' => I('kind')))->find();
         $connectpeople = M('user_info')->where(array('user_id' => session('relace_user_id')))->find();
@@ -87,6 +98,18 @@ class RelaceController extends CommonController{
         }else {
             return 0;
         }
+    }
+
+    /**
+     * @return mixed
+     */
+    private function _getInfo(){
+        $info = M('user_info')->where(array(
+//            'user_id' => session('relace_user_id')
+            'user_id' => 1
+        ))->find();
+
+        return $info;
     }
 
 
