@@ -504,7 +504,7 @@ header .title {
 [data-dpr^="3"]header .title {
   font-size: 102px;
 }
-header .back {
+header #back {
   float: left;
   margin-left: 0.41666667rem;
 }
