@@ -69,8 +69,8 @@ class IndexController extends CommonController {
                                  ->order('pro_id desc')->limit(10)->select();
 
         $this->assign('result', getList($result));
-//dd(getList($result));
-        $this->display();
+dd(getList($result));
+//        $this->display();
     }
 
     /**
