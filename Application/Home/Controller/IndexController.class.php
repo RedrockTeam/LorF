@@ -60,7 +60,7 @@ class IndexController extends CommonController {
         //获取搜索的物品名称
         $searchName = I('searchName');
         $kind = I('kind');  // 寻物0, 招领1
-//        dd($kind);
+        dd($searchName);
         $where['pro_description'] = array('like','%'.$searchName.'%');
         $where['status'] = 0;
         $where['lost_or_found'] = $kind;
