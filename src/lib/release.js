@@ -1,4 +1,3 @@
-
 require.config({
     baseUrl: '/LorF/src/lib',
     paths: {
@@ -6,42 +5,44 @@ require.config({
         swiper: 'tools/swiper',
         fastclick: 'tools/fastclick',
         mustache: 'tools/mustache.min',
-        laydate: "tools/laydate"
+        jquery: 'tools/jquery.min',
+        DateTimePicker:'tools/DateTimePicker'
     },
     shim: {
         zepto: {
-            exports: '$'
+            exports: 'Zepto'
         },
+        jquery: {
+            exports: '$'
+        }
     }
 })
 
 
-require(['fastclick','zepto','laydate'],function(FastClick,$,laydate){
-    $(document).ready(function(){
+require(['fastclick','zepto','jquery','DateTimePicker'],function(FastClick,Zepto,$){
+    Zepto(document).ready(function(){
         //绑定FastClick
         FastClick.attach(document.body);
-        console.log(laydate);
-
 
 
 
         var release = true;
         var oauth2Url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx81a4a4b77ec98ff4&redirect_uri=http%3A%2F%2Fhongyan.cqupt.edu.cn%2FLorF%2Findex.php%2FHome%2FIndex%2Findex&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
 
-        var release = true;
 
-        $("#back").on('click',function(){
+
+        Zepto("#back").on('click',function(){
             history.back();
         })
 
 
-        $('#release').on('click',function(){
+        Zepto('#release').on('click',function(){
             console.log(release);
 
             console.log(release);
             var data = {};
             data.species;
-            if($("select").val() == '' || $('textarea').val() == '' || $('input[type=place]').val() =='' || $('input[type=date]').val() == ''){
+            if(Zepto("select").val() == '' || Zepto('textarea').val() == '' || Zepto('input[type=place]').val() =='' || Zepto('input[type=date]').val() == ''){
                 alert('请检查 不能为空');
                 return;
             }
@@ -52,10 +53,10 @@ require(['fastclick','zepto','laydate'],function(FastClick,$,laydate){
 
             var flag = false;
 
-            $('input[type=radio]').forEach(function(item,index){
+            Zepto('input[type=radio]').forEach(function(item,index){
                 if(item.checked == true){
                     flag = true;
-                    data.species = $('input[type=radio]').eq(index).val();
+                    data.species = Zepto('input[type=radio]').eq(index).val();
                     return;
                 }
             })
@@ -65,16 +66,16 @@ require(['fastclick','zepto','laydate'],function(FastClick,$,laydate){
                 return;
             }
 
-            data.kind = $("select").val();
-            data.content = $('textarea').val();
-            data.date = $('input[type=date]').val();
-            data.place = $('input[name=place]').val();
-            data.phone = $('input[name=phone]').val();
-            data.qq = $('input[name=QQ]').val();
+            data.kind = Zepto("select").val();
+            data.content = Zepto('textarea').val();
+            data.date = Zepto('input[type=date]').val();
+            data.place = Zepto('input[name=place]').val();
+            data.phone = Zepto('input[name=phone]').val();
+            data.qq = Zepto('input[name=QQ]').val();
 
             //console.log(data);
             if(release){
-                $.ajax({
+                Zepto.ajax({
                     type:'POST',
                     url:'handleInfo',
                     data:data,
@@ -95,4 +96,3 @@ require(['fastclick','zepto','laydate'],function(FastClick,$,laydate){
 
     })
 })
-

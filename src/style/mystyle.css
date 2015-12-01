@@ -721,8 +721,8 @@ section .list .date {
   position: relative;
 }
 .loading #loading-center-absolute {
-  height: 50px;
-  width: 150px;
+  height: 0.69444444rem;
+  width: 2.08333333rem;
 }
 .loading .object {
   width: 0.02777778rem;

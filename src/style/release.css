@@ -639,9 +639,7 @@ header .title {
   margin-left: 1.73611111rem;
   height: 100%;
 }
-.inputs .input-div input[type="date"] {
-  -webkit-appearance: none;
-  background-color: transparent;
+.inputs .input-div #date {
   z-index: 233;
 }
 .inputs .input-div input {
