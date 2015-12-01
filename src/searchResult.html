@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <title>搜索详情</title>
     <script src="lib/lib.flexible.js"></script>
+    <script src="lib/tools/fastclick.js"></script>
     <link rel="stylesheet" href="style/searchResult.css"/>
 </head>
 <body>
 <header>
     <i class="iconfont" id="back">&#xe604;</i>
     <span class="title">搜索结果</span>
-    <i class="iconfont user">&#xe602;</i>
+    <a href="userInfo.html"><i class="iconfont user">&#xe602;</i></a>
 </header>
 
 <nav>
-    <p class="tip">以下是为“招领启事”的搜索结果</p>
+    <p class="tip">以下为搜索结果</p>
 </nav>
 
 
@@ -35,9 +36,18 @@
 </section>
 
 <script>
-    $('#back').on('click',function(){
-        history.back();
-    })
+
+    window.addEventListener('load', function() {
+        FastClick.attach(document.body);
+    }, false);
+
+
+    window.onload = function(){
+        var back = document.querySelector("#back");
+        back.addEventListener('click',function(){
+            history.back();
+        },false)
+    }
 </script>
 </body>
 </html>
