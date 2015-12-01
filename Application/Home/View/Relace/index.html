@@ -2,10 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>发布信息</title>
+    <title>Lost And Found</title>
     <script src="/LorF/src/lib/lib.flexible.js"></script>
-    <script src="/LorF/src/lib/require.js" data-main="/LorF/src/lib/release.js?hash=fwefhsrehea"></script>
-    <link rel="stylesheet" href="__PUBLIC__/style/release.css?hash=aergag"/>
+    <script src="/LorF/src/lib/tools/jquery.min.js"></script>
+    <script src="/LorF/src/lib/tools/fastclick.js"></script>
+    <script src="/LorF/src/lib/tools/mustache.min.js"></script>
+    <script src="/LorF/src/lib/tools/swiper.js"></script>
+    <script src="/LorF/src/lib/tools/DateTimePicker.js"></script>
+
+    <link rel="stylesheet" href="__PUBLIC__/style/release.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/style/DateTimePicker.css"/>
 </head>
 <body>
 <header>
@@ -31,9 +37,11 @@
     <div class="input-div space">
         <span class="left"><span class="align-left">时</span> <span class="align">间</span></span>
         <div class="input-wrapper">
-            <input type="date"/>
+            <input id="date" type="text" data-field="date" readonly>
+            <div id="dtBox"></div>
             <i class="iconfont">&#xe600;</i>
         </div>
+
     </div>
     <div class="input-div">
         <span class="left"><span class="align-left">地</span> <span class="align">点</span> </span>
@@ -54,5 +62,84 @@
         </div>
     </div>
 </section>
+
+<script>
+    $(document).ready(function(){
+        FastClick.attach(document.body);
+
+
+        $('#dtBox').DateTimePicker();
+
+        var release = true;
+        var oauth2Url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx81a4a4b77ec98ff4&redirect_uri=http%3A%2F%2Fhongyan.cqupt.edu.cn%2FLorF%2Findex.php%2FHome%2FIndex%2Findex&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+
+
+
+        $("#back").on('click',function(){
+            history.back();
+        })
+
+
+        $('#release').on('click',function(){
+            console.log(release);
+
+            console.log(release);
+            var data = {};
+            data.species;
+            if($("select").val() == '' || $('textarea').val() == '' || $('input[type=place]').val() =='' || $('input[type=date]').val() == ''){
+                alert('请检查 不能为空');
+                return;
+            }
+
+            function checked(el){
+                return el.checked();
+            }
+
+            var flag = false;
+
+            $('input[type=radio]').forEach(function(item,index){
+                if(item.checked == true){
+                    flag = true;
+                    data.species = $('input[type=radio]').eq(index).val();
+                    return;
+                }
+            })
+
+            if(flag == false){
+                alert('请选择发布种类');
+                return;
+            }
+
+            data.kind = $("select").val();
+            data.content = $('textarea').val();
+            data.date = $('input[type=date]').val();
+            data.place = $('input[name=place]').val();
+            data.phone = $('input[name=phone]').val();
+            data.qq = $('input[name=QQ]').val();
+
+            //console.log(data);
+            if(release){
+                $.ajax({
+                    type:'POST',
+                    url:'handleInfo',
+                    data:data,
+                    success:function(res){
+                        console.log(res);
+                        release = false;
+                        res.status === 0 ?alert('修改失败'):location.href = oauth2Url;
+                    }
+
+                })
+            }else{
+                alert('请勿提交两次');
+                return;
+            }
+
+        })
+
+
+    })
+
+</script>
 </body>
 </html>
