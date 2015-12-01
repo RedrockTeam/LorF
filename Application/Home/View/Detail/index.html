@@ -56,6 +56,13 @@
         <p class="right">{$detail['qq']}</p>
     </div>
 </section>
-
+<script>
+    window.onload = function(){
+        var back = document.querySelector("#back");
+        back.addEventListener('click',function(){
+            history.back();
+        },false)
+    }
+</script>
 </body>
 </html>

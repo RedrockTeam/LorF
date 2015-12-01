@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>失物招领</title>
     <script src="/LorF/src/lib/lib.flexible.js"></script>
-    <script src="/LorF/src/lib/require.js" data-main="/LorF/src/lib/index.js?hash=fwsfeagf"></script>
+    <script src="/LorF/src/lib/require.js" data-main="/LorF/src/lib/index.js?hash=fwsfeddagf"></script>
     <link rel="stylesheet" href="__PUBLIC__/style/mystyle.css?hash=fweafesaf"/>
 </head>
 <body>
@@ -56,19 +56,17 @@
                 </foreach>
                 <script id="template" type="x-tmpl-mustache">
                     {{#nextPage}}
-                        <a href="{{detail_url}}">
-                            <div class="list">
-                                <img class="logo" src="{{relace_head_url}}" alt=""/>
-                                <div class="userInfo">
-                                    <p class="title">{{kind_name}}</p>
-                                    <p class="user">发布者：<span class="username">{{connect_people}}</span></p>
-                                </div>
-
-                                <div class="content">{{pro_description}}</div>
-
-                                <p class="date">2015-11-19</p>
+                        <div class="list" data-url="{{detail_url}}">
+                            <img class="logo" src="{{relace_head_url}}" alt=""/>
+                            <div class="userInfo">
+                                <p class="title">{{kind_name}}</p>
+                                <p class="user">发布者：<span class="username">{{pro_name}}</span></p>
                             </div>
-                        </a>
+
+                            <div class="content">{{pro_description}}</div>
+
+                            <p class="date">2015-11-19</p>
+                        </div>
                     {{/nextPage}}
                 </script>
             </div>
@@ -95,19 +93,17 @@
                 </foreach>
                 <script id="template-1" type="x-tmpl-mustache">
                     {{#nextPage}}
-                        <a href="{{detail_url}}">
-                            <div class="list">
-                                <img class="logo" src="{{relace_head_url}}" alt=""/>
-                                <div class="userInfo">
-                                    <p class="title">{{kind_name}}</p>
-                                    <p class="user">发布者：<span class="username">{{connect_people}}</span></p>
-                                </div>
-
-                                <div class="content">{{pro_description}}</div>
-
-                                <p class="date">2015-11-19</p>
+                        <div class="list" data-url="{{detail_url}}">
+                            <img class="logo" src="{{relace_head_url}}" alt=""/>
+                            <div class="userInfo">
+                                <p class="title">{{kind_name}}</p>
+                                <p class="user">发布者：<span class="username">{{pro_name}}</span></p>
                             </div>
-                        </a>
+
+                            <div class="content">{{pro_description}}</div>
+
+                            <p class="date">2015-11-19</p>
+                        </div>
                     {{/nextPage}}
                 </script>
             </div>
