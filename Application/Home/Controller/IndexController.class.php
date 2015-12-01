@@ -60,7 +60,6 @@ class IndexController extends CommonController {
         //获取搜索的物品名称
         $searchName = I('searchName');
         $kind = I('kind');  // 寻物0, 招领1
-        dd($searchName);
         $where['pro_description'] = array('like','%'.$searchName.'%');
         $where['status'] = 0;
         $where['lost_or_found'] = $kind;
@@ -69,6 +68,7 @@ class IndexController extends CommonController {
                                  ->order('pro_id desc')->limit(10)->select();
 
         $this->assign('result', getList($result));
+        $this->assign('kind', $kind);
 //dd(getList($result));
         $this->display();
     }
