@@ -477,6 +477,7 @@ input[type="search"]::-webkit-search-decoration {
 }
 body {
   background-color: #ebeef5;
+  color: #242121;
 }
 header {
   height: 3.40277778rem;
@@ -501,7 +502,6 @@ header .logo {
 }
 header .username {
   font-size: 0.44444444rem;
-  font-weight: bold;
   top: 2.43055556rem;
   margin: 2.43055556rem auto 0;
 }
@@ -546,8 +546,8 @@ nav .lis {
   font-size: 102px;
 }
 nav .active {
-  color: #19c344;
-  border-bottom: 0.06944444rem solid #19c344;
+  color: #19c444;
+  border-bottom: 0.06944444rem solid #19c444;
 }
 .swiper-container {
   width: 100%;
@@ -570,7 +570,7 @@ nav .active {
   line-height: 1.25rem;
   font-size: 0.44444444rem;
   border-radius: 5px;
-  background-color: #19c344;
+  background-color: #19c444;
   text-align: center;
   color: white;
   margin: 0.48611111rem auto 0;
@@ -662,7 +662,7 @@ nav .active {
   display: inline-block;
   text-align: center;
   line-height: 0.69444444rem;
-  background-color: #19c344;
+  background-color: #19c444;
   border-radius: 5px;
   color: #FFFFFF;
   font-size: 0.38888889rem;
@@ -729,7 +729,7 @@ nav .active {
   text-align: center;
 }
 .banner .ensure {
-  color: #19c344;
+  color: #19c444;
   border-left: 1px solid #e9ebed;
   height: 1.38888889rem;
 }
@@ -764,7 +764,7 @@ nav .active {
   -webkit-animation: animate 1s infinite;
   animation: animate 1s infinite;
   float: left;
-  background-color: #19c344;
+  background-color: #19c444;
 }
 .loading .object:last-child {
   margin-right: 0px;

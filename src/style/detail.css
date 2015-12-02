@@ -482,7 +482,7 @@ body {
 header {
   height: 1.45833333rem;
   line-height: 1.45833333rem;
-  background-color: #19c344;
+  background-color: #19c444;
   text-align: center;
   color: #fcfcfd;
   position: relative;
@@ -542,7 +542,7 @@ section .list .userInfo {
   margin-left: 1.31944444rem;
 }
 section .list .title {
-  color: #19c344;
+  color: #19c444;
   font-size: 0.44444444rem;
 }
 [data-dpr^="2"]section .list .title {

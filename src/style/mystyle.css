@@ -481,7 +481,7 @@ body {
 header {
   height: 1.45833333rem;
   line-height: 1.45833333rem;
-  background-color: #19c344;
+  background-color: #19c444;
   color: #fcfcfd;
   overflow: hidden;
   position: relative;
@@ -591,8 +591,8 @@ nav div {
   text-align: center;
 }
 nav .active {
-  color: #19c344;
-  border-bottom: 0.06944444rem solid #19c344;
+  color: #19c444;
+  border-bottom: 0.06944444rem solid #19c444;
   box-sizing: border-box;
 }
 section {
@@ -616,7 +616,7 @@ section .swiper-wrapper .button {
   line-height: 1.25rem;
   font-size: 0.44444444rem;
   border-radius: 5px;
-  background-color: #19c344;
+  background-color: #19c444;
   text-align: center;
   color: white;
   margin: 0.48611111rem auto 0;
@@ -732,7 +732,7 @@ section .list .date {
   -webkit-animation: animate 1s infinite;
   animation: animate 1s infinite;
   float: left;
-  background-color: #19c344;
+  background-color: #19c444;
 }
 .loading .object:last-child {
   margin-right: 0px;

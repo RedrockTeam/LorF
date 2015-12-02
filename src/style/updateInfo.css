@@ -490,7 +490,7 @@ input {
 header {
   height: 1.45833333rem;
   line-height: 1.45833333rem;
-  background-color: #19c344;
+  background-color: #19c444;
   text-align: center;
   color: #fcfcfd;
   position: relative;
@@ -532,6 +532,7 @@ header #back {
   -webkit-transform: translate(-50%, 0);
       -ms-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
+  border: 1px solid #c3c5cb;
 }
 .userInfo .username {
   font-size: 0.44444444rem;
@@ -552,6 +553,7 @@ header #back {
   border: 1px solid #dbdbdc;
   margin-bottom: 0.27777778rem;
   box-sizing: border-box;
+  border-radius: 5px;
 }
 .inputs .input-div i {
   color: #84848d;
@@ -608,7 +610,7 @@ header #back {
   line-height: 1.25rem;
   font-size: 0.44444444rem;
   border-radius: 5px;
-  background-color: #19c344;
+  background-color: #19c444;
   text-align: center;
   color: white;
   margin: 0 auto;
