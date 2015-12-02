@@ -482,7 +482,7 @@ body {
 header {
   height: 1.45833333rem;
   line-height: 1.45833333rem;
-  background-color: #19c344;
+  background-color: #19c444;
   text-align: center;
   color: #fcfcfd;
 }
@@ -547,6 +547,7 @@ section .list .logo {
   border-radius: 50%;
   background-image: url('../images/logo.jpeg');
   background-size: contain;
+  border: 1px solid #c3c5cb;
 }
 section .list .userInfo {
   margin-left: 1.31944444rem;
