@@ -38,26 +38,12 @@ class RelaceController extends CommonController{
             $user['tencent_num'] = $post['qq'];
         }
 
+        $user['score'] = $user['score'] + 1;
+
         M('user_info')->save($user);
 
         $kindname = M('product_kinds')->where(array('kind_id' => I('kind')))->find();
         $connectpeople = M('user_info')->where(array('user_id' => session('relace_user_id')))->find();
-
-        // 判断不能为空值
-//        foreach($post as $key => $value){
-//            if($value == null){
-//                if($key == 'phone') {
-//                    $mark = 1;
-//                    $info = 'QQ: '.$post['qq'];
-//                }else if($mark == 0 && $key == 'qq') {
-//                    $info = '电话: '.$post['phone'];
-//                }else {
-//                    $this->ajaxReturn(array(
-//                        'status' => 0
-//                    ));
-//                }
-//            }
-//        }
 
         // 保存添加
         $sta =  $this->_saveData(array(
@@ -74,7 +60,6 @@ class RelaceController extends CommonController{
                     'check_state'=> 0,
                     'status'=> 0
                 ));
-//dd($sta);
 
         $this->ajaxReturn(array(
             'status' => $sta
@@ -107,6 +92,7 @@ class RelaceController extends CommonController{
     private function _getInfo(){
         $info = M('user_info')->where(array(
             'user_id' => session('relace_user_id')
+//            'user_id' => 1
         ))->find();
 
         return $info;
