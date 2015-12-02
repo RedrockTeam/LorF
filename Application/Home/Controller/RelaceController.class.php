@@ -71,7 +71,7 @@ class RelaceController extends CommonController{
                     'pro_user_id'=> session('relace_user_id'),
                     'create_time'=> time(),
                     'lost_or_found'=> $post['species'],
-                    'check_state'=> 1,
+                    'check_state'=> 0,
                     'status'=> 0
                 ));
 //dd($sta);
