@@ -650,6 +650,7 @@ section .list .logo {
   border-radius: 50%;
   background-image: url('../images/logo.jpeg');
   background-size: contain;
+  border: 1px solid #c3c5cb;
 }
 section .list .userInfo {
   margin-left: 1.31944444rem;

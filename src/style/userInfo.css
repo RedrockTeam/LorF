@@ -499,6 +499,7 @@ header .logo {
   -webkit-transform: translate(-50%, 0);
       -ms-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
+  border: 1px solid #c3c5cb;
 }
 header .username {
   font-size: 0.44444444rem;
