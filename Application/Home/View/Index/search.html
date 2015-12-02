@@ -4,37 +4,58 @@
     <meta charset="UTF-8">
     <title>搜索详情</title>
     <script src="/LorF/src/lib/lib.flexible.js"></script>
-    <link rel="stylesheet" href="__PUBLIC__/style/searchResult.css"/>
+    <script src="/LorF/src/lib/tools/fastclick.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/style/searchResult.css?hash=faefaee"/>
 </head>
 <body>
 <header>
-    <i class="iconfont back">&#xe604;</i>
+    <i class="iconfont" id="back">&#xe604;</i>
     <span class="title">搜索结果</span>
-    <i class="iconfont user">&#xe602;</i>
+    <a href="{:U('Home/UserInfo/Index', '','')}"><i class="iconfont user">&#xe602;</i></a>
 </header>
 
 <nav>
-    <p class="tip">以下为“招领启事”的搜索结果</p>
+    <p class="tip">以下为
+        <if condition="$kind eq 1">招领
+            <else /> 寻物
+        </if>
+        搜索结果</p>
 </nav>
-
 
 <section>
     <foreach name="result" item="vo">
-        <div class="list">
-            <!--<span class="logo"></span>-->
-            <img class="logo" src="{$vo.relace_head_url}" alt="">
-            <div class="userInfo">
-                <p class="title">{$vo.pro_name}</p>
-                <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
-            </div>
+        <a href="{$vo.detail_url}">
+            <div class="list">
+                <!--<span class="logo"></span>-->
+                <img class="logo" src="{$vo.relace_head_url}" alt="">
+                <div class="userInfo">
+                    <p class="title">{$vo.pro_name}</p>
+                    <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
+                </div>
 
-            <div class="content">
-                {$vo.pro_description}
-            </div>
+                <div class="content">
+                    {$vo.pro_description}
+                </div>
 
-            <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
-        </div>
+                <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
+            </div>
+        </a>
     </foreach>
 </section>
+
+<script>
+
+    window.addEventListener('load', function() {
+        FastClick.attach(document.body);
+    }, false);
+
+
+    window.onload = function(){
+        var back = document.querySelector("#back");
+        back.addEventListener('click',function(){
+            history.back();
+        },false)
+    }
+</script>
 </body>
 </html>
