@@ -41,10 +41,10 @@ class IndexController extends CommonController {
         // 获取失物招领信息, 限制为4条
         $lost = M('product_list')
 //            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
-                                 ->where(array('lost_or_found' => 0, 'status' => 0))->order('pro_id desc')->limit(4)->select();
+                                 ->where(array('lost_or_found' => 0, 'status' => 0, 'check_state' => 1))->order('pro_id desc')->limit(4)->select();
         $found = M('product_list')
 //            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
-                                  ->where(array('lost_or_found' => 1, 'status' => 0))->order('pro_id desc')->limit(4)->select();
+                                  ->where(array('lost_or_found' => 1, 'status' => 0, 'check_state' => 1))->order('pro_id desc')->limit(4)->select();
 //dd(getList($found));
         $this->assign('lost', getList($lost));
         $this->assign('found', getList($found));
@@ -88,7 +88,8 @@ class IndexController extends CommonController {
 //            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
                                 ->where(array(
                                     'lost_or_found' => $LorF,
-                                    'status' => 0
+                                    'status' => 0,
+                                    'check_state' => 1
                                 ))
                                 ->order('pro_id desc')->limit($from, $num)->select();
 
