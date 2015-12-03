@@ -229,43 +229,34 @@
 
 
         $('#release').on('click',function(){
-            console.log(release);
-
-            console.log(release);
             var data = {};
             data.species;
-            if($("select").val() == '' || $('textarea').val() == '' || $('input[type=place]').val() =='' || $('input[type=date]').val() == ''){
-                alert('请检查 不能为空');
-                return;
-            }
 
-            function checked(el){
-                return el.checked();
-            }
 
-            var flag = false;
-
-            $('input[type=radio]').forEach(function(item,index){
-                if(item.checked == true){
-                    flag = true;
-                    data.species = $('input[type=radio]').eq(index).val();
-                    return;
-                }
-            })
-
-            if(flag == false){
+            data.species = $('input[type=radio]:checked').val();
+            console.log(data.specie);
+            if(!data.species){
                 alert('请选择发布种类');
                 return;
             }
 
+
+            if($("select").val() == '' || $('textarea').val() == '' || $('input[type=place]').val() =='' || $('＃date').val() == ''){
+                alert('请检查 不能为空');
+                return;
+            }
+
+
+
             data.kind = $("select").val();
             data.content = $('textarea').val();
-            data.date = $('input[type=date]').val();
+            data.date = $('#date').val();
             data.place = $('input[name=place]').val();
             data.phone = $('input[name=phone]').val();
             data.qq = $('input[name=QQ]').val();
 
-            //console.log(data);
+
+            console.log(data);
             if(release){
                 $.ajax({
                     type:'POST',
