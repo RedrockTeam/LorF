@@ -16,15 +16,20 @@ class RelaceController extends CommonController{
     public function index() {
 //        dd($this->_getContact());
         $this->assign('contact', $this->_getContact());
-        $this->assign('kinds', $this->_getKinds());
+        $this->assign('kinds', $this->_getKinds(0));
         $this->display();
     }
 
     /**
      * 获取种类信息
      */
-    private function _getKinds() {
-        $kinds = M('product_kinds')->select();
+    private function _getKinds($kindId) {
+        if($kindId == 0){
+            $kinds = M('product_kinds')->select();
+        }else{
+            $kindArr = M('product_kinds')->where(array('kind_id' => $kindId))->find();
+            $kinds = $kindArr['kind_name'];
+        }
 
         return $kinds;
     }
@@ -68,9 +73,8 @@ class RelaceController extends CommonController{
             }
         }
 
-        // 保存添加
-        $this->_saveData(array(
-            'pro_name'=> $post['name'],
+        $data = array(
+            'pro_name'=> $this->_getKinds($post['kind']),
             'pro_description'=> $post['remark'],
             'L_or_F_time'=> $this->_timeStyle(I('post.time')),
             'L_or_F_place'=> $post['place'],
@@ -82,7 +86,12 @@ class RelaceController extends CommonController{
             'lost_or_found'=> $post['status'],
             'check_state'=> 1,
             'status'=> 0
-        ));
+        );
+
+//        dd($data);
+
+        // 保存添加
+        $this->_saveData($data);
     }
 
     /**

@@ -14,14 +14,14 @@ class IndexController extends CommonController {
     public function index(){
 
         // 获取到openid并且存到session
-        $code = I('get.code');
-
-        if(!$code){
-            return $this->redirect($this->oauth2Url);
-        }
-
-        $openId = $this->_getOpenId($code);
-//        $openId = 'ouRCyjsp3eo3FJil24fV625V_6no';
+//        $code = I('get.code');
+//
+//        if(!$code){
+//            return $this->redirect($this->oauth2Url);
+//        }
+//
+//        $openId = $this->_getOpenId($code);
+        $openId = 'ouRCyjsp3eo3FJil24fV625V_6no';
         session('openid', $openId);
 
         //判断是否绑定学号, 是否关注重邮小帮手
@@ -45,7 +45,7 @@ class IndexController extends CommonController {
         $found = M('product_list')
 //            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
                                   ->where(array('lost_or_found' => 1, 'status' => 0, 'check_state' => 1))->order('pro_id desc')->limit(4)->select();
-//dd(getList($found));
+//dd(getList($lost));
         $this->assign('lost', getList($lost));
         $this->assign('found', getList($found));
 
