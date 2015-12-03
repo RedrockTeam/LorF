@@ -199,7 +199,10 @@
         $('.ensure').eq(0).on('click',function(){
             var selected = $('.datePicked').get(0).innerHTML;
             var arr = selected.split('-');
-            if(rule.indexOf(arr[1])==-1 && arr[2]==31){
+            if(arr[1] == 2 && arr[2]>27){
+                alert('哪有这一天嘛');
+                return;
+            }else if(rule.indexOf(arr[1])==-1 && arr[2]==31){
                 alert('哪有这一天嘛');
                 return;
             }else{
