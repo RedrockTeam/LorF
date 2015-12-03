@@ -657,6 +657,9 @@ header .title {
 [data-dpr^="3"].inputs .input-div input {
   font-size: 90px;
 }
+.inputs .input-div #date-wrapper {
+  margin-right: 0.41666667rem;
+}
 .inputs .input-div i {
   font-size: 0.55555556rem;
   position: absolute;
@@ -672,4 +675,101 @@ header .title {
 }
 [data-dpr^="3"].inputs .input-div i {
   font-size: 120px;
+}
+.datePicker-wrapper {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  opacity: 0.4;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+}
+.datePicker {
+  display: none;
+  width: 98%;
+  height: 4.16666667rem;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.datePicker .close {
+  color: #19c444;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0.20833333rem;
+}
+.datePicker .datePicked {
+  color: #19c444;
+}
+.datePicker p {
+  margin: 0.5em 0;
+  text-align: center;
+}
+.datePicker .select-wrapper {
+  width: 90%;
+  margin: 0 auto;
+  *zoom: 1;
+}
+.datePicker .select-wrapper:before,
+.datePicker .select-wrapper:after {
+  display: table;
+  content: "";
+}
+.datePicker .select-wrapper:after {
+  clear: both;
+}
+.datePicker .among {
+  margin: 0 5%;
+}
+.datePicker .time-comp3 {
+  overflow: hidden;
+  width: 30%;
+  float: left;
+  height: 1.52777778rem;
+}
+.datePicker .time-comp3 a {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  color: black;
+  line-height: 0.55555556rem;
+}
+.datePicker .containner {
+  height: 0.41666667rem;
+  background-color: #F1F1F1;
+  text-align: center;
+}
+.datePicker .button-wrapper {
+  width: 90%;
+  margin: 0 auto;
+  *zoom: 1;
+}
+.datePicker .button-wrapper:before,
+.datePicker .button-wrapper:after {
+  display: table;
+  content: "";
+}
+.datePicker .button-wrapper:after {
+  clear: both;
+}
+.datePicker .button-wrapper .ensure {
+  width: 45%;
+  float: left;
+  height: 100%;
+  padding: 2%;
+  background-color: #19c444;
+  color: white;
+  text-align: center;
+}
+.datePicker .button-wrapper .cancel {
+  float: right;
 }

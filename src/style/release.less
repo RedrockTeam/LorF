@@ -128,13 +128,106 @@ header{
       box-sizing: border-box;
       .fz(30px);
     }
+    #date-wrapper{
+      margin-right: 30rem/@psdWidth;
+    }
     i{
       .fz(40px);
       position: absolute;
       right:30rem/@psdWidth;
+      //right:4.1%;
       color:#cfd2d0;
       top:50%;
       transform: translate(0,-50%);
     }
+  }
+}
+
+
+.datePicker-wrapper{
+  display: none;
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color: rgb(0,0,0);
+  opacity: 0.4;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+
+
+}
+
+.datePicker{
+  display: none;
+  width:98%;
+  height:300rem/@psdWidth;
+  background-color: #fff;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  .close{
+    color:@themeColor;
+    position: absolute;
+    top:0;
+    right:0;
+    margin:15rem/@psdWidth;
+  }
+  .datePicked{
+    color:@themeColor;
+  }
+  p{
+    margin:0.5em 0;
+    text-align: center;
+  }
+  .select-wrapper{
+    width:90%;
+    margin:0 auto;
+    .clearfix();
+  }
+  .among{
+    margin:0 5%;
+  }
+  .time-comp3{
+    overflow: hidden;
+    width:30%;
+    float:left;
+    height:110rem/@psdWidth;
+    a{
+      width:100%;
+      display: inline-block;
+      text-align: center;
+      color:black;
+      line-height:40rem/@psdWidth;
+    }
+
+  }
+
+  .containner{
+    height:30rem/@psdWidth;
+    background-color: #F1F1F1;
+    text-align: center;
+  }
+
+  .button-wrapper{
+    width:90%;
+    margin:0 auto;
+    .clearfix();
+    .ensure{
+      width:45%;
+      float:left;
+      height:100%;
+      padding:2%;
+      background-color: @themeColor;
+      color:white;
+      text-align: center;
+    }
+    .cancel{
+      //margin-left: 5%;
+      float: right;
+    }
+
   }
 }
