@@ -691,7 +691,7 @@ header .title {
 .datePicker {
   display: none;
   width: 98%;
-  height: 4.16666667rem;
+  height: 4.44444444rem;
   background-color: #fff;
   position: absolute;
   top: 50%;
@@ -713,6 +713,13 @@ header .title {
 .datePicker p {
   margin: 0.5em 0;
   text-align: center;
+  font-size: 0.41666667rem;
+}
+[data-dpr^="2"].datePicker p {
+  font-size: 60px;
+}
+[data-dpr^="3"].datePicker p {
+  font-size: 90px;
 }
 .datePicker .select-wrapper {
   width: 90%;
@@ -742,6 +749,13 @@ header .title {
   text-align: center;
   color: black;
   line-height: 0.55555556rem;
+  font-size: 0.41666667rem;
+}
+[data-dpr^="2"].datePicker .time-comp3 a {
+  font-size: 60px;
+}
+[data-dpr^="3"].datePicker .time-comp3 a {
+  font-size: 90px;
 }
 .datePicker .containner {
   height: 0.41666667rem;
@@ -769,6 +783,14 @@ header .title {
   background-color: #19c444;
   color: white;
   text-align: center;
+  font-size: 0.38888889rem;
+  margin-top: 0.13888889rem;
+}
+[data-dpr^="2"].datePicker .button-wrapper .ensure {
+  font-size: 56px;
+}
+[data-dpr^="3"].datePicker .button-wrapper .ensure {
+  font-size: 84px;
 }
 .datePicker .button-wrapper .cancel {
   float: right;
