@@ -28,7 +28,7 @@ class IndexController extends CommonController {
         session('code', $code);
 
         $a = $this->shareApi(session('code'), session(openid));
-        dd($a);
+        dd($code);
 
         //判断是否绑定学号, 是否关注重邮小帮手
         // $isBind = $this->_checkBind($openId);
