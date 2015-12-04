@@ -49,8 +49,6 @@ class CommonController extends RestController{
         return $info['status'];
     }
 
-
-
     /**
      * 通过code获取openid
      * @param $code 参数code
@@ -101,12 +99,11 @@ class CommonController extends RestController{
 
     /**
      * 微信分享页面js_SDK需要渲染到页面的数据
-     * @param $code session里面的code
-     * @param $openid session里面的openid
-     * @return mixed 返回的所有数据
+     * @return mixed
      */
-    public function shareApi($code, $openid){
-        $ticket = $this->curl($openid, "apiJsTicket", $code);
+    public function shareApi(){
+        $ticket = $this->curl(null, "apiJsTicket");
+        dd($ticket);
         $str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         $nonceStr = "";
 
