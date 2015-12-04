@@ -100,6 +100,37 @@ class CommonController extends RestController{
     }
 
     /**
+     * 微信分享页面js_SDK需要渲染到页面的数据
+     * @param $code session里面的code
+     * @param $openid session里面的openid
+     * @return mixed 返回的所有数据
+     */
+    public function shareApi($code, $openid){
+        $ticket = $this->curl($openid, "apiJsTicket", $code);
+        $str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $nonceStr = "";
+
+        for ($i = 0 ;$i <16;$i++){
+            $num = mt_rand(0,61);
+            $nonceStr .= $str[$num];
+        }
+
+        $data['ticket'] = $ticket;
+        $data['nonceStr'] = $nonceStr;
+        $timestamp = time();
+        $data['time'] = $timestamp;
+
+        $url = 'http://'.$_SERVER['HTTP_HOST'].__SELF__;
+        $data['url'] = $url;
+        $key = "jsapi_ticket=$ticket&noncestr=$nonceStr&timestamp=$timestamp&url=$url";
+        $signature = sha1($key);
+        $data['signature'] = $signature;
+        $data['appid'] = 'gh_68f0a1ffc303';
+//        dd($data);
+        return $data;
+    }
+
+    /**
      * 自用 curl通用函数
      * @param null $openId 微信端的openId
      * @param $uri 目标地址
