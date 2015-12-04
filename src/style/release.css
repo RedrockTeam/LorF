@@ -518,32 +518,16 @@ header .title {
 .species:after {
   clear: both;
 }
-.species label {
-  width: 50%;
-  float: left;
-  box-sizing: border-box;
-  font-size: 0.46861111rem;
-}
-[data-dpr^="2"].species label {
-  font-size: 67.48px;
-}
-[data-dpr^="3"].species label {
-  font-size: 101.22px;
-}
-.species label input {
-  margin-left: 0.06944444rem;
-}
-.species #align {
-  padding-left: 0.48611111rem;
-}
-.kind {
+.kind,
+.species {
   height: 1.45833333rem;
   line-height: 1.45833333rem;
   border-bottom: 1px solid #cfd2d0;
   color: #fcfcfd;
   position: relative;
 }
-.kind select {
+.kind select,
+.species select {
   background: transparent;
   -webkit-appearance: none;
   height: 1.45833333rem;
@@ -554,13 +538,16 @@ header .title {
   width: 95.5%;
   margin-left: 4.5%;
 }
-[data-dpr^="2"].kind select {
+[data-dpr^="2"].kind select,
+[data-dpr^="2"].species select {
   font-size: 67.48px;
 }
-[data-dpr^="3"].kind select {
+[data-dpr^="3"].kind select,
+[data-dpr^="3"].species select {
   font-size: 101.22px;
 }
-.kind i {
+.kind i,
+.species i {
   font-size: 0.55555556rem;
   position: absolute;
   right: 0.41666667rem;
@@ -571,10 +558,12 @@ header .title {
           transform: translate(0, -50%);
   z-index: -233;
 }
-[data-dpr^="2"].kind i {
+[data-dpr^="2"].kind i,
+[data-dpr^="2"].species i {
   font-size: 80px;
 }
-[data-dpr^="3"].kind i {
+[data-dpr^="3"].kind i,
+[data-dpr^="3"].species i {
   font-size: 120px;
 }
 .inputs textarea {
