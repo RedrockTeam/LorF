@@ -42,6 +42,16 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
         });
 
 
+        if($('.tab1>.list').length == 0){
+            $('.tab1>.button').hide();
+            $('.null').show();
+        }
+
+        if($('.tab2>.list').length == 0){
+            $('.tab2>.button').hide();
+            $('.null').show();
+        }
+
 
         var from = {};
         from.released = from.solved = 4;

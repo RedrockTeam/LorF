@@ -25,6 +25,16 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
         //绑定FastClick
         FastClick.attach(document.body);
 
+        if($('.tab1>.list').length == 0){
+            $('.tab1>.button').hide();
+            $('.null').show();
+        }
+
+        if($('.tab2>.list').length == 0){
+            $('.tab2>.button').hide();
+            $('.null').show();
+        }
+
 
         var from = {};
         from.lost = from.found = 4;

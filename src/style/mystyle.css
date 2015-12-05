@@ -597,7 +597,6 @@ nav .active {
 }
 section {
   width: 100%;
-  height: auto;
   overflow: hidden;
 }
 section .swiper-wrapper {
@@ -608,7 +607,19 @@ section .swiper-wrapper {
 section .swiper-wrapper .swiper-slide {
   float: left;
   width: 50% !important;
-  height: auto !important;
+  height: 13.88888889rem !important;
+}
+section .swiper-wrapper .null {
+  font-size: 0.41666667rem;
+  text-align: center;
+  margin-top: 1.38888889rem;
+  display: none;
+}
+[data-dpr^="2"]section .swiper-wrapper .null {
+  font-size: 60px;
+}
+[data-dpr^="3"]section .swiper-wrapper .null {
+  font-size: 90px;
 }
 section .swiper-wrapper .button {
   width: 9.09722222rem;

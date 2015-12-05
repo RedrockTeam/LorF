@@ -565,6 +565,18 @@ nav .active {
   width: 50% !important;
   height: auto !important;
 }
+.swiper-container .swiper-wrapper .null {
+  font-size: 0.41666667rem;
+  text-align: center;
+  margin-top: 1.38888889rem;
+  display: none;
+}
+[data-dpr^="2"].swiper-container .swiper-wrapper .null {
+  font-size: 60px;
+}
+[data-dpr^="3"].swiper-container .swiper-wrapper .null {
+  font-size: 90px;
+}
 .swiper-container .swiper-wrapper .button {
   width: 9.09722222rem;
   height: 1.25rem;

@@ -5,8 +5,6 @@ require.config({
         swiper: 'tools/swiper',
         fastclick: 'tools/fastclick',
         mustache: 'tools/mustache.min',
-        jquery: 'tools/jquery.min',
-        DateTimePicker:'tools/DateTimePicker',
     },
     shim: {
         zepto: {
@@ -23,14 +21,6 @@ require(['fastclick','zepto'],function(FastClick,$){
         $('#date').on('click',function(){
             show();
         })
-
-
-
-        //jwexin share
-
-
-
-//share 结束
 
 //日期选择开始
 
