@@ -121,16 +121,16 @@
 //        require(['wx'],function(wx){
         var title = '失物招领';
         var desc = '【失物招领】你的失联物品在这里，小帮手·青协为你提供服务～';
-        var link = "{$share.url}";
+        var link = "{$share['url']}";
         var imgUrl = "http://hongyan.cqupt.edu.cn/MagicLoop/Addons/Book/View/default/Public/images/share.jpg";
 
         console.log(wx)
         wx.config({
             debug: true,
-            appId: "{$share.appid}",
-            timestamp: "{$share.time}",
-            nonceStr: "{$share.nonceStr}",
-            signature: "{$share.signature}",
+            appId: "{$share['appid']}",
+            timestamp: "{$share['time']}",
+            nonceStr: "{$share['nonceStr']}",
+            signature: "{$share['signature']}",
             jsApiList: [
                 'onMenuShareTimeline',
                 'onMenuShareAppMessage',
