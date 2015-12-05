@@ -17,6 +17,7 @@ class DetailController extends CommonController{
     public function index(){
 
         $proId = I('id');
+        $share = $this->shareApi();
 
         $find = M('product_list')->where(array(
             'pro_id' => $proId
@@ -25,6 +26,7 @@ class DetailController extends CommonController{
         $list = getList($find);
 //dd($list['0']);
         $this->assign('detail', $list['0']);
+        $this->assign('share', $share);
 //        dd(getList($find));
         $this->display();
     }

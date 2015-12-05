@@ -10,14 +10,23 @@ namespace Home\Controller;
 
 class UserInfoController extends CommonController{
 
+    /**
+     * 获取session里面的发布人的id
+     * @return mixed
+     */
     private function _getSelfId(){
 
         return session('relace_user_id');
 //        return 11;
     }
 
+    /**
+     * 用户信息首页
+     */
     public function index(){
+        $share = $this->shareApi();
 
+        $this->assign('share', $share);
         $this->assign('selfDone', $this->_getSelfDone());
         $this->assign('selfRelace', $this->_getSelfRelace());
         $this->assign('selfInfo', $this->_getSelfInfo());

@@ -102,8 +102,8 @@ class CommonController extends RestController{
      * @return mixed
      */
     public function shareApi(){
-        $ticket = $this->curl(null, "apiJsTicket");
-        dd($ticket);
+        $jsticketData = $this->_curl(null, "apiJsTicket");
+        $ticket = $jsticketData['data'];
         $str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         $nonceStr = "";
 
