@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>失物招领</title>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script src="/LorF/src/lib/lib.flexible.js"></script>
     <script src="/LorF/src/lib/require.js" data-main="/LorF/src/lib/index.js?hash=fwsfeddagf"></script>
     <link rel="stylesheet" href="__PUBLIC__/style/mystyle.css?hash=fweafesaf"/>
@@ -113,16 +114,16 @@
 
 </section>
 
-<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
 
-    require(['wx'],function(wx){
-        console.log(wx)
+    window.onload = function(){
+//        require(['wx'],function(wx){
         var title = '失物招领';
         var desc = '【失物招领】你的失联物品在这里，小帮手·青协为你提供服务～';
         var link = "{$share.url}";
         var imgUrl = "http://hongyan.cqupt.edu.cn/MagicLoop/Addons/Book/View/default/Public/images/share.jpg";
 
+        console.log(wx)
         wx.config({
             debug: false,
             appId: "{$share.appid}",
@@ -175,7 +176,9 @@
                 }
             });
         });
-    })
+
+//        })
+    }
 </script>
 </body>
 </html>
