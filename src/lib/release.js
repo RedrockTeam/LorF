@@ -7,7 +7,6 @@ require.config({
         mustache: 'tools/mustache.min',
         jquery: 'tools/jquery.min',
         DateTimePicker:'tools/DateTimePicker',
-        jweixin:'tools/jweixin'
     },
     shim: {
         zepto: {
@@ -17,7 +16,7 @@ require.config({
 })
 
 
-require(['fastclick','zepto','jweixin'],function(FastClick,$,wx){
+require(['fastclick','zepto'],function(FastClick,$){
     $(document).ready(function(){
         FastClick.attach(document.body);
 
@@ -29,63 +28,7 @@ require(['fastclick','zepto','jweixin'],function(FastClick,$,wx){
 
         //jwexin share
 
-        var title = '失物招领';
-        var desc = '【失物招领】你的失联物品在这里，小帮手·青协为你提供服务～';
-        var link = "{$ticket.url}";
-        var imgUrl = "http://hongyan.cqupt.edu.cn/MagicLoop/Addons/Book/View/default/Public/images/share.jpg";
 
-        wx.config({
-            debug: false,
-            appId: "{$appid}",
-            timestamp: "{$ticket.time}",
-            nonceStr: "{$ticket.nonceStr}",
-            signature: "{$ticket.signature}",
-            jsApiList: [
-                'onMenuShareTimeline',
-                'onMenuShareAppMessage',
-                'onMenuShareQQ',
-                'hideAllNonBaseMenuItem'
-            ]
-        });
-        wx.ready(function () {
-            wx.onMenuShareTimeline({
-                title: title, // 分享标题
-                link: link,
-                imgUrl: imgUrl,
-                success: function () {
-                    // 用户确认分享后执行的回调函数
-                },
-                cancel: function () {
-                    // 用户取消分享后执行的回调函数
-                }
-            });
-            wx.onMenuShareAppMessage({
-                title: title, // 分享标题
-                desc: desc, // 分享描述
-                link: link,
-                imgUrl: imgUrl, // 分享图标
-                type: '', // 分享类型,music、video或link，不填默认为link
-                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                success: function () {
-                    // 用户确认分享后执行的回调函数
-                },
-                cancel: function () {
-                    // 用户取消分享后执行的回调函数
-                }
-            });
-            wx.onMenuShareQQ({
-                title: title, // 分享标题
-                desc: desc, // 分享描述
-                link: link,
-                imgUrl: imgUrl, // 分享图标
-                success: function () {
-                    // 用户确认分享后执行的回调函数
-                },
-                cancel: function () {
-                    // 用户取消分享后执行的回调函数
-                }
-            });
-        });
 
 //share 结束
 
