@@ -56,7 +56,13 @@ function getList($list) {
         $user = M('user_info')->where($condition2)->find();
         $v['kind_name'] = $kindName['kind_name'];
         $v['relace_user_name'] = $user['stu_name'];
-        $v['relace_head_url'] = $user['headImgUrl'];
+
+        if($user['headImgUrl'] == 1){
+            $v['relace_head_url'] = 'http://hongyan.cqupt.edu.cn/LorF/src/images/qingxie.jpg';
+        }else{
+            $v['relace_head_url'] = $user['headImgUrl'];
+        }
+
         $v['phone'] = $user['phone_num'];
         $v['qq'] = $user['tencent_num'];
         $v['detail_url'] = $url.'/id/'.$v['pro_id'];

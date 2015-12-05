@@ -45,7 +45,7 @@ class IndexController extends CommonController {
         $found = M('product_list')
 //            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
                                   ->where(array('lost_or_found' => 1, 'status' => 0, 'check_state' => 1))->order('pro_id desc')->limit(4)->select();
-//dd(getList($found));
+//dd(getList($lost));
         $this->assign('lost', getList($lost));
         $this->assign('found', getList($found));
 
