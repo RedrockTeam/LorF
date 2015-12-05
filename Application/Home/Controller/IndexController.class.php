@@ -12,7 +12,7 @@ class IndexController extends CommonController {
      * 微信端失物招领首页
      */
     public function index(){
-
+        $share = $this->shareApi();
         // 获取到openid并且存到session
         $code = I('get.code');
 
@@ -48,6 +48,7 @@ class IndexController extends CommonController {
 //dd(getList($lost));
         $this->assign('lost', getList($lost));
         $this->assign('found', getList($found));
+        $this->assign('share', $share);
 
         $this->display();
     }
@@ -56,6 +57,8 @@ class IndexController extends CommonController {
      * 首页搜索方法
      */
     public function search(){
+
+        $share = $this->shareApi();
 
         //获取搜索的物品名称
         $searchName = I('searchName');
@@ -70,6 +73,7 @@ class IndexController extends CommonController {
 
         $this->assign('result', getList($result));
         $this->assign('kind', $kind);
+        $this->assign('share', $share);
 //dd(getList($result));
         $this->display();
     }

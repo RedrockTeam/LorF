@@ -49,8 +49,6 @@ class CommonController extends RestController{
         return $info['status'];
     }
 
-
-
     /**
      * 通过code获取openid
      * @param $code 参数code
@@ -97,6 +95,36 @@ class CommonController extends RestController{
             'realName' =>$this->_getRealName($openId)
         );
         return $result;
+    }
+
+    /**
+     * 微信分享页面js_SDK需要渲染到页面的数据
+     * @return mixed
+     */
+    public function shareApi(){
+        $jsticketData = $this->_curl(null, "apiJsTicket");
+        $ticket = $jsticketData['data'];
+        $str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $nonceStr = "";
+
+        for ($i = 0 ;$i <16;$i++){
+            $num = mt_rand(0,61);
+            $nonceStr .= $str[$num];
+        }
+
+        $data['ticket'] = $ticket;
+        $data['nonceStr'] = $nonceStr;
+        $timestamp = time();
+        $data['time'] = $timestamp;
+
+        $url = 'http://'.$_SERVER['HTTP_HOST'].__SELF__;
+        $data['url'] = $url;
+        $key = "jsapi_ticket=$ticket&noncestr=$nonceStr&timestamp=$timestamp&url=$url";
+        $signature = sha1($key);
+        $data['signature'] = $signature;
+        $data['appid'] = 'gh_68f0a1ffc303';
+//        dd($data);
+        return $data;
     }
 
     /**

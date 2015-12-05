@@ -15,11 +15,15 @@ class RelaceController extends CommonController{
      * 发布首页
      */
     public function index(){
+
+        $share = $this->shareApi();
+
         $kinds = M('product_kinds')->select();
         $info = $this->_getInfo();
 
         $this->assign('kinds', $kinds);
         $this->assign('info', $info);
+        $this->assign('share', $share);
         $this->display();
     }
 

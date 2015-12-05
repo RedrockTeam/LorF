@@ -12,12 +12,14 @@ class FirstVisitController extends CommonController {
      * 返回用户信息包括 昵称, 头像地址, 真实姓名, 学号
      */
     public function index(){
+        $share = $this->shareApi();
         $userInfo = $this->_getUserInfo(session('openid'));
         $userInfo['realName'] = $this->_getRealName(session('openid'));
         $userInfo['stuNum'] = $this->_getStuNum(session('openid'));
 //dd($userInfo);
 
         $this->assign('userInfo', $userInfo);
+        $this->assign('share', $share);
         $this->display();
     }
 
