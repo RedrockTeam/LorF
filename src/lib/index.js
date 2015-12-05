@@ -27,7 +27,6 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
 
 
         var from = {};
-            //end = {};
         from.lost = from.found = 4;
 
         //实例化mySwiper
