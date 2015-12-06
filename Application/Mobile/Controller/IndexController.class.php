@@ -153,13 +153,6 @@ class IndexController extends RestController {
     }
 
     /**
-     *
-     */
-    public function infoList() {
-
-    }
-
-    /**
      * 详情信息页面
      */
     public function detailInfo() {
