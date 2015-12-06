@@ -137,7 +137,8 @@ require(['fastclick','zepto'],function(FastClick,$){
 
 
         $("#back").on('click',function(){
-            history.back();
+            //history.back();
+            location.href = oauth2Url;
         })
 
 
