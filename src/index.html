@@ -101,7 +101,6 @@
 <script>
 
     window.onload = function(){
-//        require(['wx'],function(wx){
                 var title = '失物招领';
                 var desc = '【失物招领】你的失联物品在这里，小帮手·青协为你提供服务～';
                 var link = "{$share.url}";
@@ -109,7 +108,7 @@
 
                 console.log(wx)
                 wx.config({
-                    debug: false,
+                    debug: true,
                     appId: "{$share.appid}",
                     timestamp: "{$share.time}",
                     nonceStr: "{$share.nonceStr}",
@@ -160,8 +159,6 @@
                         }
                     });
                 });
-
-//        })
     }
 </script>
 </body>

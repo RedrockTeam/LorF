@@ -64,7 +64,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
                 self = this,
                 interval = 4;
 
-           $(this).innerHTML = 'loading..'
+           $(this).get(0).innerHTML = 'loading..'
 
 
             kind = $(this).attr('data-id');
@@ -79,7 +79,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
                 },
                 dataType:'json',
                 success:function(res){
-                    $(self).innerHTML = '更多';
+                    $(self).get(0).innerHTML = '更多';
                     if(res.nextPage.length == 0){
                         $("#loading").hide();
                         alert('木有了');

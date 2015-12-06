@@ -27,7 +27,7 @@ require(['fastclick','zepto'],function(FastClick,$){
         var date = new Date();
         year = date.getFullYear();
         month = date.getMonth() + 1;
-        day = date.getDay() - 1 ;
+        day = date.getDate();
 
         $('.year').get(0).innerHTML = year;
         $('.month').get(0).innerHTML = month;
@@ -36,13 +36,15 @@ require(['fastclick','zepto'],function(FastClick,$){
 
         var getTime = function(){
             var select = [];
-            select.push($('.year').get(0).innerHTML);
-            select.push($('.month').get(0).innerHTML);
-            select.push($('.day').get(0).innerHTML);
+            select.push(year);
+            select.push(month);
+            select.push(day);
             console.log(select.toString());
             $('.datePicked').get(0).innerHTML =  select.join('-');
         }
 
+
+        getTime();
         count = 0;
         $('.time-comp3').on('click','a',function(){
             var self = $(this);
