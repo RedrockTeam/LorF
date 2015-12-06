@@ -21,9 +21,13 @@
 </header>
 
 <nav class="species">
-    <label id="align"><input name="LorF" type="radio" value="0" checked="true" />寻物</label>
-    <label><input name="LorF" type="radio" value="1"/>招领</label>
+    <select name="LorF" id="species">
+        <option value="0">寻物</option>
+        <option value="1">招领</option>
+    </select>
+    <i class="iconfont">&#xe600;</i>
 </nav>
+
 <nav class="kind">
     <select name="kind" id="kind">
         <foreach name="kinds" item="vo" >
