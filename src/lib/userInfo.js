@@ -63,7 +63,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
                 interval = 4;
 
 
-            $("#loading").show();
+            $(this).get(0).innerHTML = 'loading..'
 
 
             kind = $(this).attr('data-id');
@@ -78,6 +78,7 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
                 },
                 dataType:'json',
                 success:function(res){
+                    $(self).get(0).innerHTML = '更多';
                     if(res.nextPage.length == 0){
                         $("#loading").hide();
                         alert('木有了');
@@ -88,7 +89,6 @@ require(['fastclick','zepto','swiper','mustache'],function(FastClick,$,swiper,Mu
                         return false;
                     }
 
-                    $("#loading").hide();
                     var nextPage = res;
                     console.log(res);
 
