@@ -27,7 +27,7 @@ require(['fastclick','zepto'],function(FastClick,$){
         var date = new Date();
         year = date.getFullYear();
         month = date.getMonth() + 1;
-        day = date.getDate() - 1 ;
+        day = date.getDate();
 
         $('.year').get(0).innerHTML = year;
         $('.month').get(0).innerHTML = month;
