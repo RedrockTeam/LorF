@@ -4,15 +4,8 @@
     <meta charset="UTF-8">
     <title>信息发布</title>
     <script src="/LorF/src/lib/lib.flexible.js"></script>
-    <script src="/LorF/src/lib/tools/jquery.min.js"></script>
-    <script src="/LorF/src/lib/tools/fastclick.js"></script>
-    <script src="/LorF/src/lib/tools/mustache.min.js"></script>
-    <script src="/LorF/src/lib/tools/swiper.js"></script>
-    <script src="/LorF/src/lib/tools/DateTimePicker.js"></script>
-
-
-    <link rel="stylesheet" href="__PUBLIC__/style/release.css?hash=faefaeaa"/>
-    <link rel="stylesheet" href="__PUBLIC__/style/DateTimePicker.css?hash=faef"/>
+    <script src="/LorF/src/lib/require.js" data-main="/LorF/src/lib/release.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/style/release.css"/>
 </head>
 <body>
 <header>
@@ -21,9 +14,13 @@
 </header>
 
 <nav class="species">
-    <label id="align"><input name="LorF" type="radio" value="0" checked="true" />寻物</label>
-    <label><input name="LorF" type="radio" value="1"/>招领</label>
+    <select name="LorF" id="species">
+        <option value="0">寻物</option>
+        <option value="1">招领</option>
+    </select>
+    <i class="iconfont">&#xe600;</i>
 </nav>
+
 <nav class="kind">
     <select name="kind" id="kind">
         <foreach name="kinds" item="vo" >
