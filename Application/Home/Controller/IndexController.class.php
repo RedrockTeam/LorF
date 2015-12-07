@@ -16,6 +16,7 @@ class IndexController extends CommonController {
         // 获取到openid并且存到session
         $code = I('get.code');
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         dd($code);
 >>>>>>> bbea2f5c477974f1f808234aa93bea20d4f35480
@@ -23,6 +24,8 @@ class IndexController extends CommonController {
             session('code', $code);
 
         }
+=======
+>>>>>>> feff2f66d55db68a174ba4056f5471ec95514834
         if(!$code){
             return $this->redirect($this->oauth2Url);
         }
@@ -30,7 +33,7 @@ class IndexController extends CommonController {
         $openId = $this->_getOpenId($code);
 //        $openId = 'ouRCyjsp3eo3FJil24fV625V_6no';
         session('openid', $openId);
-
+dd($openId);
         //判断是否绑定学号, 是否关注重邮小帮手
         // $isBind = $this->_checkBind($openId);
         // $care = $this->_checkCareXBS($openId);
