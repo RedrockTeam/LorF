@@ -15,11 +15,6 @@ class IndexController extends CommonController {
         $share = $this->shareApi();
         // 获取到openid并且存到session
         $code = I('get.code');
-        dd($code);
-        if(is_null(session('code'))){
-            session('code', $code);
-
-        }
         if(!$code){
             return $this->redirect($this->oauth2Url);
         }
@@ -27,7 +22,7 @@ class IndexController extends CommonController {
         $openId = $this->_getOpenId($code);
 //        $openId = 'ouRCyjsp3eo3FJil24fV625V_6no';
         session('openid', $openId);
-
+dd($openId);
         //判断是否绑定学号, 是否关注重邮小帮手
         // $isBind = $this->_checkBind($openId);
         // $care = $this->_checkCareXBS($openId);
