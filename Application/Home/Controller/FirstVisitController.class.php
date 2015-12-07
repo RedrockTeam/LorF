@@ -14,9 +14,17 @@ class FirstVisitController extends CommonController {
     public function index(){
         $share = $this->shareApi();
         $userInfo = $this->_getUserInfo(session('openid'));
+
         $userInfo['realName'] = $this->_getRealName(session('openid'));
         $userInfo['stuNum'] = $this->_getStuNum(session('openid'));
-dd($userInfo);
+
+        $re = M('user_info')->where(array(
+            'user_id' => 1
+        ))
+            ->find();
+
+        $userInfo['phone'] = $re['phone_num'];
+        $userInfo['qq'] = $re['tencent_num'];
 
         $this->assign('userInfo', $userInfo);
         $this->assign('share', $share);
