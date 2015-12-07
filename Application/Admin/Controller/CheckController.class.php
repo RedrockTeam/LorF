@@ -31,6 +31,7 @@ class CheckController extends CommonController{
             $list = M('product_list')
                 ->limit($Page->firstRow.','.$Page->listRows)
                 ->where($where)
+                ->order('pro_id desc')
                 ->select();
         }else{
 
@@ -48,7 +49,7 @@ class CheckController extends CommonController{
                     'check_state' => 0,
                     'status' => 0,
                 ))
-//                ->order(array('stu_num' => 'desc'))
+                ->order('pro_id desc')
                 ->limit($Page->firstRow.','.$Page->listRows)
                 ->select();
         }
