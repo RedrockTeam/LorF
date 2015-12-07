@@ -16,7 +16,7 @@ class FirstVisitController extends CommonController {
         $userInfo = $this->_getUserInfo(session('openid'));
         $userInfo['realName'] = $this->_getRealName(session('openid'));
         $userInfo['stuNum'] = $this->_getStuNum(session('openid'));
-//dd($userInfo);
+dd($userInfo);
 
         $this->assign('userInfo', $userInfo);
         $this->assign('share', $share);
