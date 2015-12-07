@@ -15,7 +15,10 @@ class IndexController extends CommonController {
         $share = $this->shareApi();
         // 获取到openid并且存到session
         $code = I('get.code');
+        if(is_null(session('code'))){
+            session('code', $code);
 
+        }
         if(!$code){
             return $this->redirect($this->oauth2Url);
         }
@@ -35,7 +38,6 @@ class IndexController extends CommonController {
         // 判断是否第一次访问, 传值为学号, 如果是第一次访问, 跳转到第一次访问页面
         $first = $this->_isFirstVisit($stuNum);
 
-        dd($stuNum);
         if($first){
             $this->redirect('Home/FirstVisit/index');
         }
