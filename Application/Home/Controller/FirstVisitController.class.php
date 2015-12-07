@@ -19,7 +19,7 @@ class FirstVisitController extends CommonController {
         $userInfo['stuNum'] = $this->_getStuNum(session('openid'));
 
         $re = M('user_info')->where(array(
-            'user_id' => 1
+            'user_id' => session('relace_user_id')
         ))
             ->find();
 
