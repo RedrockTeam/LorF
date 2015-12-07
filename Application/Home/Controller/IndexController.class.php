@@ -29,11 +29,13 @@ class IndexController extends CommonController {
         // $care = $this->_checkCareXBS($openId);
 
         // 获取学号和微信昵称以及头像
-         $stuNum = $this->_getStuNum(session('openid'));
+         $stuNum = $this->_getStuNum($openId);
         // $userInfo = $this->_getUserInfo(session('openid'));
 
         // 判断是否第一次访问, 传值为学号, 如果是第一次访问, 跳转到第一次访问页面
         $first = $this->_isFirstVisit($stuNum);
+
+        dd($stuNum);
         if($first){
             $this->redirect('Home/FirstVisit/index');
         }
