@@ -41,6 +41,11 @@
             </div>
         </a>
     </foreach>
+
+    <if condition="$result['searchNull'] eq 1"/>
+        <p class="null">没有搜索结果-.-</p>
+    </if>
+
 </section>
 
 <script>
