@@ -144,12 +144,17 @@ require(['fastclick','zepto'],function(FastClick,$){
         $('#release').on('click',function(){
             var data = {};
 
-            if($("#kind").val() == '' || $("#species").val() == '' || $('textarea').val() == '' || $('input[name=place]').val() =='' || $('＃date').val() == ''){
+            if($("#kind").val() == '' || $("#species").val() == '' || $('textarea').val() == '' || $('input[name=place]').val() == ''){
                 alert('请检查 不能为空');
                 return;
             }
 
+            if($('#date').val() == ''){
+                alert('时间不能为空')
+                return;
+            }
 
+            //console.log($('#date').val() == '');
 
             data.kind = $("#kind").val();
             data.species = $('#species').val();

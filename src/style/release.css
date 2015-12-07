@@ -750,6 +750,13 @@ header .title {
   height: 0.41666667rem;
   background-color: #F1F1F1;
   text-align: center;
+  font-size: 0.38888889rem;
+}
+[data-dpr^="2"].datePicker .containner {
+  font-size: 56px;
+}
+[data-dpr^="3"].datePicker .containner {
+  font-size: 84px;
 }
 .datePicker .button-wrapper {
   width: 90%;
