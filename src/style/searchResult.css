@@ -524,6 +524,16 @@ nav .tip {
 [data-dpr^="3"]nav .tip {
   font-size: 66px;
 }
+section .null {
+  text-align: center;
+  font-size: 0.41666667rem;
+}
+[data-dpr^="2"]section .null {
+  font-size: 60px;
+}
+[data-dpr^="3"]section .null {
+  font-size: 90px;
+}
 section .list {
   background-color: #fcfcfd;
   margin-top: 0.20833333rem;
