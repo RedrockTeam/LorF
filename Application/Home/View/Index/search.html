@@ -23,27 +23,30 @@
 </nav>
 
 <section>
-    <foreach name="result" item="vo">
-        <a href="{$vo.detail_url}">
-            <div class="list">
-                <!--<span class="logo"></span>-->
-                <img class="logo" src="{$vo.relace_head_url}" alt="">
-                <div class="userInfo">
-                    <p class="title">{$vo.pro_name}</p>
-                    <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
-                </div>
 
-                <div class="content">
-                    {$vo.pro_description}
-                </div>
-
-                <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
-            </div>
-        </a>
-    </foreach>
-
-    <if condition="$result['searchNull'] eq 1"/>
+    <if condition="$result['searchNull'] eq 1">
         <p class="null">没有搜索结果-.-</p>
+        <else />
+
+        <foreach name="result" item="vo">
+            <a href="{$vo.detail_url}">
+                <div class="list">
+                    <!--<span class="logo"></span>-->
+                    <img class="logo" src="{$vo.relace_head_url}" alt="">
+                    <div class="userInfo">
+                        <p class="title">{$vo.pro_name}</p>
+                        <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
+                    </div>
+
+                    <div class="content">
+                        {$vo.pro_description}
+                    </div>
+
+                    <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
+                </div>
+            </a>
+        </foreach>
+
     </if>
 
 </section>
