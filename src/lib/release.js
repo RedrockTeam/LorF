@@ -36,9 +36,9 @@ require(['fastclick','zepto'],function(FastClick,$){
 
         var getTime = function(){
             var select = [];
-            select.push(year);
-            select.push(month);
-            select.push(day);
+            select.push($('.year').get(0).innerHTML);
+            select.push($('.month').get(0).innerHTML);
+            select.push($('.day').get(0).innerHTML);
             console.log(select.toString());
             $('.datePicked').get(0).innerHTML =  select.join('-');
         }
