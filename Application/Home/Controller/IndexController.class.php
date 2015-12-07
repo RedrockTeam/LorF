@@ -68,16 +68,26 @@ class IndexController extends CommonController {
         $kind = I('kind');  // 寻物0, 招领1
         $where['pro_description'] = array('like','%'.$searchName.'%');
         $where['status'] = 0;
+        $where['check_state'] = 1;
         $where['lost_or_found'] = $kind;
-        $result = M('product_list')
-//            ->field('pro_name, pro_description, create_time, pro_kind_id, pro_user_id')
-                                 ->where($where)
-                                 ->order('pro_id desc')->limit(10)->select();
 
-        $this->assign('result', getList($result));
+        $result = M('product_list')
+            ->where($where)
+            ->order('pro_id desc')->limit(10)->select();
+
+        // 如果物品名称为空, 返回空
+        if(is_null($searchName)){
+            $re['searchNull'] = 1;
+        }elseif(is_null($result)){ // 如果结果为空, 返回空
+            $re['searchNull'] = 1;
+        }else{
+            $re = getList($result);
+        }
+
+
+        $this->assign('result', $re);
         $this->assign('kind', $kind);
         $this->assign('share', $share);
-//dd(getList($result));
         $this->display();
     }
 
