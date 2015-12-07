@@ -53,6 +53,7 @@ function getList($list) {
         $condition['kind_id'] = $v['pro_kind_id'];
         $kindName = M('product_kinds')->where($condition)->find();
         $condition2['user_id'] = $v['pro_user_id'];
+        $v['pro_description'] = stripslashes($v['pro_description']);
         $user = M('user_info')->where($condition2)->find();
         $v['kind_name'] = $kindName['kind_name'];
         $v['relace_user_name'] = $user['stu_name'];
