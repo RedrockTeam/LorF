@@ -738,13 +738,13 @@ header .title {
   text-align: center;
   color: black;
   line-height: 0.55555556rem;
-  font-size: 0.55555556rem;
+  font-size: 0.69444444rem;
 }
 [data-dpr^="2"].datePicker .time-comp3 a {
-  font-size: 80px;
+  font-size: 100px;
 }
 [data-dpr^="3"].datePicker .time-comp3 a {
-  font-size: 120px;
+  font-size: 150px;
 }
 .datePicker .containner {
   height: 0.41666667rem;
