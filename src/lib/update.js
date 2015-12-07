@@ -34,7 +34,9 @@ require(['fastclick','zepto'],function(FastClick,$){
                 return false;
             }
 
-            if(!(/1[3|5|7|8][0-9]{9}/.test($('input[name=phonenumber]').val()))){
+
+
+            if($('input[name=phonenumber]').val() &&!(/1[3|5|7|8][0-9]{9}/.test($('input[name=phonenumber]').val()))){
                 alert('电话不对呀');
                 return false;
             }
