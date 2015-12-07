@@ -137,7 +137,6 @@ require(['fastclick','zepto'],function(FastClick,$){
 
 
         $("#back").on('click',function(){
-            //history.back();
             location.href = oauth2Url;
         })
 
@@ -145,7 +144,7 @@ require(['fastclick','zepto'],function(FastClick,$){
         $('#release').on('click',function(){
             var data = {};
 
-            if($("#kind").val() == '' || $("#species").val() == '' || $('textarea').val() == '' || $('input[type=place]').val() =='' || $('＃date').val() == ''){
+            if($("#kind").val() == '' || $("#species").val() == '' || $('textarea').val() == '' || $('input[name=place]').val() =='' || $('＃date').val() == ''){
                 alert('请检查 不能为空');
                 return;
             }

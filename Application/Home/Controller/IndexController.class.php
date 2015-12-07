@@ -15,6 +15,17 @@ class IndexController extends CommonController {
         $share = $this->shareApi();
         // 获取到openid并且存到session
         $code = I('get.code');
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        dd($code);
+>>>>>>> bbea2f5c477974f1f808234aa93bea20d4f35480
+        if(is_null(session('code'))){
+            session('code', $code);
+
+        }
+=======
+>>>>>>> feff2f66d55db68a174ba4056f5471ec95514834
         if(!$code){
             return $this->redirect($this->oauth2Url);
         }
