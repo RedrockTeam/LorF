@@ -19,6 +19,7 @@ class CheckController extends CommonController{
         if ($searchName !== "") {   //按nickname查询
 
             $where['check_state'] = 0;
+            $where['status'] = 0;
             $where['pro_name'] = array('like','%'.$searchName.'%');
 
             $count = M('product_list')
@@ -30,18 +31,25 @@ class CheckController extends CommonController{
             $list = M('product_list')
                 ->limit($Page->firstRow.','.$Page->listRows)
                 ->where($where)
+                ->order('pro_id desc')
                 ->select();
         }else{
 
             $count = M('product_list')
-                ->where('check_state = 0')
+                ->where(array(
+                    'check_state' => 0,
+                    'status' => 0,
+                ))
                 ->count();
 
             $Page = new \Think\Page($count,10);// 实例化分页类
             $show = $Page->show();// 分页显示输出
             $list = D('product_list')
-                ->where('check_state = 0')
-//                ->order(array('stu_num' => 'desc'))
+                ->where(array(
+                    'check_state' => 0,
+                    'status' => 0,
+                ))
+                ->order('pro_id desc')
                 ->limit($Page->firstRow.','.$Page->listRows)
                 ->select();
         }

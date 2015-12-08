@@ -5,7 +5,7 @@
     <title>搜索详情</title>
     <script src="/LorF/src/lib/lib.flexible.js"></script>
     <script src="/LorF/src/lib/tools/fastclick.js"></script>
-    <link rel="stylesheet" href="__PUBLIC__/style/searchResult.css?hash=faefaee"/>
+    <link rel="stylesheet" href="__PUBLIC__/style/searchResult.css?hash=faefllojkaee"/>
 </head>
 <body>
 <header>
@@ -23,24 +23,32 @@
 </nav>
 
 <section>
-    <foreach name="result" item="vo">
-        <a href="{$vo.detail_url}">
-            <div class="list">
-                <!--<span class="logo"></span>-->
-                <img class="logo" src="{$vo.relace_head_url}" alt="">
-                <div class="userInfo">
-                    <p class="title">{$vo.pro_name}</p>
-                    <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
-                </div>
 
-                <div class="content">
-                    {$vo.pro_description}
-                </div>
+    <if condition="$result['searchNull'] eq 1">
+        <p class="null">没有搜索结果-.-</p>
+        <else />
 
-                <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
-            </div>
-        </a>
-    </foreach>
+        <foreach name="result" item="vo">
+            <a href="{$vo.detail_url}">
+                <div class="list">
+                    <!--<span class="logo"></span>-->
+                    <img class="logo" src="{$vo.relace_head_url}" alt="">
+                    <div class="userInfo">
+                        <p class="title">{$vo.pro_name}</p>
+                        <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
+                    </div>
+
+                    <div class="content">
+                        {$vo.pro_description}
+                    </div>
+
+                    <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
+                </div>
+            </a>
+        </foreach>
+
+    </if>
+
 </section>
 
 <script>

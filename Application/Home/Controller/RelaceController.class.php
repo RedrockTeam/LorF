@@ -42,7 +42,15 @@ class RelaceController extends CommonController{
             $user['tencent_num'] = $post['qq'];
         }
 
-        $user['score'] = $user['score'] + 1;
+        // 发布招领的就加一分, 需要审核, 失物不需要审核
+        if($post['species'] == 1){
+            $user['score'] = $user['score'] + 1;
+            $check = 0;
+        }else{
+            $check = 1;
+        }
+
+
 
         M('user_info')->save($user);
 
@@ -61,7 +69,7 @@ class RelaceController extends CommonController{
                     'pro_user_id'=> session('relace_user_id'),
                     'create_time'=> time(),
                     'lost_or_found'=> $post['species'],
-                    'check_state'=> 0,
+                    'check_state'=> $check,
                     'status'=> 0
                 ));
 
