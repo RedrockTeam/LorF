@@ -127,10 +127,6 @@ require(['fastclick','zepto'],function(FastClick,$){
 
 //结束
 
-
-
-
-
         var release = true;
         var oauth2Url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx81a4a4b77ec98ff4&redirect_uri=http%3A%2F%2Fhongyan.cqupt.edu.cn%2FLorF%2Findex.php%2FHome%2FIndex%2Findex&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
 
@@ -154,7 +150,6 @@ require(['fastclick','zepto'],function(FastClick,$){
                 return;
             }
 
-            //console.log($('#date').val() == '');
 
             data.kind = $("#kind").val();
             data.species = $('#species').val();

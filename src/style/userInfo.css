@@ -563,7 +563,7 @@ nav .active {
 .swiper-container .swiper-wrapper .swiper-slide {
   float: left !important;
   width: 50% !important;
-  height: auto !important;
+  min-height: 13.88888889rem !important;
 }
 .swiper-container .swiper-wrapper .null {
   font-size: 0.41666667rem;

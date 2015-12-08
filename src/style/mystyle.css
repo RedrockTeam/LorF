@@ -607,7 +607,7 @@ section .swiper-wrapper {
 section .swiper-wrapper .swiper-slide {
   float: left;
   width: 50% !important;
-  height: 13.88888889rem !important;
+  min-height: 13.88888889rem !important;
 }
 section .swiper-wrapper .null {
   font-size: 0.41666667rem;
