@@ -585,3 +585,15 @@ section #img-describe img {
   height: 2.29166667rem;
   margin-right: 0.20833333rem;
 }
+.statment {
+  text-align: center;
+  font-size: 0.33333333rem;
+  color: #737172;
+  margin-top: 0.27777778rem;
+}
+[data-dpr^="2"].statment {
+  font-size: 48px;
+}
+[data-dpr^="3"].statment {
+  font-size: 72px;
+}
