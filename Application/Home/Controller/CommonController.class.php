@@ -127,6 +127,15 @@ class CommonController extends RestController{
         return $data;
     }
 
+    public function testShare(){
+        $data = $this->_curl(null, "apiGetTicket");
+
+        $data['url'] = 'http://'.$_SERVER['HTTP_HOST'].__SELF__;
+        $data['appid'] = 'gh_68f0a1ffc303';
+//        dd($data);
+        return $data;
+    }
+
     /**
      * 自用 curl通用函数
      * @param null $openId 微信端的openId

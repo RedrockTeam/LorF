@@ -12,7 +12,7 @@ class IndexController extends CommonController {
      * 微信端失物招领首页
      */
     public function index(){
-        $share = $this->shareApi();
+        $share = $this->testShare();
         // 获取到openid并且存到session
         $code = I('get.code');
 
