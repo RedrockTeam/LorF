@@ -6,7 +6,7 @@
     <meta name="format-detection" content="email=no"/>
     <title>信息详情</title>
     <script src="/LorF/src/lib/lib.flexible.js"></script>
-    <link rel="stylesheet" href="/LorF/src/style/detail.css"/>
+    <link rel="stylesheet" href="/LorF/src/style/detail.css?hash=vae"/>
 </head>
 <body>
 <header>
@@ -51,6 +51,11 @@
         <p class="right">{$detail['qq']}</p>
     </div>
 </section>
+
+<section>
+    <p class="statment">红岩网校工作站&校青协</p>
+</section>
+
 <script>
     window.onload = function(){
         var oauth2Url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx81a4a4b77ec98ff4&redirect_uri=http%3A%2F%2Fhongyan.cqupt.edu.cn%2FLorF%2Findex.php%2FHome%2FIndex%2Findex&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
