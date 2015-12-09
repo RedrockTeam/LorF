@@ -122,15 +122,6 @@ class CommonController extends RestController{
         $key = "jsapi_ticket=$ticket&noncestr=$nonceStr&timestamp=$timestamp&url=$url";
         $signature = sha1($key);
         $data['signature'] = $signature;
-        $data['appid'] = 'gh_68f0a1ffc303';
-//        dd($data);
-        return $data;
-    }
-
-    public function testShare(){
-        $data = $this->_curl(null, "apiGetTicket");
-
-        $data['url'] = 'http://'.$_SERVER['HTTP_HOST'].__SELF__;
         $data['appid'] = 'wx81a4a4b77ec98ff4';
 //        dd($data);
         return $data;
