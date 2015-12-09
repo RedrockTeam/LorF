@@ -7,7 +7,7 @@
  */
 
 namespace Home\Controller;
-
+use Org\Util\String;
 use Think\Controller\RestController;
 
 class CommonController extends RestController{
