@@ -621,6 +621,17 @@ header #back {
 [data-dpr^="3"].buttons div {
   font-size: 96px;
 }
+.buttons .statment {
+  text-align: center;
+  font-size: 0.33333333rem;
+  color: #737172;
+}
+[data-dpr^="2"].buttons .statment {
+  font-size: 48px;
+}
+[data-dpr^="3"].buttons .statment {
+  font-size: 72px;
+}
 .shade {
   display: none;
   position: absolute;
