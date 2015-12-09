@@ -127,7 +127,6 @@
         var link = "{$share['url']}";
         var imgUrl = "http://hongyan.cqupt.edu.cn/LorF/src/images/share.jpg";
 
-        console.log(wx)
         wx.config({
             debug: false,
             appId: "{$share['appid']}",
@@ -141,6 +140,7 @@
                 'hideAllNonBaseMenuItem'
             ]
         });
+
         wx.ready(function () {
             wx.onMenuShareTimeline({
                 title: title, // 分享标题
@@ -180,9 +180,6 @@
                 }
             });
         });
-
-//        })
-//    }
 </script>
 </body>
 </html>
