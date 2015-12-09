@@ -127,6 +127,54 @@ class CommonController extends RestController{
         return $data;
     }
 
+    public function signature() {
+        $url = "http://Hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/apiJsTicket";
+        $timestamp = time();
+        $string = "";
+        $arr = "abcdefghijklmnopqistuvwxyz0123456789ABCDEFGHIGKLMNOPQISTUVWXYZ";
+        for ($i = 0; $i < 16; $i++) {
+            $y = rand(0, 41);
+            $string .= $arr[$y];
+        }
+        $secret = sha1(sha1($timestamp) . md5($string) . 'redrock');
+        $post_data = array(
+            "timestamp" => $timestamp,
+            "string" => $string,
+            "secret" => $secret,
+            "token" => "gh_68f0a1ffc303",
+        );
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        // post数据
+        curl_setopt($ch, CURLOPT_POST, 1);
+        // post的变量
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+        $output = curl_exec($ch);
+        curl_close($ch);
+        //打印获得的数据
+        $rel = json_decode($output);
+        $string = new String();
+        $jsapi_ticket = $rel->data;
+        $data['jsapi_ticket'] = $jsapi_ticket;
+        $data['noncestr'] = $string->randString();
+        $data['timestamp'] = time();
+        $data['url'] = 'http://'.$_SERVER['HTTP_HOST'].__SELF__;//生成当前页面url
+        $data['signature'] = sha1($this->ToUrlParams($data));
+        return $data;
+    }
+
+    private function ToUrlParams($urlObj){
+        $buff = "";
+        foreach ($urlObj as $k => $v) {
+            if($k != "signature") {
+                $buff .= $k . "=" . $v . "&";
+            }
+        }
+        $buff = trim($buff, "&");
+        return $buff;
+    }
+
     /**
      * 自用 curl通用函数
      * @param null $openId 微信端的openId
