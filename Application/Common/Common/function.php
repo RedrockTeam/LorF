@@ -67,6 +67,8 @@ function getList($list) {
         $v['phone'] = $user['phone_num'];
         $v['qq'] = $user['tencent_num'];
         $v['detail_url'] = $url.'/id/'.$v['pro_id'];
+        $v['qingxie'] = '青年志愿者协会';
+        $v['qingxieimg'] = 'http://hongyan.cqupt.edu.cn/LorF/src/images/qingxie.jpg';
         array_push($reList, $v);
     }
 
