@@ -1,187 +1,59 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="format-detection" content="email=no"/>
-    <title>失物招领</title>
-    <script src="/LorF/src/lib/lib.flexible.js"></script>
-    <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <script src="/LorF/src/lib/require.js" data-main="/LorF/src/lib/index.js?hash=fwsddagf"></script>
+<layout name="layout" />
+        <div class="pageheader">
+            <h1 class="pagetitle">控制台</h1>
+            <span class="pagedesc">页面的描述内容</span>
+        </div><!--pageheader-->
 
-    <link rel="stylesheet" href="__PUBLIC__/style/mystyle.css?hash=fweafbrtagfebssaf"/>
-</head>
-<body>
+        <div id="contentwrapper" class="contentwrapper">
 
-<header>
-    <form method="post" action="{:U('Home/Index/search', '', '');}">
-        <select name="kind" id="kind">
-            <option value="0">寻物</option>
-            <option value="1">招领</option>
-        </select>
-        <div class="trangle"></div>
-
-        <div class="input-wrapper">
-            <input name="searchName" type="text" placeholder="搜索关键字"/>
-            <button type="submit"><i class="iconfont">&#xe601;</i></button>
+            <div id="updates" class="subcontent">
+                <div class="two_third dashboard_left">
+                    <ul class="shortcuts">
+                        <li><a href="{:U('Home/Check/index')}" class="settings"><span>审核</span></a></li>
+                        <li><a href="{:U('Home/Relace/index')}" class="users"><span>发布</span></a></li>
+                        <!--<li><a href="" class="gallery"><span>相册</span></a></li>-->
+                        <li><a href="{:U('Home/Manage/index')}" class="events"><span>管理</span></a></li>
+                    </ul>
+                    <br clear="all" />
+                </div><!--two_third dashboard_left -->
+                <div class="one_third last dashboard_right">
+                    <div class="widgetbox">
+            <div class="title"><h3>Newly Registered User</h3></div>
+            <div class="widgetcontent userlistwidget nopadding">
+                <ul>
+                    <li>
+                        <div class="avatar"><img alt="" src="__PUBLIC__/images/thumbs/avatar1.png" /></div>
+                        <div class="info">
+                            <a href="">Admin</a> <br />
+                            time: {$login_time} <br />  ip: {$login_ip}
+                        </div><!--info-->
+                    </li>
+                </ul>
+            </div><!--widgetcontent-->
         </div>
-    </form>
-    <span class="i-wrapper">
-        <a href="{:U('Home/UserInfo/index','','')}"><i class="iconfont">&#xe602;</i></a>
-        <a id="url" href="{:U('Home/Relace/index','','')}"><i class="iconfont">&#xe603;</i></a>
-    </span>
-</header>
+                </div><!--one_third last-->
+            </div><!-- #updates -->
+            <div id="activities" class="subcontent" style="display: none;">
+                &nbsp;
+            </div><!-- #activities -->
+        </div><!--contentwrapper-->
 
-<nav>
-    <div class="active">寻物启事</div>
-    <div>招领启事</div>
-</nav>
-
-<section class="swiper-container">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide tab1">
-            <div id="template-wrapper">
-                <foreach name="lost" item="vo">
-                    <div class="list" detail-url="{$vo.detail_url}">
-                        <img class="logo" src="{$vo.relace_head_url}" alt="">
-                        <div class="userInfo">
-                            <p class="title">{$vo.pro_name}</p>
-                            <p class="user">发布者：<span class="username">{$vo.relace_user_name}</span></p>
-                        </div>
-
-                        <div class="content">
-                            {$vo.pro_description}
-                        </div>
-
-                        <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
-                    </div>
-                </foreach>
-                <script id="template" type="x-tmpl-mustache">
-                    {{#nextPage}}
-                        <div class="list" data-url="{{detail_url}}">
-                            <img class="logo" src="{{relace_head_url}}" alt=""/>
-                            <div class="userInfo">
-                                <p class="title">{{kind_name}}</p>
-                                <p class="user">发布者：<span class="username">{{pro_name}}</span></p>
-                            </div>
-
-                            <div class="content">{{pro_description}}</div>
-
-                            <p class="date">2015-11-19</p>
-                        </div>
-                    {{/nextPage}}
-                </script>
-
-                <p class="null">暂时没有更多信息 -.-</p>
-            </div>
-            <div class="button" data-id="0">更多</div>
-        </div>
-
-        <div class="swiper-slide tab2">
-            <div id="template-wrapper-1">
-                <foreach name="found" item="vo">
-                    <div class="list"  detail-url="{$vo.detail_url}">
-                        <!--<span class="logo"></span>-->
-                        <img class="logo" src="{$vo.qingxieimg}" alt="">
-                        <div class="userInfo">
-                            <p class="title">{$vo.pro_name}</p>
-                            <p class="user">发布者：<span class="username">{$vo.qingxie}</span></p>
-                        </div>
-
-                        <div class="content">
-                            {$vo.pro_description}
-                        </div>
-
-                        <p class="date">{$vo.create_time|date='Y/m/d',###}</p>
-                    </div>
-                </foreach>
-                <script id="template-1" type="x-tmpl-mustache">
-                    {{#nextPage}}
-                        <div class="list" data-url="{{detail_url}}">
-                            <img class="logo" src="{{qingxieimg}}" alt=""/>
-                            <div class="userInfo">
-                                <p class="title">{{kind_name}}</p>
-                                <p class="user">发布者：<span class="username">{{qingxie}}</span></p>
-                            </div>
-
-                            <div class="content">{{pro_description}}</div>
-
-                            <p class="date">2015-11-19</p>
-                        </div>
-                    {{/nextPage}}
-                </script>
-
-                <p class="null">暂时没有更多信息 -.-</p>
-            </div>
-            <div class="button" data-id="1">更多</div>
-        </div>
-
-    </div>
-
-</section>
-
-<script>
-
-//    window.onload = function(){
-//    require(['wx'],function(wx){
-        var title = '失物招领';
-        var desc = '【失物招领】你的失联物品在这里，小帮手·青协为你提供服务～';
-        var link = "{$share['url']}";
-        var imgUrl = "http://hongyan.cqupt.edu.cn/LorF/src/images/share.jpg";
-
-        wx.config({
-            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-            appId: 'wx81a4a4b77ec98ff4', // 必填，公众号的唯一标识
-            timestamp: "{$share['timestamp']}", // 必填，生成签名的时间戳
-            nonceStr: "{$shsae['noncestr']}", // 必填，生成签名的随机串
-            signature: "{$share['signature']}",// 必填，签名，见附录1
-            jsApiList: [
-                'onMenuShareTimeline',
-                'onMenuShareAppMessage',
-                'onMenuShareQQ',
-                'hideAllNonBaseMenuItem'
-            ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-        });
-
-        wx.ready(function () {
-            wx.onMenuShareTimeline({
-                title: title, // 分享标题
-                link: link,
-                imgUrl: imgUrl,
-                success: function () {
-                    // 用户确认分享后执行的回调函数
-                },
-                cancel: function () {
-                    // 用户取消分享后执行的回调函数
-                }
-            });
-            wx.onMenuShareAppMessage({
-                title: title, // 分享标题
-                desc: desc, // 分享描述
-                link: link,
-                imgUrl: imgUrl, // 分享图标
-                type: '', // 分享类型,music、video或link，不填默认为link
-                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                success: function () {
-                    // 用户确认分享后执行的回调函数
-                },
-                cancel: function () {
-                    // 用户取消分享后执行的回调函数
-                }
-            });
-            wx.onMenuShareQQ({
-                title: title, // 分享标题
-                desc: desc, // 分享描述
-                link: link,
-                imgUrl: imgUrl, // 分享图标
-                success: function () {
-                    // 用户确认分享后执行的回调函数
-                },
-                cancel: function () {
-                    // 用户取消分享后执行的回调函数
-                }
-            });
-        });
-</script>
-</body>
-</html>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.cookie.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.flot.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.slimscroll.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/custom/general.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/custom/dashboard.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="__PUBLIC__/lib/plugins/excanvas.min.lib"></script><![endif]-->
+<!--[if IE 9]>
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/style.ie9.css"/>
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/style.ie8.css"/>
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/lib/plugins/css3-mediaqueries.lib"></script>
+<![endif]-->

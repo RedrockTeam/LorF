@@ -1,0 +1,82 @@
+<layout name="layout" />
+<div class="pageheader">
+    <h1 class="pagetitle">用户管理</h1>
+    <span class="pagedesc">权限列表</span>
+    <a href="{:U('Home/Rbac/addRole')}" class="btn btn_bulb" style="float: right; margin: 0 20px;"><span>新增权限</span></a>
+</div><!--pageheader-->
+<div id="contentwrapper" class="contentwrapper">
+
+<div id="updates" class="subcontent">
+<div class="notibar announcement">
+    <table cellpadding="0" cellspacing="0" border="0" id="table2" class="stdtable stdtablecb">
+        <colgroup>
+            <col class="con0" style="width: 4%" />
+            <col class="con1" />
+            <col class="con0" />
+            <col class="con1" />
+            <col class="con0" />
+            <col class="con1" />
+            <col class="con0" />
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="head0"><input type="checkbox" class="checkall" /></th>
+            <th class="head1">#</th>
+            <th class="head0">name</th>
+            <th class="head1">remark</th>
+            <th class="head0">status</th>
+            <th class="head0">&nbsp;handle</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <th class="head0"><input type="checkbox" class="checkall" /></th>
+            <th class="head1">#</th>
+            <th class="head0">name</th>
+            <th class="head1">remark</th>
+            <th class="head0">status</th>
+            <th class="head0">&nbsp;handle</th>
+        </tr>
+        </tfoot>
+        <tbody>
+        <volist name="role" id="vo">
+        <tr>
+            <td align="center"><input type="checkbox" /></td>
+            <td>{$vo.id}</td>
+            <td>{$vo.name}</td>
+            <td>{$vo.remark}</td>
+            <td class="center">{$vo.status}</td>
+            <td class="center"><a href="{:U('Home/Rbac/access', array('rid' => $vo[id]))}">修改权限</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{:U('Home/Rbac/deleteRole', array('rid' => $vo[id]))}">删除</a></td>
+        </tr>
+        </volist>
+        </tbody>
+    </table>
+</div><!-- notification announcement -->
+<div class="two_third dashboard_left">
+
+</div><!--two_third dashboard_left -->
+<div class="one_third last dashboard_right">
+
+</div><!--one_third last-->
+</div><!-- #updates -->
+<div id="activities" class="subcontent" style="display: none;">
+    &nbsp;
+</div><!-- #activities -->
+</div><!--contentwrapper-->
+<br clear="all" />
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.cookie.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/plugins/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/custom/general.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/custom/tables.js"></script>
+<!--[if IE 9]>
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/style.ie9.css"/>
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/style.ie8.css"/>
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/lib/plugins/css3-mediaqueries.lib"></script>
+<![endif]-->

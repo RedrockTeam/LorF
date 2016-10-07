@@ -1,15 +1,36 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: firk1n
- * Date: 15/11/14
- * Time: 下午12:14
- */
+* 递归重组节点信息为多维数组
+*$node 要处理的节点数组
+*$pid  父级id
+*/
+function node_merge($node, $access= null, $pid = 0){
 
-function checkKey($key){
-    if ($key == 'redrockswzllhzwjp') {
-        return 1;
-    }else{
-        return 0;
+    $arr = array();
+    
+    foreach ($node as $v) {
+        if (is_array($access)) {
+            $v['access'] = in_array($v['id'], $access) ? 1 : 0;
+        }
+        
+        if ($v['pid'] == $pid) {
+            $v['child'] = node_merge($node, $access, $v['id']);
+            $arr[] = $v;
+        }
     }
+    
+    return $arr;
+}
+
+function verify_stu(){
+    $stu_num = I('post.stu_num');
+    
+    if(is_null($stu_num)) return false;
+    
+    $re = M('user_member')->where(array('stu_num' => $stu_num))->find();
+    
+    if($re)
+        return false;
+
+    return true;
 }

@@ -2,86 +2,101 @@
 /**
  * Created by PhpStorm.
  * User: firk1n
- * Date: 15/11/25
- * Time: 上午11:33
+ * Date: 15/11/6
+ * Time: 下午4:05
  */
-
 namespace Home\Controller;
-
+use Think\Controller;
 
 class RelaceController extends CommonController{
 
     /**
-     * 发布首页
+     * 发布信息页面
      */
-    public function index(){
-
-        $share = $this->shareApi();
-
-        $kinds = M('product_kinds')->select();
-        $info = $this->_getInfo();
-
-        $this->assign('kinds', $kinds);
-        $this->assign('info', $info);
-        $this->assign('share', $share);
+    public function index() {
+//        dd($this->_getContact());
+        $this->assign('contact', $this->_getContact());
+        $this->assign('kinds', $this->_getKinds(0));
         $this->display();
     }
 
-    public function handleInfo(){
-        $post = I('post.');
-//dd($post);
-        $info = '电话: '.$post['phone'].' QQ: '.$post['qq'];
-
-        $user = $this->_getInfo();
-
-        if($post['phone'] != null){
-            $user['phone_num'] = $post['phone'];
-        }
-
-        if($post['qq'] != null){
-            $user['tencent_num'] = $post['qq'];
-        }
-
-        // 发布招领的就加一分, 需要审核, 失物不需要审核
-        if($post['species'] == 1){
-            $user['score'] = $user['score'] + 1;
-            $check = 0;
+    /**
+     * 获取种类信息
+     */
+    private function _getKinds($kindId) {
+        if($kindId == 0){
+            $kinds = M('product_kinds')->select();
         }else{
-            $check = 1;
+            $kindArr = M('product_kinds')->where(array('kind_id' => $kindId))->find();
+            $kinds = $kindArr['kind_name'];
         }
 
-
-
-        M('user_info')->save($user);
-
-        $kindname = M('product_kinds')->where(array('kind_id' => I('kind')))->find();
-        $connectpeople = M('user_info')->where(array('user_id' => session('relace_user_id')))->find();
-
-        // 保存添加
-        $sta =  $this->_saveData(array(
-                    'pro_name'=> $kindname['kind_name'],
-                    'pro_description'=> $post['content'],
-                    'L_or_F_time'=> $this->_timeStyle(I('date')),
-                    'L_or_F_place'=> $post['place'],
-                    'connect_info'=> $info,
-                    'connect_people'=> $connectpeople['stu_name'],
-                    'pro_kind_id'=> $post['kind'],
-                    'pro_user_id'=> session('relace_user_id'),
-                    'create_time'=> time(),
-                    'lost_or_found'=> $post['species'],
-                    'check_state'=> $check,
-                    'status'=> 0
-                ));
-
-        $this->ajaxReturn(array(
-            'status' => $sta
-        ));
+        return $kinds;
     }
 
     /**
-     * 保存发布信息
-     * @param $data 要保存的信息
-     * @return int 返回保存信息是否成功
+     * 获取联系方式
+     */
+    private function _getContact() {
+
+        $info = M('user_info')->where('user_id = 1')->find();
+        $contact = array(
+            'phone' => $info['phone_num'],
+            'qq' => $info['tencent_num'],
+            'people'=> $info['stu_name']
+        );
+        return $contact;
+    }
+
+    /**
+     * 处理发布的信息
+     */
+    public function relaceHandle() {
+
+        // 获取post过来的数组
+        $post = I('post.');
+
+        $mark = 0;
+        $info = '电话: '.$post['contact_phone'].' QQ: '.$post['contact_qq'];
+
+        // 判断不能为空值
+        foreach($post as $key => $value){
+            if($value == null){
+                if($key == 'contact_phone') {
+                    $mark = 1;
+                    $info = 'QQ: '.$post['contact_qq'];
+                }else if($mark == 0 && $key == 'contact_qq') {
+                    $info = '电话: '.$post['contact_phone'];
+                }else {
+                    $this->error('数据填写不能为空! ');
+                }
+            }
+        }
+
+        $data = array(
+            'pro_name'=> $this->_getKinds($post['kind']),
+            'pro_description'=> $post['remark'],
+            'L_or_F_time'=> $this->_timeStyle(I('post.time')),
+            'L_or_F_place'=> $post['place'],
+            'connect_info'=> $info,
+            'connect_people'=> $post['contact_people'],
+            'pro_kind_id'=> $post['kind'],
+            'pro_user_id'=> 1,
+            'create_time'=> time(),
+            'lost_or_found'=> $post['status'],
+            'check_state'=> 1,
+            'status'=> 0
+        );
+
+//        dd($data);
+
+        // 保存添加
+        $this->_saveData($data);
+    }
+
+    /**
+     * 保存发布的信息
+     * @param $data 发布的信息数组
      */
 
     private function _saveData($data) {
@@ -91,25 +106,11 @@ class RelaceController extends CommonController{
         $re_id = M('product_list')->add($data);
 
         if($re_id != null){
-            return 1;
+            $this->success('发布成功!');
         }else {
-            return 0;
+            $this->error('发布失败!');
         }
     }
-
-    /**
-     * 通过session的id获取个人信息
-     * @return mixed
-     */
-    private function _getInfo(){
-        $info = M('user_info')->where(array(
-            'user_id' => session('relace_user_id')
-//            'user_id' => 1
-        ))->find();
-
-        return $info;
-    }
-
 
     /**
      * 把前端传过来的时间字符转转接在转成int返回
@@ -118,7 +119,9 @@ class RelaceController extends CommonController{
      */
 
     private function _timeStyle($str) {
+        $year = substr($str, 6,5);
+        $monthAndDay = substr($str, 0,5);
 
-        return strtotime($str);
+        return strtotime($year.'/'.$monthAndDay);
     }
 }
