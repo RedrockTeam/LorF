@@ -14,7 +14,6 @@ class RelaceController extends CommonController{
      * 发布信息页面
      */
     public function index() {
-//        dd($this->_getContact());
         $this->assign('contact', $this->_getContact());
         $this->assign('kinds', $this->_getKinds(0));
         $this->display();
@@ -24,9 +23,9 @@ class RelaceController extends CommonController{
      * 获取种类信息
      */
     private function _getKinds($kindId) {
-        if($kindId == 0){
+        if ($kindId == 0) 
             $kinds = M('product_kinds')->select();
-        }else{
+        else {
             $kindArr = M('product_kinds')->where(array('kind_id' => $kindId))->find();
             $kinds = $kindArr['kind_name'];
         }
@@ -45,6 +44,7 @@ class RelaceController extends CommonController{
             'qq' => $info['tencent_num'],
             'people'=> $info['stu_name']
         );
+
         return $contact;
     }
 
@@ -56,39 +56,25 @@ class RelaceController extends CommonController{
         // 获取post过来的数组
         $post = I('post.');
 
-        $mark = 0;
-        $info = '电话: '.$post['contact_phone'].' QQ: '.$post['contact_qq'];
-
         // 判断不能为空值
-        foreach($post as $key => $value){
-            if($value == null){
-                if($key == 'contact_phone') {
-                    $mark = 1;
-                    $info = 'QQ: '.$post['contact_qq'];
-                }else if($mark == 0 && $key == 'contact_qq') {
-                    $info = '电话: '.$post['contact_phone'];
-                }else {
-                    $this->error('数据填写不能为空! ');
-                }
-            }
-        }
+        foreach($post as $key => $value)
+            if($value == null)
+                $this->error('数据填写不能为空! ');
 
         $data = array(
             'pro_name'=> $this->_getKinds($post['kind']),
             'pro_description'=> $post['remark'],
             'L_or_F_time'=> $this->_timeStyle(I('post.time')),
             'L_or_F_place'=> $post['place'],
-            'connect_info'=> $info,
-            'connect_people'=> $post['contact_people'],
-            'pro_kind_id'=> $post['kind'],
-            'pro_user_id'=> 1,
-            'create_time'=> time(),
+            'connect_name'=> $post['contact_people'],
+            'connect_wx'=> $post['contact_qq'],
+            'wx_avatar' => 'http://ps3.tgbus.com/UploadFiles/201301/2013012109454285.jpg',
+            'connect_phone' => $post['contact_phone'],
+            'created_at'=> date('Y-m-d H:i:s', time()),
             'lost_or_found'=> $post['status'],
             'check_state'=> 1,
             'status'=> 0
         );
-
-//        dd($data);
 
         // 保存添加
         $this->_saveData($data);
@@ -100,16 +86,15 @@ class RelaceController extends CommonController{
      */
 
     private function _saveData($data) {
-        if(is_null($data)){
+        if (is_null($data))
             $this->error('数据错误');
-        }
+
         $re_id = M('product_list')->add($data);
 
-        if($re_id != null){
+        if ($re_id != null)
             $this->success('发布成功!');
-        }else {
+        else 
             $this->error('发布失败!');
-        }
     }
 
     /**
@@ -122,6 +107,6 @@ class RelaceController extends CommonController{
         $year = substr($str, 6,5);
         $monthAndDay = substr($str, 0,5);
 
-        return strtotime($year.'/'.$monthAndDay);
+        return date('Y-m-d', strtotime($year.'/'.$monthAndDay));
     }
 }

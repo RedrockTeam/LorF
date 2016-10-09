@@ -39,7 +39,6 @@
                     <th class="head1">丢失或发现的地点</th>
                     <th class="head0">联系方式</th>
                     <th class="head1">联系人</th>
-                    <th class="head0">物品种类</th>
                     <th class="head1">创建时间</th>
                     <th class="head0">信息种类</th>
                     <th class="head1">审核状态</th>
@@ -55,7 +54,6 @@
                     <th class="head1">丢失或发现的地点</th>
                     <th class="head0">联系方式</th>
                     <th class="head1">联系人</th>
-                    <th class="head0">物品种类</th>
                     <th class="head1">创建时间</th>
                     <th class="head0">信息种类</th>
                     <th class="head1">审核状态</th>
@@ -68,12 +66,11 @@
                     <tr class="gradeA">
                         <td>{$vo.pro_name}</td>
                         <td>{$vo.pro_description}</td>
-                        <td>{$vo.L_or_F_time|date='Y/m/d',###}</td>
+                        <td>{$vo.L_or_F_time}</td>
                         <td>{$vo.L_or_F_place}</td>
                         <td>电话：{$vo.connect_phone} QQ：{$vo.connect_wx}</td>
                         <td>{$vo.connect_name}</td>
-                        <td>{$vo.kind_name}</td>
-                        <td>{$vo.created_time|date='Y/m/d',###}</td>
+                        <td>{$vo.created_at}</td>
                         <td>
                             <if condition="$vo.lost_or_found == 1 ">招领
                                 <else />寻物
