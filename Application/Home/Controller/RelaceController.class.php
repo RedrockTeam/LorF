@@ -68,7 +68,7 @@ class RelaceController extends CommonController{
             'L_or_F_place'=> $post['place'],
             'connect_name'=> $post['contact_people'],
             'connect_wx'=> $post['contact_qq'],
-            'wx_avatar' => 'http://ps3.tgbus.com/UploadFiles/201301/2013012109454285.jpg',
+            'wx_avatar' => 'http://hongyan.cqupt.edu.cn/lostandfound/img/avatar.jpg',
             'connect_phone' => $post['contact_phone'],
             'created_at'=> date('Y-m-d H:i:s', time()),
             'lost_or_found'=> $post['status'],
